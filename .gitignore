@@ -23,4 +23,4 @@ _minted-*
 
 # Tex Studio files
 *.txss2
-
+build/
