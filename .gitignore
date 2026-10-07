@@ -25,3 +25,4 @@ _minted-*
 *.txss2
 build/
 rework-pysatl-mpest/
+/.agents/
