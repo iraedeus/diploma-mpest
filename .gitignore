@@ -24,3 +24,4 @@ _minted-*
 # Tex Studio files
 *.txss2
 build/
+rework-pysatl-mpest/
