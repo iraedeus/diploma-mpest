@@ -97,7 +97,7 @@
 %% Графика
 \usepackage[table]{xcolor} % Работа с цветами
 \usepackage{graphicx} % Вставка графики в текст (изображения, в т.ч. pdf)
-\graphicspath{ {figures/} } % Задает папку по-умолчанию для графики
+\graphicspath{ {../figures/} } % Задает папку по-умолчанию для графики
 
 \usepackage{wrapfig2} % Позволяет вставлять графику, обтекаемую текстом
 \usepackage{caption} % Настройка подписей "не текста"

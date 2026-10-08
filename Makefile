@@ -2,21 +2,26 @@ VKR ?= vkr
 TALK ?= talk
 ENGINE ?= xelatex # Only `xelatex` or `lualatex` are allowed here
 
-.PHONY: $(NAME).pdf clean dist-clean format depext depext-deb
+.PHONY: all clean dist-clean format depext depext-deb aspell
 .SUFFIXES: .pdf .tex
 
 all: $(VKR).pdf $(TALK).pdf
 
-%.pdf: %.tex *.bib *.tex
-	latexmk -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape $<
+TEX_SOURCES := $(wildcard src/*.tex src/*.cls src/*.sty src/*.bst src/*.bib)
+
+$(VKR).pdf: src/$(VKR).tex $(TEX_SOURCES)
+	latexmk -cd -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape -outdir=.. $<
+
+$(TALK).pdf: src/$(TALK).tex $(TEX_SOURCES)
+	latexmk -cd -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape -outdir=.. $<
 
 clean:
-	latexmk -c $(VKR).tex $(TALK).tex
-	@$(RM) *.pdf *.nav *.snm *.vrb *.synctex.gz _
+	latexmk -cd -c -outdir=.. src/$(VKR).tex src/$(TALK).tex
+	@$(RM) $(VKR).pdf $(TALK).pdf *.nav *.snm *.vrb *.synctex.gz _
 	@$(RM) -r _minted-*
 
 dist-clean:
-	latexmk -C $(NAME).tex
+	latexmk -cd -C -outdir=.. src/$(VKR).tex src/$(TALK).tex
 
 # https://stackoverflow.com/a/12959694
 # Make does not offer a recursive wildcard function, so here's one:
