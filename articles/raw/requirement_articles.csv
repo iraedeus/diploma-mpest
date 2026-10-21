@@ -1,0 +1,705 @@
+req_id,article_id,role,context_note
+EST-01,P0001,foundation,"Каноническое введение EM-алгоритма, доказательство монотонного неубывания правдоподобия на E- и M-шагах (теорема 1)"
+EST-01,P0003,foundation,Строгое математическое обоснование локальной и глобальной сходимости EM для смесей распределений (разд. 3)
+EST-01,P0002,foundation,Фундаментальная монография: аналитический вывод уравнений одновременного M-шага для смесей (глава 2)
+EST-01,P0013,method,Обзор и математический анализ вариантов EM-алгоритма для подгонки конечных смесей
+EST-01,P0021,method,Анализ отображения EM и свойств скорости сходимости
+EST-01,P0207,foundation,Теоретические свойства оценивания максимального правдоподобия по неполным данным
+EST-01,P0016,benchmark,Реализация классического EM в пакете mclust для гауссовских ковариаций
+EST-01,P0019,benchmark,Реализация EM в пакете mixtools для параметрических смесей
+EST-01,P0083,benchmark,Реализация EM на C++ в пакете mixR для нормальных и ненормальных смесей
+EST-01,P0023,benchmark,Реализация EM в модульном фреймворке FlexMix
+EST-01,P0091,method,Теоретический анализ достаточного числа шагов EM для смесей нормальных распределений
+EST-01,P0026,foundation,Классический вывод оценок максимального правдоподобия для нормальных смесей
+EST-01,P0069,method,Численный расчет оценок максимального правдоподобия смеси нормальных распределений
+EST-01,P0004,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability of Finite Mixtures» (1963, cit: 542)"
+EST-01,P0005,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On the Identifiability of Finite Mixtures» (1968, cit: 404)"
+EST-01,P0006,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability of Finite Mixtures of Elliptical Distributions» (2006, cit: 92)"
+EST-01,P0007,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Practical Identifiability of Finite Mixtures of Multivariate Bern» (2000, cit: 91)"
+EST-01,P0008,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability of finite mixtures of logistic regression models» (1991, cit: 57)"
+EST-01,P0009,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On the identifiability of finite mixtures of distributions (Corre» (1981, cit: 55)"
+EST-01,P0010,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability of finite mixtures using a new transform» (1988, cit: 35)"
+EST-01,P0011,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability of Finite Mixtures for Directional Data» (1983, cit: 28)"
+EST-01,P0012,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability of Finite Mixtures - with Applications to Circula» (2004, cit: 21)"
+EST-01,P0014,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On the Identifiability of Finite Mixtures of Finite Product Measu» (2018, cit: 6)"
+EST-01,P0015,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Order selection with confidence for finite mixture models» (2022, cit: 3)"
+EST-01,P0018,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Unsupervised learning of finite mixture models» (2002, cit: 2127)"
+EST-01,P0024,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Choosing starting values for the EM algorithm for getting the hig» (2003, cit: 657)"
+EST-01,P0027,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «FlexMix Version 2: Finite Mixtures with Concomitant Variables and» (2008, cit: 457)"
+EST-01,P0029,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Choosing initial values for the EM algorithm for finite mixtures» (2003, cit: 283)"
+EST-01,P0030,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Recursive unsupervised learning of finite mixture models» (2004, cit: 266)"
+EST-01,P0031,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Latent class and finite mixture models for multilevel data sets» (2007, cit: 244)"
+EST-01,P0032,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Variable Selection in Finite Mixture of Regression Models» (2007, cit: 237)"
+EST-01,P0034,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Bayesian inference for finite mixtures of univariate and multivar» (2010, cit: 210)"
+EST-01,P0035,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite mixture modelling using the skew normal distribution» (2007, cit: 195)"
+EST-01,P0037,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Optimal Rate of Convergence for Finite Mixture Models» (1995, cit: 178)"
+EST-01,P0038,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Using Bootstrap Likelihood Ratios in Finite Mixture Models» (1996, cit: 180)"
+EST-01,P0041,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A Component-Wise EM Algorithm for Mixtures» (2001, cit: 145)"
+EST-01,P0042,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation of finite mixtures using the EM algorithm an» (1992, cit: 136)"
+EST-01,P0043,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Bayesian Model Selection in Finite Mixtures by Marginal Density D» (2001, cit: 127)"
+EST-01,P0049,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Refining the Borderline Personality Disorder Phenotype through Fi» (2008, cit: 105)"
+EST-01,P0051,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Testing for a Finite Mixture Model with Two Components» (2003, cit: 98)"
+EST-01,P0052,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Penalized minimum‐distance estimates in finite mixture models» (1996, cit: 92)"
+EST-01,P0054,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Minimum Hellinger Distance Estimation for Finite Mixture Models» (1996, cit: 93)"
+EST-01,P0062,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Order Selection in Finite Mixture Models With a Nonsmooth Penalty» (2008, cit: 62)"
+EST-01,P0063,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum Likelihood in a Generalized Linear Finite Mixture Model b» (1993, cit: 62)"
+EST-01,P0066,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A Novel Split and Merge EM Algorithm for Gaussian Mixture Model» (2009, cit: 36)"
+EST-01,P0067,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Improved Initialization of the EM Algorithm for Mixture Model Par» (2020, cit: 54)"
+EST-01,P0068,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum likelihood estimation of heterogeneous mixtures of Gaussi» (2010, cit: 54)"
+EST-01,P0070,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «TRUST-TECH-Based Expectation Maximization for Learning Finite Mix» (2008, cit: 50)"
+EST-01,P0073,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Degeneracy in the maximum likelihood estimation of univariate Gau» (2003, cit: 48)"
+EST-01,P0076,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Minimum Hellinger Distance Estimation for Finite Mixtures of Pois» (2003, cit: 47)"
+EST-01,P0077,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Convergence rates of parameter estimation for some weakly identif» (2016, cit: 42)"
+EST-01,P0080,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «An effective strategy for initializing the EM algorithm in finite» (2016, cit: 41)"
+EST-01,P0081,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On strong identifiability and convergence rates of parameter esti» (2016, cit: 37)"
+EST-01,P0087,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Packages for Estimating Finite Mixtures: A Review» (1997, cit: 34)"
+EST-01,P0089,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «ECM algorithms that converge at the rate of EM» (2000, cit: 31)"
+EST-01,P0090,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Penalized Maximum Likelihood Estimation for univariate normal mix» (2001, cit: 27)"
+EST-01,P0093,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A new iterative initialization of EM algorithm for Gaussian mixtu» (2023, cit: 23)"
+EST-01,P0094,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimating the number of components in finite mixture models via » (2021, cit: 21)"
+EST-01,P0097,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Initializing the EM Algorithm for Univariate Gaussian, Multi-Comp» (2017, cit: 18)"
+EST-01,P0098,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation for finite mixtures of uniform distributions» (1997, cit: 16)"
+EST-01,P0101,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «FlexMix: An R package for finite mixture modelling» (2007, cit: 16)"
+EST-01,P0103,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixture Modeling via REBMIX» (2015, cit: 17)"
+EST-01,P0104,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Fitting Finite Mixtures of Linear Regression Models with Varying » (2006, cit: 15)"
+EST-01,P0105,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Degeneracy in the Maximum Likelihood Estimation of Univariate Gau» (2007, cit: 14)"
+EST-01,P0106,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «An em algorithm for a semiparametric finite mixture model» (2002, cit: 14)"
+EST-01,P0109,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Minimum distance estimation in a finite mixture regression model» (2013, cit: 13)"
+EST-01,P0110,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Modelling time course gene expression data with finite mixtures o» (2011, cit: 13)"
+EST-01,P0111,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Two-part quantile regression models for semi-continuous longitudi» (2021, cit: 13)"
+EST-01,P0116,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «EM algorithm with split and merge operations for mixture models» (2000, cit: 14)"
+EST-01,P0117,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «ESTIMATING COMPONENTS IN FINITE MIXTURES AND HIDDEN MARKOV MODELS» (2005, cit: 11)"
+EST-01,P0118,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Singularity structures and impacts on parameter estimation in fin» (2016, cit: 18)"
+EST-01,P0120,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «mixtools: Tools for Analyzing Finite Mixture Models» (2006, cit: 10)"
+EST-01,P0122,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «EM Estimation for Finite Mixture Models with Known Mixture Compon» (2014, cit: 9)"
+EST-01,P0124,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «mixR: Finite Mixture Modeling for Raw and Binned Data» (2017, cit: 8)"
+EST-01,P0125,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Acceleration of the EM algorithm» (2023, cit: 7)"
+EST-01,P0126,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter Estimation for Gaussian Mixture Processes based on Expe» (2016, cit: 8)"
+EST-01,P0127,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Selection of the number of components for finite mixtures of line» (2021, cit: 7)"
+EST-01,P0129,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Methods of moments estimation in finite mixtures» (2011, cit: 6)"
+EST-01,P0131,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum likelihood estimation for mixture distributions and hidde» (2010, cit: 5)"
+EST-01,P0132,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Robust estimation of mixing measures in finite mixture models» (2020, cit: 6)"
+EST-01,P0133,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Gaussian mixture models for spots in microscopy using a new split» (2010, cit: 6)"
+EST-01,P0137,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Hypothesis Testing in Finite Mixture Models» (2007, cit: 5)"
+EST-01,P0140,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «An EM algorithm for estimating the parameters of the skew general» (2023, cit: 4)"
+EST-01,P0141,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Comparison of methods for initializing EM algorithm for estimatio» (2013, cit: 4)"
+EST-01,P0142,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Research on Initialization on EM Algorithm Based on Gaussian Mixt» (2018, cit: 4)"
+EST-01,P0145,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Identifiability and optimal rates of convergence for parameters o» (2015, cit: 4)"
+EST-01,P0147,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Study of the New Finite Mixture of Weibull Extension Model: Ident» (2022, cit: 3)"
+EST-01,P0149,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On Bayesian credibility mean for finite mixture distributions» (2023, cit: 3)"
+EST-01,P0155,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimation and model selection for finite mixtures of latent inte» (2011, cit: 2)"
+EST-01,P0156,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Robust estimation in finite mixture models» (2023, cit: 2)"
+EST-01,P0157,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «EM Methods for Finite Mixtures» (2019, cit: 2)"
+EST-01,P0158,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «MIXING IT UP: NEW METHODS FOR FINITE MIXTURE MODELLING OF MULTI-S» (2015, cit: 2)"
+EST-01,P0159,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A combined likelihood ratio/information ratio bootstrap technique» (2013, cit: 2)"
+EST-01,P0160,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «The Use of Finite Mixtures of Lognormal Distribution for the Mode» (2012, cit: 2)"
+EST-01,P0161,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixture Models: A Key Tool for Reliability Analyses» (2025, cit: 3)"
+EST-01,P0162,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Sparse Estimation in Finite Mixture of Accelerated Failure Time a» (2023, cit: 2)"
+EST-01,P0167,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Evidence estimation in finite and infinite mixture models and app» (2022, cit: 1)"
+EST-01,P0168,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A simulation study of a minimum distance estimator for finite mix» (2003, cit: 1)"
+EST-01,P0169,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Gaussian mixture model based k-means to initialize the EM algorit» (2012, cit: 1)"
+EST-01,P0171,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A comparison of the L2 minimum distance estimator and the EM-algo» (2017, cit: 1)"
+EST-01,P0174,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimation of the Complexity of a Finite Mixture Distribution: Fr» (2022, cit: 1)"
+EST-01,P0175,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Expectation-maximization algorithms for learning a finite mixture» (2013, cit: 1)"
+EST-01,P0176,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum Likelihood and Minimum Distance Applied to Univariate Mix» (1993, cit: 0)"
+EST-01,P0178,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «ESTIMATION OF THE PARAMETERS OF ANY FINITE MIXTURE OF GEOMETRICT » (1976, cit: 0)"
+EST-01,P0179,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «The EM-algorithm and the Method of Moments in Softmax Mixture Mod» (2024, cit: 0)"
+EST-01,P0187,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Initialization method of finite mixture model using kernel densit» (2018, cit: 0)"
+EST-01,P0188,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «fitmix: Finite Mixture Model Fitting of Lifespan Datasets» (2021, cit: 0)"
+EST-01,P0189,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Model Based Clustering using Finite Mixture Models of Lognormal D» (2019, cit: 0)"
+EST-01,P0193,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «PENGELOMPOKAN NEGARA BERDASARKAN KEJADIAN PENYAKIT TUBERKULOSIS D» (2021, cit: 0)"
+EST-01,P0195,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Modifications of the BIC for order selection in finite mixture mo» (2026, cit: 0)"
+EST-01,P0199,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixture Examples; MAPIS Details» (2017, cit: 0)"
+EST-01,P0200,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On Selection Rules for Finite Mixtures of Distributions,» (1977, cit: 0)"
+EST-01,P0205,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Advanced finite mixture modeling with Trajer: methods and applica» (2025, cit: 0)"
+EST-01,P0208,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Convergence of a stochastic approximation version of the EM algor» (1999, cit: 780)"
+EST-01,P0209,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Supervised learning from incomplete data via an EM approach» (1993, cit: 552)"
+EST-01,P0211,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimation and Hypothesis Testing in Finite Mixture Models» (1985, cit: 308)"
+EST-01,P0212,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Nonparametric Identification of Finite Mixture Models of Dynamic » (2008, cit: 252)"
+EST-01,P0214,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A Modified Likelihood Ratio Test for Homogeneity in Finite Mixtur» (2001, cit: 219)"
+EST-01,P0216,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Variational approximations in Bayesian model selection for finite» (2006, cit: 169)"
+EST-01,P0218,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Breakdown points for maximum likelihood estimators of location–sc» (2004, cit: 128)"
+EST-01,P0220,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite mixtures of unimodal beta and gamma densities and the $$k$» (2012, cit: 73)"
+EST-01,P0223,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Unicast-based inference of network link delay distributions with » (2003, cit: 58)"
+EST-01,P0225,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum likelihood inference for mixtures of skew Student-t-norma» (2011, cit: 54)"
+EST-01,P0227,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum likelihood estimation from incomplete data» (1987, cit: 54)"
+EST-01,P0228,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A hybrid EM/Gauss-Newton algorithm for maximum likelihood in mixt» (1996, cit: 53)"
+EST-01,P0231,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Choosing the number of clusters in a finite mixture model using a» (2015, cit: 45)"
+EST-01,P0232,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimation for the number of components in a mixture model using » (2004, cit: 47)"
+EST-01,P0233,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On the posterior distribution of the number of components in a fi» (2004, cit: 43)"
+EST-01,P0234,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation for finite mixture distributions» (1988, cit: 41)"
+EST-01,P0238,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A Fast EM Algorithm for BayesA-Like Prediction of Genomic Breedin» (2012, cit: 33)"
+EST-01,P0243,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On finite mixtures of geometric and negative binomial distributio» (1983, cit: 28)"
+EST-01,P0245,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «MAXIMUM LIKELIHOOD ESTIMATION FROM INCOMPLETE DATA VIA EM-TYPE AL» (2003, cit: 22)"
+EST-01,P0246,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Nonlinear random effects mixture models: Maximum likelihood estim» (2007, cit: 22)"
+EST-01,P0247,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On finite mixture models» (2017, cit: 18)"
+EST-01,P0250,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Using Bootstrap Likelihood Ratio in Finite Mixture Models» (1994, cit: 15)"
+EST-01,P0256,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Nonparametric estimation of finite mixtures» (2013, cit: 9)"
+EST-01,P0263,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum Likelihood Estimation of Multivariate Regime Switching St» (2024, cit: 6)"
+EST-01,P0269,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Variable selection in finite mixture of regression models with an» (2021, cit: 4)"
+EST-01,P0270,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A Family of Finite Mixture Distributions for Modelling Dispersion» (2023, cit: 4)"
+EST-01,P0271,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Introduction to Finite Mixtures» (2019, cit: 5)"
+EST-01,P0273,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite mixture of regression models for a stratified sample» (2019, cit: 2)"
+EST-01,P0274,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Penalized estimation in finite mixture of ultra-high dimensional » (2020, cit: 2)"
+EST-01,P0275,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Order Selection in a Finite Mixture of Birnbaum-Saunders Distribu» (2022, cit: 2)"
+EST-01,P0276,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «“dynmix”: An R package for the estimation of dynamic finite mixtu» (2023, cit: 2)"
+EST-01,P0277,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Hierarchical Mixture of Finite Mixtures» (2023, cit: 3)"
+EST-01,P0281,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Coherent prior distributions in univariate finite mixture and Mar» (2013, cit: 0)"
+EST-01,P0282,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation for finite mixtures of partial credit models» (2007, cit: 0)"
+EST-01,P0283,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Modified EM Algorithms for Parameter Estimation in Finite Mixture» (2019, cit: 0)"
+EST-01,P0284,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation for finite mixtures of generalized partial c» (2008, cit: 0)"
+EST-01,P0285,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation for a finite mixture model in high dimension» (2006, cit: 0)"
+EST-01,P0287,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «New Regularization Methods for Order Estimation in Finite Mixture» (2025, cit: 0)"
+EST-01,P0295,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Component-Weighted Sparse Group LASSO for Variable Selection in F» (2026, cit: 0)"
+EST-01,P0296,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Component-weighted sparse group LASSO for finite mixture regressi» (2026, cit: 0)"
+EST-01,P0297,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «rebmix: Finite Mixture Modeling, Clustering & Classification» (2011, cit: 0)"
+EST-01,P0300,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Bayesian analysis of finite mixture distributions using the alloc» (2007, cit: 0)"
+EST-01,P0301,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Modeling Heterogeneous Trajectories of Chronic Kidney Disease Pro» (2026, cit: 0)"
+EST-01,P0303,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixture Modeling with Mixture Outcomes Using the EM Algori» (1999, cit: 1488)"
+EST-01,P0304,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Latent Class Analysis and Finite Mixture Modeling» (2013, cit: 1616)"
+EST-01,P0306,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Noise properties of the EM algorithm. I. Theory» (1994, cit: 391)"
+EST-01,P0307,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite mixture models and model-based clustering» (2010, cit: 314)"
+EST-01,P0308,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «EM Algorithms for nonparametric estimation of mixing distribution» (2008, cit: 277)"
+EST-01,P0310,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Fitting finite mixtures of generalized linear regressions in R» (2006, cit: 184)"
+EST-01,P0313,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Hypothesis test for normal mixture models: The EM approach» (2009, cit: 168)"
+EST-01,P0314,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «EM algorithms for Gaussian mixtures with split-and-merge operatio» (2003, cit: 153)"
+EST-01,P0315,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Medical Applications of Finite Mixture Models» (2009, cit: 145)"
+EST-01,P0318,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Competitive EM algorithm for finite mixture models» (2003, cit: 101)"
+EST-01,P0319,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum weighted likelihood via rival penalized EM for density mi» (2005, cit: 98)"
+EST-01,P0323,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «ML Estimation of the MultivariatetDistribution and the EM Algorit» (1997, cit: 85)"
+EST-01,P0325,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Exploring Some Analytical Characteristics of Finite Mixture Model» (2006, cit: 79)"
+EST-01,P0326,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A stochastic EM algorithm for a semiparametric mixture model» (2006, cit: 76)"
+EST-01,P0327,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Testing for country heterogeneity in growth models using a finite» (2008, cit: 76)"
+EST-01,P0329,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Partial identification of finite mixtures in econometric models» (2014, cit: 58)"
+EST-01,P0330,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixture Coding: A New Approach to Coding Continuous Charac» (1996, cit: 62)"
+EST-01,P0331,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Non-Parametric Estimation of Finite Mixtures from Repeated Measur» (2015, cit: 53)"
+EST-01,P0333,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A new condition for identifiability of finite mixture distributio» (2005, cit: 51)"
+EST-01,P0334,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «An approach to operational modal analysis using the expectation m» (2012, cit: 49)"
+EST-01,P0335,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On estimating of the number of constituents of a finite mixture o» (1985, cit: 46)"
+EST-01,P0338,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «On EM algorithms and their proximal generalizations» (2008, cit: 36)"
+EST-01,P0340,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Generalized smooth finite mixtures» (2012, cit: 31)"
+EST-01,P0341,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixture for Panels with Fixed Effects» (2013, cit: 31)"
+EST-01,P0346,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Recursive estimation of high-order Markov chains: Approximation b» (2015, cit: 15)"
+EST-01,P0348,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimation of finite mixtures with symmetric components» (2011, cit: 14)"
+EST-01,P0350,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Analysis of antibody data using Finite Mixture Models based on Sc» (2021, cit: 13)"
+EST-01,P0351,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Estimation of Parameters of a Finite Mixture of Distributions» (1968, cit: 11)"
+EST-01,P0352,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Comparison of the EM, CEM and SEM algorithms in the estimation of» (2021, cit: 10)"
+EST-01,P0353,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A BYY Split-and-Merge EM Algorithm for Gaussian Mixture Learning» (2008, cit: 8)"
+EST-01,P0355,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «A Legacy of EM Algorithms» (2022, cit: 7)"
+EST-01,P0356,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Unsupervised Image Segmentation Method based on Finite Generalize» (2007, cit: 7)"
+EST-01,P0357,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum Log Likelihood Estimation using EM Algorithm and Partitio» (2011, cit: 6)"
+EST-01,P0361,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Improved random-starting method for the EM algorithm for finite m» (2014, cit: 5)"
+EST-01,P0362,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Stochastic Comparisons for Finite Mixtures from Location-scale Fa» (2024, cit: 4)"
+EST-01,P0363,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite mixture of regression models for censored data based on th» (2024, cit: 3)"
+EST-01,P0364,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Random effect models for multivariate mixed data: A Parafac-based» (2021, cit: 3)"
+EST-01,P0367,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Robust estimation for the order of finite mixture models» (2008, cit: 2)"
+EST-01,P0368,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Penalized estimation of finite mixture models» (2025, cit: 2)"
+EST-01,P0373,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Analysis of a Finite Mixture of Truncated Zeta Distributions for » (2021, cit: 1)"
+EST-01,P0375,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Order Selection in Finite Mixtures of Linear Regressions» (2011, cit: 21)"
+EST-01,P0377,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Forward-reverse EM algorithm for Markov chains: convergence and n» (2015, cit: 1)"
+EST-01,P0378,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Parameter estimation of hidden Markov models: comparison of EM an» (2024, cit: 1)"
+EST-01,P0380,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «MixtureFitting: Fitting of Univariate Mixture Distributions to Da» (2025, cit: 0)"
+EST-01,P0383,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Cluster analysis of correlated non-Gaussian continuous data via f» (2019, cit: 0)"
+EST-01,P0386,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «An Unsupervised Learning Algorithm for Image Segmentation Based O» (2006, cit: 0)"
+EST-01,P0387,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite mixture model for the application in forestry» (2017, cit: 0)"
+EST-01,P0388,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Structural and Statistical Analysis of Finite Mixture Models Base» (2025, cit: 0)"
+EST-01,P0390,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Working Paper 14-17 - Modelling unobserved heterogeneity in distr» (2017, cit: 0)"
+EST-01,P0391,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Shrinkage Estimators in Finite Mixture of Mixed Generalized Estim» (2026, cit: 0)"
+EST-01,P0392,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Finite Mixtures of Nonlinear Mixed-Effects Models for Longitudina» (2017, cit: 0)"
+EST-01,P0398,method,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Asymptotic methods for tests of homogeneity for finite mixture mo» (2002, cit: 0)"
+EST-01,P0401,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «Maximum Likelihood Estimation via the ECM Algorithm: A General Fr» (1993, cit: 1860)"
+EST-01,P0402,foundation,"Применение EM-алгоритма для оценивания параметров конечной смеси распределений: «The ECME Algorithm: A Simple Extension of EM and ECM with Faster » (1994, cit: 613)"
+EST-02,P0401,foundation,Основополагающая работа по ECM: замена совместного M-шага условными CM-шагами по блокам параметров с сохранением сходимости
+EST-02,P0041,method,Покомпонентный EM-алгоритм (Component-Wise EM) с поблочным обновлением параметров распределений смеси
+EST-02,P0089,method,Теоретический анализ скорости сходимости ECM-алгоритмов по сравнению со стандартным EM
+EST-02,P0021,method,Условные шаги максимизации и блочные схемы в обобщенных алгоритмах семейства EM
+EST-02,P0114,method,Покомпонентная оценка компонент рассеяния в смесях через условные шаги
+EST-02,P0246,method,Условная максимизация параметров нелинейных смешанных моделей
+EST-02,P0392,method,ECM-оценивание нелинейных эффектов в конечных смесях
+EST-02,P0202,method,"Условная поблочная максимизация параметров (CM-шаги) в схеме ECM: «Application of the ECM algorithm to the estimation of the likelih» (2024, cit: 0)"
+EST-02,P0402,foundation,"Условная поблочная максимизация параметров (CM-шаги) в схеме ECM: «The ECME Algorithm: A Simple Extension of EM and ECM with Faster » (1994, cit: 613)"
+EST-03,P0402,foundation,"Введение ECME: доказательство ускорения сходимости при замене суррогатной Q-функции прямой максимизацией лог-правдоподобия ODL (разд. 2, теорема 1)"
+EST-03,P0203,method,Применение ECME для оптимизации параметров с ускоренной сходимостью и регуляризацией
+EST-03,P0245,method,Анализ свойств сходимости обобщенных алгоритмов оценивания максимального правдоподобия типа EM и ECME
+EST-03,P0323,method,Применение схемы ECME для оценивания параметров многомерного t-распределения и его смесей
+EST-03,P0183,method,"Ускорение сходимости за счет прямых шагов оптимизации наблюдаемого лог-правдоподобия (ODL): «Estimation and model selection of heterogeneous mixture distribut» (2026, cit: 0)"
+EST-03,P0225,method,"Ускорение сходимости за счет прямых шагов оптимизации наблюдаемого лог-правдоподобия (ODL): «Maximum likelihood inference for mixtures of skew Student-t-norma» (2011, cit: 54)"
+EST-04,P0228,method,Гибридный алгоритм EM/Гаусса-Ньютона для прямой численной максимизации правдоподобия смесей
+EST-04,P0036,method,Квазиньютоновское ускорение оптимизации правдоподобия в смесях непрерывных распределений
+EST-04,P0322,method,Прямая оптимизация лог-правдоподобия без моделирования скрытых пропущенных данных
+EST-04,P0085,method,Численная оптимизация расстояния Хеллингера для непрерывных смесей
+EST-04,P0100,method,Минимизация профильного расстояния Хеллингера для полупараметрических смесей
+EST-04,P0050,method,Безградиентная оптимизация параметров смеси генетическими алгоритмами
+EST-04,P0054,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Minimum Hellinger Distance Estimation for Finite Mixture Models» (1996, cit: 93)"
+EST-04,P0076,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Minimum Hellinger Distance Estimation for Finite Mixtures of Pois» (2003, cit: 47)"
+EST-04,P0135,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «A Stochastic Quasi-Newton Method for Large-Scale Nonconvex Optimi» (2019, cit: 5)"
+EST-04,P0152,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Quasi-Newton Methods» (1978, cit: 2)"
+EST-04,P0153,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Statistical and Computational Complexities of BFGS Quasi-Newton M» (2022, cit: 2)"
+EST-04,P0166,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Using the Quasi-Newton Method to Solve Nonlinear Least Squares Re» (2025, cit: 1)"
+EST-04,P0181,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Minimum Hellinger distance estimation in a semiparametric mixture» (2012, cit: 0)"
+EST-04,P0182,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Private Minimum Hellinger Distance Estimation via Hellinger Dista» (2025, cit: 0)"
+EST-04,P0204,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Minimum Hellinger Distance Estimation of ARCH/GARCH Models» (2018, cit: 0)"
+EST-04,P0337,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Minimum Hellinger distance estimation for Poisson mixtures» (1998, cit: 37)"
+EST-04,P0349,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Minimum Hellinger Distance Estimation for k‐Component Poisson Mix» (2007, cit: 13)"
+EST-04,P0378,method,"Прямая численная оптимизация целевой функции смеси методами ньютоновского типа: «Parameter estimation of hidden Markov models: comparison of EM an» (2024, cit: 1)"
+EST-05,P0060,method,Оценивание параметров смесей распределений через метод выборочных и спектральных моментов
+EST-05,P0059,method,Быстрый состоятельный метод моментов для многомерных смесей распределений
+EST-05,P0053,foundation,Аналитический метод моментов для оценивания параметров смеси двух экспоненциальных распределений
+EST-05,P0075,method,Оптимальное оценивание гауссовских смесей через денойзинг-метод моментов
+EST-05,P0079,method,Проверка гипотезы экспоненциальной смеси и метод моментов для параметров масштаба
+EST-05,P0086,method,Оценивание параметров смеси нормальных распределений через выборочные моменты
+EST-05,P0099,method,Аппроксимация распределения скорости ветра методом моментов смеси
+EST-05,P0129,method,Свойства состоятельности и эффективности метода моментов в конечных смесях
+EST-05,P0072,foundation,Полиномиальная вычислимость параметров гауссовских смесей через систему алгебраических моментов
+EST-05,P0344,method,Робастное обучение параметров произвольных гауссовских смесей через тензорные моменты
+EST-05,P0139,method,"Аналитическое или численное оценивание параметров смеси через выборочные моменты: «A Note On The Method of Moments in The Thermodynamics of Continuo» (1991, cit: 4)"
+EST-05,P0164,method,"Аналитическое или численное оценивание параметров смеси через выборочные моменты: «Method of moments for Gaussian mixtures: Implementation and bench» (2025, cit: 1)"
+EST-05,P0165,method,"Аналитическое или численное оценивание параметров смеси через выборочные моменты: «The Generalized Method of Moments for Mixture and Mixed Models» (2015, cit: 1)"
+EST-05,P0179,method,"Аналитическое или численное оценивание параметров смеси через выборочные моменты: «The EM-algorithm and the Method of Moments in Softmax Mixture Mod» (2024, cit: 0)"
+EST-06,P0208,foundation,Доказательство сходимости стохастической аппроксимации EM-алгоритма (SAEM) для преодоления локальных экстремумов
+EST-06,P0326,method,Стохастический EM-алгоритм для полупараметрических смесей распределений
+EST-06,P0352,benchmark,"Сравнительный бенчмарк алгоритмов EM, CEM и SEM при оценивании параметров смесей распределений"
+EST-06,P0210,method,Байесовское моделирование и семплирование меток кластеров в смесях
+EST-06,P0253,method,Реверсивный MCMC семплинг для стохастического оценивания параметров смеси
+EST-06,P0138,method,Стохастический метод частиц Ланжевена для максимизации маргинального правдоподобия смесей
+EST-06,P0025,foundation,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «Bayesian analysis of mixture models with an unknown number of com» (2000, cit: 524)"
+EST-06,P0130,method,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «A DIRECT HAMILTONIAN MCMC APPROACH FOR RELIABILITY ESTIMATION» (2019, cit: 6)"
+EST-06,P0186,method,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «Reversible Jump MCMC With No Regrets: Bayesian Variable Selection» (2026, cit: 0)"
+EST-06,P0254,method,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «Bayesian inference for mixtures of von Mises distributions using » (2020, cit: 11)"
+EST-06,P0257,method,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «Bayesian analysis of the patterns of biological susceptibility vi» (2010, cit: 8)"
+EST-06,P0266,method,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «Bayesian conformational analysis of ring molecules through revers» (2005, cit: 5)"
+EST-06,P0366,method,"Преодоление локальных экстремумов с помощью стохастической или жесткой кластерной симуляции меток: «Reversible jump MCMC for two-state multivariate poisson mixtures» (2003, cit: 2)"
+EST-07,P0103,method,REBMIX: алгоритм Rough-Enhanced-Bayes для оценивания параметров смесей по интервальным данным
+EST-07,P0297,method,Теоретические основы REBMIX для кластеризации и классификации смесей
+EST-08,P0104,method,Смеси с фиксированными и варьирующимися подмножествами параметров в программной среде R
+EST-08,P0027,method,Архитектура фиксации параметров компонентов в пакете FlexMix Version 2
+EST-08,P0112,foundation,Математическая постановка ограниченного правдоподобия с фиксированными соотношениями дисперсий
+EST-08,P0341,method,Модели конечных смесей с фиксированными эффектами в панельных данных
+EST-08,P0391,method,Сжатие и фиксация параметров в обобщенных смешанных моделях
+EST-09,P0083,method,Управление параметрическими границами масштаба и формы при оптимизации смесей в пакете mixR
+EST-09,P0379,method,Теоретический анализ ограниченных и неограниченных пространств параметров смесей
+EST-09,P0112,foundation,Введение строгих параметрических границ для устранения бесконечных сингулярностей
+EST-09,P0230,method,Штрафные ограничения на параметры компонент смеси в моделях выживаемости
+EST-09,P0354,method,Усеченные параметрические пространства и границы носителей в смесях
+EST-10,P0073,foundation,Анализ феномена вырождения дисперсий (сингулярностей правдоподобия) в одномерных смесях
+EST-10,P0105,foundation,Математические условия вырождения целевой функции при стремлении дисперсии компоненты к нулю
+EST-10,P0090,method,Штрафные функции регуляризации для устранения сингулярностей правдоподобия смесей
+EST-10,P0052,method,Штрафные оценки минимального расстояния для устранения вырождения дисперсий
+EST-10,P0068,method,Использование регуляризирующих компонент и шумового фона для защиты от вырождения ковариаций
+EST-10,P0274,method,Штрафное оценивание параметров в смесях высокой размерности для стабилизации ковариаций
+EST-10,P0287,method,Регуляризационные методы предотвращения сингулярностей при оценивании порядка смеси
+EST-10,P0368,method,Теория штрафного оценивания параметров смесей при нарушении регулярности
+EST-10,P0118,method,"Регуляризация параметров и защита функции правдоподобия от сингулярностей нулевой дисперсии: «Singularity structures and impacts on parameter estimation in fin» (2016, cit: 18)"
+EST-10,P0230,method,"Регуляризация параметров и защита функции правдоподобия от сингулярностей нулевой дисперсии: «A penalized likelihood approach for mixture cure models» (2008, cit: 46)"
+EST-10,P0260,method,"Регуляризация параметров и защита функции правдоподобия от сингулярностей нулевой дисперсии: «Discrim: a computer program using an interactive approach to diss» (1980, cit: 7)"
+EST-11,P0019,method,Методология сохранения вектора log-likelihood и трассировки сходимости в пакете mixtools
+EST-11,P0021,method,Диагностика скорости сходимости и мониторинг итераций алгоритмов семейства EM
+EST-11,P0091,benchmark,Теоретический и численный анализ динамики сходимости шагов EM к окрестности оптимума
+EST-11,P0013,method,Критерии останова и трассировка шагов в модификациях алгоритма EM
+EST-11,P0306,foundation,Шумовые характеристики и флуктуации итерационной последовательности EM
+EST-11,P0338,method,Проксимальный анализ сходимости траекторий отображения EM
+EST-11,P0089,method,"Мониторинг сходимости, логирование лог-правдоподобия и диагностика траектории итераций: «ECM algorithms that converge at the rate of EM» (2000, cit: 31)"
+EST-11,P0208,foundation,"Мониторинг сходимости, логирование лог-правдоподобия и диагностика траектории итераций: «Convergence of a stochastic approximation version of the EM algor» (1999, cit: 780)"
+EST-12,P0083,method,Оценивание смесей по сгруппированным (binned) данным через интегральные разности F(b)-F(a) в mixR
+EST-12,P0124,benchmark,Экспериментальное сопоставление точности оценивания смесей на сырых и binned данных
+EST-12,P0103,method,Построение оценок смеси на основе группировки данных по интервалам гистограмм (REBMIX)
+EST-12,P0297,method,Теория бинирования данных и оценивания параметров непрерывных смесей
+EST-12,P0347,method,Оценивание параметров усеченных смесей по сгруппированным интервалам выборки
+EST-12,P0105,method,"Подгонка параметров смеси по интервально-сгруппированным данным через интегралы плотности: «Degeneracy in the Maximum Likelihood Estimation of Univariate Gau» (2007, cit: 14)"
+INIT-01,P0024,foundation,Влияние выбора начальных приближений на достижение глобального оптимума в EM
+INIT-01,P0029,method,Сравнительный анализ методов задания стартовых значений для EM-алгоритма в смесях
+INIT-01,P0097,method,Чувствительность сходимости EM к заданным начальным приближениям параметров
+INIT-01,P0058,benchmark,Влияние ручных и автоматических начальных приближений на точность восстановления компонент
+INIT-01,P0067,method,"Обоснование критической роли начальных приближений параметров компонент в сходимости EM: «Improved Initialization of the EM Algorithm for Mixture Model Par» (2020, cit: 54)"
+INIT-01,P0080,method,"Обоснование критической роли начальных приближений параметров компонент в сходимости EM: «An effective strategy for initializing the EM algorithm in finite» (2016, cit: 41)"
+INIT-01,P0093,method,"Обоснование критической роли начальных приближений параметров компонент в сходимости EM: «A new iterative initialization of EM algorithm for Gaussian mixtu» (2023, cit: 23)"
+INIT-01,P0141,method,"Обоснование критической роли начальных приближений параметров компонент в сходимости EM: «Comparison of methods for initializing EM algorithm for estimatio» (2013, cit: 4)"
+INIT-01,P0142,method,"Обоснование критической роли начальных приближений параметров компонент в сходимости EM: «Research on Initialization on EM Algorithm Based on Gaussian Mixt» (2018, cit: 4)"
+INIT-01,P0169,method,"Обоснование критической роли начальных приближений параметров компонент в сходимости EM: «Gaussian mixture model based k-means to initialize the EM algorit» (2012, cit: 1)"
+INIT-02,P0024,method,Стратегия многократного случайного перезапуска (multistart) и отбора по максимальному правдоподобию
+INIT-02,P0058,benchmark,Экспериментальное исследование влияния числа перезапусков на вероятность нахождения глобального оптимума
+INIT-02,P0029,method,Сравнение однократного запуска и стратегии случайного мультистарта в смесях
+INIT-02,P0093,method,Итеративный мультистарт и рандомизированный поиск начальных приближений для гауссовских смесей
+INIT-03,P0016,method,Инициализация параметров смеси через модельную агломеративную иерархическую кластеризацию в mclust
+INIT-03,P0067,method,Улучшенная кластеризационная инициализация EM для смесей распределений
+INIT-03,P0080,method,Эффективная стратегия k-means инициализации для конечных смесей
+INIT-03,P0082,method,Метод инициализации k-means на основе дистанционных метрик для кластеризации
+INIT-03,P0102,method,Инициализация центров кластеров на основе локальной плотности данных
+INIT-03,P0169,method,"Инициализация центров и дисперсий компонент через предварительную кластеризацию выборки: «Gaussian mixture model based k-means to initialize the EM algorit» (2012, cit: 1)"
+INIT-03,P0354,method,"Инициализация центров и дисперсий компонент через предварительную кластеризацию выборки: «Image Segmentation and Retrievals based on Finite Doubly Truncate» (2011, cit: 8)"
+INIT-03,P0356,method,"Инициализация центров и дисперсий компонент через предварительную кластеризацию выборки: «Unsupervised Image Segmentation Method based on Finite Generalize» (2007, cit: 7)"
+INIT-04,P0083,method,Детерминированное квантильное разрезание вариационного ряда выборки в пакете mixR
+INIT-04,P0019,method,Квантильные границы для формирования стартовых компонент в mixtools
+INIT-04,P0097,method,Квантильная декомпозиция одномерной выборки для быстрого детерминированного старта
+INIT-05,P0083,method,Вычисление стартовых параметров формы и масштаба через моменты квантильных интервалов
+INIT-05,P0099,method,Инициализация параметров компонент через локальные выборочные моменты сегментов
+INIT-05,P0059,method,Оценки начальных приближений параметров компонент через моментные уравнения
+INIT-06,P0029,method,Стратегия случайного выбора наблюдений выборки в качестве начальных центров компонент
+INIT-06,P0080,method,Случайные начальные весовые назначения (random partition) для старта EM
+INIT-06,P0024,method,Случайное назначение априорных вероятностей принадлежности (random responsibilities)
+STRUC-01,P0002,foundation,Математические основы и свойства однородных смесей непрерывных распределений
+STRUC-01,P0004,foundation,Теоремы идентифицируемости конечных смесей классических семейств распределений
+STRUC-01,P0005,foundation,Необходимые и достаточные условия идентифицируемости конечных смесей
+STRUC-01,P0006,foundation,Идентифицируемость конечных смесей эллиптических распределений
+STRUC-01,P0007,foundation,Практическая идентифицируемость многомерных смесей распределений Бернулли
+STRUC-01,P0008,foundation,Идентифицируемость конечных смесей моделей логистической регрессии
+STRUC-01,P0009,foundation,Корреспонденция об условиях идентифицируемости конечных смесей распределений
+STRUC-01,P0010,foundation,Идентифицируемость конечных смесей с использованием интегральных преобразований
+STRUC-01,P0011,foundation,Идентифицируемость конечных смесей для направленных сферических данных
+STRUC-01,P0012,foundation,Идентифицируемость конечных смесей на окружности и торе
+STRUC-01,P0014,foundation,Идентифицируемость конечных смесей мер прямого произведения
+STRUC-01,P0121,foundation,Простое доказательство идентифицируемости для смеси двух одномерных нормальных распределений
+STRUC-01,P0026,foundation,Свойства однородных смесей нормальных распределений
+STRUC-01,P0047,method,Вывод для смесей симметричных распределений одного семейства
+STRUC-01,P0003,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Mixture Densities, Maximum Likelihood and the EM Algorithm» (1984, cit: 2693)"
+STRUC-01,P0022,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «On Bootstrapping the Likelihood Ratio Test Stastistic for the Num» (1987, cit: 708)"
+STRUC-01,P0024,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Choosing starting values for the EM algorithm for getting the hig» (2003, cit: 657)"
+STRUC-01,P0033,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Beyond SNP heritability: Polygenicity and discoverability of phen» (2020, cit: 238)"
+STRUC-01,P0048,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Model Selection for Gaussian Mixture Models» (2017, cit: 130)"
+STRUC-01,P0055,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Cost Function Based on Gaussian Mixture Model for Parameter Estim» (2014, cit: 87)"
+STRUC-01,P0058,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Examining the effect of initialization strategies on the performa» (2015, cit: 74)"
+STRUC-01,P0059,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Multivariate Normal Mixtures: A Fast Consistent Method of Moments» (1993, cit: 67)"
+STRUC-01,P0066,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A Novel Split and Merge EM Algorithm for Gaussian Mixture Model» (2009, cit: 36)"
+STRUC-01,P0073,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Degeneracy in the maximum likelihood estimation of univariate Gau» (2003, cit: 48)"
+STRUC-01,P0075,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Optimal estimation of Gaussian mixtures via denoised method of mo» (2020, cit: 53)"
+STRUC-01,P0081,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «On strong identifiability and convergence rates of parameter esti» (2016, cit: 37)"
+STRUC-01,P0084,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Determining the Number of Component Clusters in the Standard Mult» (1983, cit: 34)"
+STRUC-01,P0086,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Estimation of the Parameters of a Gaussian Mixture Using the Meth» (1983, cit: 33)"
+STRUC-01,P0090,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Penalized Maximum Likelihood Estimation for univariate normal mix» (2001, cit: 27)"
+STRUC-01,P0093,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A new iterative initialization of EM algorithm for Gaussian mixtu» (2023, cit: 23)"
+STRUC-01,P0096,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Joint Parsimonious Modeling and Model Order Selection for Multiva» (2010, cit: 18)"
+STRUC-01,P0105,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Degeneracy in the Maximum Likelihood Estimation of Univariate Gau» (2007, cit: 14)"
+STRUC-01,P0113,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Fast Approximations of the Jeffreys Divergence between Univariate» (2021, cit: 12)"
+STRUC-01,P0126,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Parameter Estimation for Gaussian Mixture Processes based on Expe» (2016, cit: 8)"
+STRUC-01,P0133,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Gaussian mixture models for spots in microscopy using a new split» (2010, cit: 6)"
+STRUC-01,P0136,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Gaussian Mixture Estimation from Weighted Samples» (2021, cit: 5)"
+STRUC-01,P0142,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Research on Initialization on EM Algorithm Based on Gaussian Mixt» (2018, cit: 4)"
+STRUC-01,P0145,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Identifiability and optimal rates of convergence for parameters o» (2015, cit: 4)"
+STRUC-01,P0147,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Study of the New Finite Mixture of Weibull Extension Model: Ident» (2022, cit: 3)"
+STRUC-01,P0164,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Method of moments for Gaussian mixtures: Implementation and bench» (2025, cit: 1)"
+STRUC-01,P0169,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Gaussian mixture model based k-means to initialize the EM algorit» (2012, cit: 1)"
+STRUC-01,P0170,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Nmix: Bayesian Inference on Univariate Normal Mixtures» (2022, cit: 1)"
+STRUC-01,P0171,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A comparison of the L2 minimum distance estimator and the EM-algo» (2017, cit: 1)"
+STRUC-01,P0172,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Assessing the number of components in a normal mixture: an altern» (2013, cit: 1)"
+STRUC-01,P0176,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Maximum Likelihood and Minimum Distance Applied to Univariate Mix» (1993, cit: 0)"
+STRUC-01,P0194,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «On Model Selection Criterion for Finite Gaussian Mixture Models» (2024, cit: 0)"
+STRUC-01,P0215,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Bayesian feature and model selection for Gaussian mixture models» (2006, cit: 199)"
+STRUC-01,P0229,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Likelihood ratio tests of the number of components in a normal mi» (2004, cit: 46)"
+STRUC-01,P0252,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A likelihood ratio test of a homoscedastic normal mixture against» (2008, cit: 13)"
+STRUC-01,P0298,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A numerical comparison between lifetime regression models and fin» (2019, cit: 0)"
+STRUC-01,P0313,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Hypothesis test for normal mixture models: The EM approach» (2009, cit: 168)"
+STRUC-01,P0314,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «EM algorithms for Gaussian mixtures with split-and-merge operatio» (2003, cit: 153)"
+STRUC-01,P0333,foundation,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A new condition for identifiability of finite mixture distributio» (2005, cit: 51)"
+STRUC-01,P0343,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A note on the identifiability of nonparametric and semiparametric» (2014, cit: 22)"
+STRUC-01,P0347,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Impact of components number selection in truncated Gaussian mixtu» (2023, cit: 14)"
+STRUC-01,P0351,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Estimation of Parameters of a Finite Mixture of Distributions» (1968, cit: 11)"
+STRUC-01,P0353,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «A BYY Split-and-Merge EM Algorithm for Gaussian Mixture Learning» (2008, cit: 8)"
+STRUC-01,P0354,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Image Segmentation and Retrievals based on Finite Doubly Truncate» (2011, cit: 8)"
+STRUC-01,P0371,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «IDENTIFIABILITY OF COUNTABLE MIXTURES» (1993, cit: 2)"
+STRUC-01,P0379,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Polynomial Time and Private Learning of Unbounded Gaussian Mixtur» (2023, cit: 2)"
+STRUC-01,P0380,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «MixtureFitting: Fitting of Univariate Mixture Distributions to Da» (2025, cit: 0)"
+STRUC-01,P0382,method,"Теоретические свойства, структура и условия идентифицируемости однородных смесей: «Univariate Mixture Modeling Using SMSN Distributions» (2018, cit: 0)"
+STRUC-02,P0221,method,Моделирование разнородными смесями (Normal + Weibull + Gamma) для гидрометеорологических рядов
+STRUC-02,P0088,method,Смеси двух различных распределений (Weibull + Gamma) для анализа скорости ветра
+STRUC-02,P0092,method,Гетерогенные смеси распределений для моделирования мультимодальных гидрологических данных
+STRUC-02,P0023,method,Архитектура комбинирования разнородных моделей в едином фреймворке FlexMix
+STRUC-02,P0068,method,Гетерогенные смеси нормальных распределений с несобственной шумовой компонентой
+STRUC-02,P0074,method,Моделирование неоднородных данных дожития смесями различных параметрических типов
+STRUC-02,P0235,method,Непараметрические тесты для разреженных гетерогенных смесей
+STRUC-02,P0261,method,Моделирование гетерогенных непрерывных распределений через континуальные смеси
+STRUC-02,P0390,method,Моделирование ненаблюдаемой гетерогенности через смеси различных компонентов
+STRUC-02,P0183,method,"Моделирование сложных мультимодальных процессов разнородными смесями компонентов разных семейств: «Estimation and model selection of heterogeneous mixture distribut» (2026, cit: 0)"
+STRUC-02,P0197,method,"Моделирование сложных мультимодальных процессов разнородными смесями компонентов разных семейств: «Heterogeneous Mixture Distributions for Modeling Skewed Data in E» (2026, cit: 0)"
+STRUC-02,P0244,method,"Моделирование сложных мультимодальных процессов разнородными смесями компонентов разных семейств: «Flame Propagation Characteristics in a Heterogeneous Concentratio» (1998, cit: 25)"
+STRUC-02,P0292,method,"Моделирование сложных мультимодальных процессов разнородными смесями компонентов разных семейств: «heterogeneous mixture distributions for multi-source extreme rain» (2013, cit: 0)"
+STRUC-02,P0293,method,"Моделирование сложных мультимодальных процессов разнородными смесями компонентов разных семейств: «Distribution of Ignition Probability in a Heterogeneous Mixture» (1992, cit: 0)"
+STRUC-03,P0074,method,Смеси распределений Вейбулла для анализа гетерогенных данных дожития
+STRUC-03,P0046,foundation,Методы анализа смесей двух логнормальных и нормальных распределений
+STRUC-03,P0057,method,Новый подход к оцениванию параметров конечных смесей распределений Вейбулла
+STRUC-03,P0259,method,"Смеси сдвинутых распределений Вейбулла, логнормального и гамма для анализа надежности"
+STRUC-03,P0220,method,Конечные смеси гамма-плотностей для положительных непрерывных данных
+STRUC-03,P0222,method,"Двухкомпонентные смеси нормального, гамма и распределения Гумбеля"
+STRUC-03,P0095,benchmark,Статистический анализ скорости ветра на основе смесей Вейбулла и логнормального
+STRUC-03,P0099,benchmark,Аппроксимация ветровых распределений смесями асимметричных плотностей
+STRUC-03,P0248,foundation,Представления случайных величин с распределениями Вейбулла и их смесями
+STRUC-03,P0255,method,Регрессионные смеси Вейбулла для анализа данных с нулевым весом
+STRUC-03,P0053,foundation,Смеси экспоненциальных распределений как частный случай положительных семейств
+STRUC-03,P0146,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «A Study on The Mixture of Exponentiated-Weibull Distribution» (2016, cit: 3)"
+STRUC-03,P0147,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «Study of the New Finite Mixture of Weibull Extension Model: Ident» (2022, cit: 3)"
+STRUC-03,P0160,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «The Use of Finite Mixtures of Lognormal Distribution for the Mode» (2012, cit: 2)"
+STRUC-03,P0189,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «Model Based Clustering using Finite Mixture Models of Lognormal D» (2019, cit: 0)"
+STRUC-03,P0198,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «Normal–Weibull Mixture Distribution: Properties, Parameter Estima» (2026, cit: 0)"
+STRUC-03,P0260,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «Discrim: a computer program using an interactive approach to diss» (1980, cit: 7)"
+STRUC-03,P0267,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «An interactive computer graphics approach for dissecting a mixtur» (1976, cit: 5)"
+STRUC-03,P0272,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «A Class of Weibull Mixtured Distributions» (2012, cit: 3)"
+STRUC-03,P0302,method,"Оценивание и свойства смесей асимметричных положительных распределений (Weibull, Gamma, Lognormal): «Length-biased Gamma and Weibull bimodal mixtures for wind speed s» (2026, cit: 0)"
+STRUC-04,P0312,method,Динамическая модель смеси для оценивания тяжелых хвостов распределений без ручного выбора порога
+STRUC-04,P0225,method,Оценивание максимального правдоподобия для смесей со скошенными распределениями Стьюдента
+STRUC-04,P0241,method,Робастное моделирование смесей на основе масштабированных тяжелохвостых распределений
+STRUC-04,P0323,foundation,Оценивание многомерного t-распределения и тяжелохвостых смесей через EM
+STRUC-04,P0132,method,Робастное оценивание мер смешивания для распределений с тяжелыми хвостами
+STRUC-04,P0140,method,EM-алгоритм для смесей скошенных обобщенных тяжелохвостых распределений
+STRUC-04,P0150,method,RobMixReg: робастная регрессия на основе смесей с устойчивостью к выбросам
+STRUC-04,P0156,method,Робастные методы оценивания в конечных смесях с неэкспоненциальными хвостами
+STRUC-04,P0184,method,Робастное моделирование смесей единичных данных с тяжелыми хвостами
+STRUC-04,P0263,method,Оценивание максимального правдоподобия смесей t-распределений в переключающихся режимах
+STRUC-04,P0365,method,Множественные масштабированные смеси нормальных распределений с гибкими хвостами
+STRUC-04,P0344,method,"Моделирование тяжелых хвостов и робастное оценивание смесей с распределениями типа Стьюдента и Парето: «Robustly learning mixtures ofkarbitrary Gaussians» (2022, cit: 19)"
+STRUC-04,P0367,method,"Моделирование тяжелых хвостов и робастное оценивание смесей с распределениями типа Стьюдента и Парето: «Robust estimation for the order of finite mixture models» (2008, cit: 2)"
+STRUC-05,P0220,method,Конечные смеси унимодальных бета- и гамма-плотностей для данных на ограниченных интервалах
+STRUC-05,P0068,method,Максимальное правдоподобие для смесей с равномерной шумовой компонентой на компакте
+STRUC-05,P0016,method,Моделирование шумовых выбросов через равномерную компоненту на выпуклой оболочке данных
+STRUC-05,P0354,method,Дважды усеченные смеси на компактных носителях для сегментации изображений
+STRUC-06,P0259,method,Оценивание параметра сдвига (порога носителя) для смеси положительных распределений
+STRUC-06,P0402,foundation,"Применение шагов ODL в ECME для параметров, не имеющих аналитического условного максимума по Q-функции (пороги)"
+STRUC-06,P0312,method,Оценивание порога перехода между центральной частью распределения и тяжелым хвостом
+STRUC-06,P0320,method,Многоуровневое пороговое оценивание на основе смесей распределений
+STRUC-07,P0403,foundation,Доказательство состоятельности критерия BIC при оценивании истинного порядка K конечной смеси
+STRUC-07,P0048,method,Теория и практика отбора моделей для смесей распределений по штрафным критериям
+STRUC-07,P0040,foundation,Асимптотическая состоятельность штрафных информационных критериев порядка
+STRUC-07,P0020,method,Байесовский анализ смесей с неизвестным числом компонент K
+STRUC-07,P0025,method,Оценивание числа компонент смеси методами марковских цепей
+STRUC-07,P0028,method,Вариационный байесовский отбор моделей и порядка смеси
+STRUC-07,P0215,method,Байесовский отбор признаков и порядка смеси для гауссовских моделей
+STRUC-07,P0216,method,Вариационные аппроксимации при выборе порядка смеси распределений
+STRUC-07,P0043,method,Выбор модели в конечных смесях по оценкам маргинальной плотности
+STRUC-07,P0056,foundation,Состоятельное оценивание сложности и порядка смеси распределений
+STRUC-07,P0061,method,Непараметрическая идентификация и оценивание числа компонент смеси
+STRUC-07,P0071,method,Байесовский отбор моделей для смесей структурных уравнений
+STRUC-07,P0015,method,Интервальный выбор порядка конечных смесей распределений с гарантией доверия
+STRUC-07,P0304,benchmark,"Практическое руководство по выбору числа компонент на основе AIC, BIC и энтропии"
+STRUC-07,P0287,method,Новые методы регуляризации для оценивания порядка конечных смесей
+STRUC-07,P0367,method,Робастное оценивание истинного порядка конечной смеси
+STRUC-07,P0022,foundation,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «On Bootstrapping the Likelihood Ratio Test Stastistic for the Num» (1987, cit: 708)"
+STRUC-07,P0064,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «CHull as an alternative to AIC and BIC in the context of mixtures» (2013, cit: 55)"
+STRUC-07,P0078,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Order estimation and sequential universal data compression of a h» (1994, cit: 46)"
+STRUC-07,P0084,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Determining the Number of Component Clusters in the Standard Mult» (1983, cit: 34)"
+STRUC-07,P0094,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Estimating the number of components in finite mixture models via » (2021, cit: 21)"
+STRUC-07,P0127,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Selection of the number of components for finite mixtures of line» (2021, cit: 7)"
+STRUC-07,P0144,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Consistency of the BIC order estimator» (1999, cit: 4)"
+STRUC-07,P0155,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Estimation and model selection for finite mixtures of latent inte» (2011, cit: 2)"
+STRUC-07,P0159,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «A combined likelihood ratio/information ratio bootstrap technique» (2013, cit: 2)"
+STRUC-07,P0172,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Assessing the number of components in a normal mixture: an altern» (2013, cit: 1)"
+STRUC-07,P0183,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Estimation and model selection of heterogeneous mixture distribut» (2026, cit: 0)"
+STRUC-07,P0190,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «CONSISTENT ORDER ESTIMATION AND THE LOCAL GEOMETRY OF MIXTURES» (2010, cit: 0)"
+STRUC-07,P0191,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «ORDER ESTIMATION FOR MULTIVARIATE MIXTURE REGRESSION MODELS» (2025, cit: 0)"
+STRUC-07,P0192,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Selection of the number of components in mixture regression model» (2015, cit: 0)"
+STRUC-07,P0194,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «On Model Selection Criterion for Finite Gaussian Mixture Models» (2024, cit: 0)"
+STRUC-07,P0195,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Modifications of the BIC for order selection in finite mixture mo» (2026, cit: 0)"
+STRUC-07,P0196,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «A BIC-based Mixture Model Defense against Data Poisoning Attacks » (2021, cit: 0)"
+STRUC-07,P0224,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Determining the Number of Components in Mixture Models for Hierar» (2009, cit: 57)"
+STRUC-07,P0229,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Likelihood ratio tests of the number of components in a normal mi» (2004, cit: 46)"
+STRUC-07,P0232,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Estimation for the number of components in a mixture model using » (2004, cit: 47)"
+STRUC-07,P0233,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «On the posterior distribution of the number of components in a fi» (2004, cit: 43)"
+STRUC-07,P0236,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «The likelihood ratio test for the number of components in a mixtu» (2000, cit: 37)"
+STRUC-07,P0239,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Assessing the Number of Components in Mixture Models: an Overview» (2005, cit: 33)"
+STRUC-07,P0242,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «MDL-based selection of the number of components in mixture models» (1998, cit: 28)"
+STRUC-07,P0258,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Weighted tests of homogeneity for testing the number of component» (2003, cit: 8)"
+STRUC-07,P0269,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Variable selection in finite mixture of regression models with an» (2021, cit: 4)"
+STRUC-07,P0278,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Selection of the Number of Components Using a Genetic Algorithm f» (2000, cit: 1)"
+STRUC-07,P0291,method,"Определение истинного числа компонент смеси K на основе штрафных информационных критериев (BIC, AIC): «Model selection confidence sets for the number of mixture compone» (2025, cit: 0)"
+STRUC-08,P0016,method,Применение интегрированного правдоподобия классификации (ICL) для выбора кластерной структуры в mclust
+STRUC-08,P0231,method,Сравнение энтропийных штрафов и критерия ICL при определении числа компонент смеси
+STRUC-08,P0027,method,Вычисление критерия ICL для смесей регрессионных моделей в FlexMix
+STRUC-08,P0103,method,Критерии ICL и ICL-BIC в алгоритме REBMIX
+STRUC-08,P0304,benchmark,Энтропийные критерии и ICL для оценки качества разделения кластеров в смесях
+STRUC-08,P0193,method,"Штрафование энтропии перекрытия кластеров и выбор числа компонент по критерию ICL: «PENGELOMPOKAN NEGARA BERDASARKAN KEJADIAN PENYAKIT TUBERKULOSIS D» (2021, cit: 0)"
+STRUC-09,P0022,foundation,Классическая фундаментальная работа: бутстреп отношения правдоподобий для тестирования числа компонент смеси
+STRUC-09,P0038,method,Использование бутстреп-LRT в конечных смесях и свойства его мощности
+STRUC-09,P0214,method,Модифицированный тест отношения правдоподобия для проверки однородности смеси
+STRUC-09,P0229,method,Тесты отношения правдоподобия для числа компонент нормальной смеси
+STRUC-09,P0236,foundation,Асимптотическое распределение статистики отношения правдоподобия для смесей
+STRUC-09,P0250,method,Бутстреп-калибровка p-value в тестах отношения правдоподобий для смесей
+STRUC-09,P0252,method,Тест отношения правдоподобия для проверки гипотезы о числе компонент
+STRUC-09,P0128,benchmark,Применение бутстреп-теста бимодальности для биомедицинских данных
+STRUC-09,P0398,method,Асимптотические методы проверки однородности и числа компонент конечных смесей
+STRUC-09,P0134,method,"Проверка статистических гипотез о числе компонент H0: K=k vs H1: K=k+1 параметрическим бутстреп-LRT: «Bootstrap Restricted Likelihood Ratio Test for the Detection of R» (2015, cit: 6)"
+STRUC-09,P0258,method,"Проверка статистических гипотез о числе компонент H0: K=k vs H1: K=k+1 параметрическим бутстреп-LRT: «Weighted tests of homogeneity for testing the number of component» (2003, cit: 8)"
+STRUC-10,P0018,foundation,Обучение смесей без учителя с автоматическим отсечением (аннигиляцией) компонент при падении веса
+STRUC-10,P0319,method,Штрафной конкурирующий алгоритм EM (rival penalized EM) с динамическим выбыванием избыточных компонент
+STRUC-10,P0318,method,Конкурентный EM-алгоритм для смесей с автоматическим прунингом компонент
+STRUC-10,P0066,method,Алгоритм расщепления и слияния компонент (Split and Merge EM) для оптимизации числа кластеров
+STRUC-10,P0116,method,Операторы слияния вырожденных компонент и расщепления широких кластеров в EM
+STRUC-10,P0314,method,Сплит-энд-мердж процедуры для динамической модификации компонентного состава смеси
+STRUC-11,P0088,method,Методология ранжирования альтернативных сочетаний распределений по информационным критериям
+STRUC-11,P0092,method,Сравнительный отбор конкурирующих конфигураций смесей для гидрологических рядов
+STRUC-11,P0221,method,Сравнение конкурирующих однородных и разнородных смесей на реальных наблюдениях
+STRUC-11,P0393,benchmark,Систематический обзор и сравнение семейств непрерывных распределений для подгонки данных
+STRUC-11,P0394,method,Сравнительный стохастический анализ семейств распределений при подборе моделей
+STRUC-11,P0028,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Variational Bayesian Model Selection for Mixture Distributions» (2001, cit: 345)"
+STRUC-11,P0107,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Commodity flow estimation for a metropolitan scale freight modeli» (2018, cit: 14)"
+STRUC-11,P0183,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Estimation and model selection of heterogeneous mixture distribut» (2026, cit: 0)"
+STRUC-11,P0186,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Reversible Jump MCMC With No Regrets: Bayesian Variable Selection» (2026, cit: 0)"
+STRUC-11,P0200,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «On Selection Rules for Finite Mixtures of Distributions,» (1977, cit: 0)"
+STRUC-11,P0216,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Variational approximations in Bayesian model selection for finite» (2006, cit: 169)"
+STRUC-11,P0275,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Order Selection in a Finite Mixture of Birnbaum-Saunders Distribu» (2022, cit: 2)"
+STRUC-11,P0347,method,"Сравнительный анализ и ранжирование конкурирующих наборов параметрических семейств для выборки: «Impact of components number selection in truncated Gaussian mixtu» (2023, cit: 14)"
+TECH-01,P0023,method,Архитектурные принципы декомпозиции конвейера смесей на драйверы компонент и оптимизаторы
+TECH-01,P0027,method,"Модульное разделение E-шагов, компонентных драйверов и контроллеров в FlexMix"
+TECH-01,P0087,benchmark,Сравнительный анализ архитектур программных пакетов для оценивания смесей распределений
+TECH-01,P0019,benchmark,Пакетная организация вычислительного конвейера в библиотеке mixtools
+TECH-01,P0016,benchmark,"Модульная архитектура пакета mclust: разделение стратегий инициализации, EM и валидации"
+TECH-01,P0339,method,Программный фреймворк для оценки параметров смесей с разделением вычислительных шагов
+TECH-01,P0401,foundation,"Архитектурное разделение конвейера оценивания смеси на независимые модульные фазы: «Maximum Likelihood Estimation via the ECM Algorithm: A General Fr» (1993, cit: 1860)"
+TECH-02,P0023,method,Объектно-ориентированное проектирование расширяемого реестра распределений через S4-классы
+TECH-02,P0027,method,Добавление пользовательских распределений и моделей регрессии в FlexMix по принципу OCP
+TECH-02,P0101,method,Интерфейс подключения произвольных семейств распределений в пакете FlexMix
+TECH-02,P0039,method,Обобщенное расширение семейств распределений через генератор T-X
+TECH-02,P0045,method,Методология расширения базовых распределений новыми параметрическими классами
+TECH-02,P0083,method,"Открытость архитектуры библиотеки для регистрации новых параметрических семейств (OCP): «mixR: An R package for Finite Mixture Modeling for Both Raw and B» (2022, cit: 35)"
+TECH-02,P0362,method,"Открытость архитектуры библиотеки для регистрации новых параметрических семейств (OCP): «Stochastic Comparisons for Finite Mixtures from Location-scale Fa» (2024, cit: 4)"
+TECH-02,P0390,method,"Открытость архитектуры библиотеки для регистрации новых параметрических семейств (OCP): «Working Paper 14-17 - Modelling unobserved heterogeneity in distr» (2017, cit: 0)"
+TECH-02,P0393,method,"Открытость архитектуры библиотеки для регистрации новых параметрических семейств (OCP): «A review of continuous univariate probability distributions from » (2025, cit: 0)"
+TECH-03,P0003,method,Численные аспекты предотвращения потери точности и underflow при логарифмировании плотностей
+TECH-03,P0021,method,Численная устойчивость итерационных обновлений в алгоритмах типа EM
+TECH-03,P0306,foundation,Анализ погрешностей дискретизации и машинного округления при реализации EM
+TECH-03,P0091,method,Контроль численной стабильности разностей логарифмов на промежуточных итерациях
+TECH-04,P0087,benchmark,Влияние инкапсуляции состояния и неизменяемости параметров на воспроизводимость расчетов
+TECH-04,P0016,method,Инкапсуляция результатов моделирования в неизменяемые структуры mclust
+TECH-05,P0016,method,Опыт структурирования сигнатур и типизации математических структур в пакетах смеси
+TECH-05,P0023,method,Формализация интерфейсов компонентов смеси через объектную систему типов
+TECH-06,P0019,benchmark,Унификация API методов анализа смесей со стандартными функциями экосистемы R
+TECH-06,P0016,benchmark,Согласование интерфейса mclust со стандартными процедурами predict/plot
+TECH-06,P0083,benchmark,Интеграция интерфейса mixR со стандартными методами R
+TECH-06,P0023,method,Реализация интерфейса формул и стандартных методов S4 в FlexMix
+TECH-06,P0017,benchmark,Интеграция процедур анализа смесей со стандартными средами статистического анализа (SAS)
+TECH-06,P0087,benchmark,Сравнительный обзор соглашений интерфейсов статистических пакетов оценивания смесей
+TECH-06,P0101,benchmark,"Соответствие публичного API библиотеки общепринятым соглашениям экосистемы (fit/predict/plot): «FlexMix: An R package for finite mixture modelling» (2007, cit: 16)"
+TECH-06,P0162,benchmark,"Соответствие публичного API библиотеки общепринятым соглашениям экосистемы (fit/predict/plot): «Sparse Estimation in Finite Mixture of Accelerated Failure Time a» (2023, cit: 2)"
+TECH-06,P0276,benchmark,"Соответствие публичного API библиотеки общепринятым соглашениям экосистемы (fit/predict/plot): «“dynmix”: An R package for the estimation of dynamic finite mixtu» (2023, cit: 2)"
+INFRA-01,P0087,benchmark,Анализ стандартов сопровождения и сборки программного обеспечения для статистического оценивания
+INFRA-01,P0023,benchmark,Управление зависимостями и сборкой пакета FlexMix на CRAN
+INFRA-01,P0019,benchmark,Стандарты компиляции C-расширений и управления зависимостями в mixtools
+INFRA-01,P0016,benchmark,Организация сборки скомпилированных Fortran/C библиотек в mclust
+INFRA-01,P0083,benchmark,Сборка C++ модулей через Rcpp в пакете mixR
+INFRA-01,P0101,benchmark,"Декларативная изоляция окружения и воспроизводимая сборка статистического пакета: «FlexMix: An R package for finite mixture modelling» (2007, cit: 16)"
+INFRA-01,P0162,benchmark,"Декларативная изоляция окружения и воспроизводимая сборка статистического пакета: «Sparse Estimation in Finite Mixture of Accelerated Failure Time a» (2023, cit: 2)"
+INFRA-01,P0276,benchmark,"Декларативная изоляция окружения и воспроизводимая сборка статистического пакета: «“dynmix”: An R package for the estimation of dynamic finite mixtu» (2023, cit: 2)"
+INFRA-02,P0016,benchmark,Роль автоматизированных регрессионных тестов в верификации статистических оценщиков mclust
+INFRA-02,P0019,benchmark,Система верификационных тестов для проверки сходимости алгоритмов в mixtools
+INFRA-02,P0058,benchmark,Методология стресс-тестирования алгоритмов EM на синтетических симуляционных выборках
+INFRA-03,P0001,foundation,Теоретические инварианты монотонности правдоподобия L(theta^(t+1)) >= L(theta^(t)) как спецификация для property-тестов
+INFRA-03,P0003,foundation,Инварианты единичной суммы весов (симплекса) и положительной определенности ковариаций
+INFRA-03,P0004,foundation,Математические инварианты однозначности плотности смеси при перестановке компонент
+INFRA-03,P0401,foundation,Инвариант неубывания целевой функции на каждом условном CM-шаге алгоритма ECM
+INFRA-03,P0402,foundation,Инвариант монотонности правдоподобия при комбинировании Q-шагов и ODL-шагов в ECME
+INFRA-03,P0005,foundation,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «On the Identifiability of Finite Mixtures» (1968, cit: 404)"
+INFRA-03,P0006,foundation,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Identifiability of Finite Mixtures of Elliptical Distributions» (2006, cit: 92)"
+INFRA-03,P0007,foundation,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Practical Identifiability of Finite Mixtures of Multivariate Bern» (2000, cit: 91)"
+INFRA-03,P0008,foundation,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Identifiability of finite mixtures of logistic regression models» (1991, cit: 57)"
+INFRA-03,P0009,foundation,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «On the identifiability of finite mixtures of distributions (Corre» (1981, cit: 55)"
+INFRA-03,P0010,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Identifiability of finite mixtures using a new transform» (1988, cit: 35)"
+INFRA-03,P0011,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Identifiability of Finite Mixtures for Directional Data» (1983, cit: 28)"
+INFRA-03,P0012,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Identifiability of Finite Mixtures - with Applications to Circula» (2004, cit: 21)"
+INFRA-03,P0014,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «On the Identifiability of Finite Mixtures of Finite Product Measu» (2018, cit: 6)"
+INFRA-03,P0081,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «On strong identifiability and convergence rates of parameter esti» (2016, cit: 37)"
+INFRA-03,P0145,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Identifiability and optimal rates of convergence for parameters o» (2015, cit: 4)"
+INFRA-03,P0147,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «Study of the New Finite Mixture of Weibull Extension Model: Ident» (2022, cit: 3)"
+INFRA-03,P0333,foundation,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «A new condition for identifiability of finite mixture distributio» (2005, cit: 51)"
+INFRA-03,P0343,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «A note on the identifiability of nonparametric and semiparametric» (2014, cit: 22)"
+INFRA-03,P0371,method,"Математические инварианты сходимости и вероятностных аксиом как спецификации для property-based тестов: «IDENTIFIABILITY OF COUNTABLE MIXTURES» (1993, cit: 2)"
+INFRA-04,P0087,benchmark,Качество исходного кода статистических пакетов и его влияние на надежность расчетов
+INFRA-04,P0016,benchmark,Стандарты статического контроля и соответствия правилам CRAN в пакете mclust
+INFRA-05,P0019,benchmark,Опыт организации непрерывной интеграции и верификации пакетов на платформах CRAN
+INFRA-05,P0016,benchmark,Автоматизированные пайплайны сборки и тестирования на различных платформах (mclust)
+INFRA-05,P0083,benchmark,Кросс-платформенное тестирование пакета mixR в CI
+INFRA-05,P0087,benchmark,"Непрерывная автоматическая интеграция и тестирование на различных аппаратных платформах: «Packages for Estimating Finite Mixtures: A Review» (1997, cit: 34)"
+INFRA-05,P0101,benchmark,"Непрерывная автоматическая интеграция и тестирование на различных аппаратных платформах: «FlexMix: An R package for finite mixture modelling» (2007, cit: 16)"
+INFRA-05,P0162,benchmark,"Непрерывная автоматическая интеграция и тестирование на различных аппаратных платформах: «Sparse Estimation in Finite Mixture of Accelerated Failure Time a» (2023, cit: 2)"
+INFRA-05,P0276,benchmark,"Непрерывная автоматическая интеграция и тестирование на различных аппаратных платформах: «“dynmix”: An R package for the estimation of dynamic finite mixtu» (2023, cit: 2)"
+INFRA-06,P0016,method,Стандарты документирования математического аппарата алгоритмов в пакетах с открытым кодом (mclust)
+INFRA-06,P0019,method,Публикация подробных виньеток с формулами и кодом в Journal of Statistical Software (mixtools)
+INFRA-06,P0027,method,Документирование математической структуры и S4-классов в виньетках пакета FlexMix
+INFRA-06,P0083,method,Документирование алгоритмов и формул оценивания binned-данных в пакете mixR
+INFRA-06,P0087,method,"Генерация математической документации API и воспроизводимых примеров использования: «Packages for Estimating Finite Mixtures: A Review» (1997, cit: 34)"
+INFRA-06,P0101,method,"Генерация математической документации API и воспроизводимых примеров использования: «FlexMix: An R package for finite mixture modelling» (2007, cit: 16)"
+INFRA-06,P0162,method,"Генерация математической документации API и воспроизводимых примеров использования: «Sparse Estimation in Finite Mixture of Accelerated Failure Time a» (2023, cit: 2)"
+INFRA-06,P0276,method,"Генерация математической документации API и воспроизводимых примеров использования: «“dynmix”: An R package for the estimation of dynamic finite mixtu» (2023, cit: 2)"
+VIS-01,P0267,foundation,Пионерская работа: интерактивный графический подход к декомпозиции компонент смесей (1976)
+VIS-01,P0016,benchmark,"Визуализация плотностей и контуров смеси в mclust 5 (Scrucca et al., 2016)"
+VIS-01,P0083,benchmark,Графическое наложение огибающих плотностей в пакете mixR (2018)
+VIS-01,P0002,foundation,Монография McLachlan & Peel (2000): принципы графической визуализации смесей (глава 1)
+VIS-02,P0002,foundation,"Диагностика согласия смесей распределений через Q-Q графики (McLachlan & Peel, 2000)"
+VIS-02,P0087,benchmark,Обзор графических диагностик согласия в пакетах моделирования смесей (1997)
+VIS-02,P0023,benchmark,"Графический анализ остатков и согласия в пакете FlexMix (Leisch, 2004)"
+VIS-03,P0016,benchmark,"Графическое профилирование критерия BIC по сетке моделей и компонент в mclust (Scrucca et al., 2016)"
+VIS-03,P0002,foundation,"Кривые информационных критериев для определения числа компонент (McLachlan & Peel, 2000)"
+VIS-03,P0023,benchmark,Профили информационных критериев в FlexMix (2004)
+VIS-04,P0019,benchmark,"Графический анализ монотонности траектории EM в mixtools (Benaglia et al., 2009)"
+VIS-04,P0001,foundation,"Теоретические свойства монотонности последовательности правдоподобия EM (Dempster et al., 1977)"
+VIS-04,P0021,method,Анализ отображения EM и динамики скорости сходимости (1995)
+VIS-05,P0016,benchmark,"Карты неопределенности отнесения к кластерам в mclust 5 (Scrucca et al., 2016)"
+VIS-05,P0023,benchmark,"Диаграммы апостериорных вероятностей в пакете FlexMix (Leisch, 2004)"
+VIS-05,P0002,foundation,Апостериорные вероятности принадлежности и мера неопределенности классификации (2000)
+REPR-01,P0002,foundation,"Аналитическое и численное определение функций распределения и квантилей смесей (McLachlan & Peel, 2000)"
+REPR-01,P0083,benchmark,Реализация интерфейса pmix и qmix в пакете mixR (2018)
+REPR-01,P0026,method,Вычисление кумулятивных характеристик смесей непрерывных распределений (1967)
+REPR-02,P0002,foundation,"Двухэтапная процедура стохастической симуляции выборки из смеси (McLachlan & Peel, 2000)"
+REPR-02,P0016,benchmark,Псевдослучайная симуляция выборок sim() в пакете mclust (2016)
+REPR-02,P0022,method,"Генерация бутстреп-выборок из оцененной параметрической смеси (McLachlan, 1987)"
+REPR-03,P0002,foundation,"Замкнутые формулы моментов смесей произвольных распределений (McLachlan & Peel, 2000, гл. 1)"
+REPR-03,P0026,foundation,Аналитическое выражение математического ожидания и дисперсии смеси (1967)
+REPR-03,P0069,method,Расчет моментов высших порядков для разделения смесей (1970)
+REPR-04,P0016,benchmark,Стандартизированный табличный отчет параметров моделей в mclust (2016)
+REPR-04,P0023,benchmark,Декларативное описание формул смесей в S4-интерфейсе FlexMix (2004)
+REPR-04,P0087,method,Сравнение протоколов отчетов и вывода параметров в пакетах смесей (1997)
+REPR-05,P0087,method,Проблемы долговременного хранения и воспроизводимости моделей смесей (1997)
+REPR-05,P0016,benchmark,Экспорт и импорт структур параметров в mclust (2016)
+REPR-05,P0023,benchmark,Сериализация объектов классификации в экосистеме R (2004)
+PERF-01,P0016,benchmark,Параллелизация подбора моделей смеси на многоядерных процессорах в mclust 5 (2016)
+PERF-01,P0153,method,Вычислительная сложность и параллелизм квазиньютоновских методов (2022)
+PERF-01,P0083,benchmark,Параллельные вычисления бутстреп-критериев в mixR (2018)
+PERF-02,P0001,foundation,"Структура матрицы условных ожиданий в EM и оптимизация повторных шагов (Dempster et al., 1977)"
+PERF-02,P0114,method,Оптимизация вычислений компонент рассеяния в алгоритмах максимального правдоподобия (2016)
+PERF-03,P0083,benchmark,Ускорение подгонки смесей на C++ с использованием Rcpp в mixR (2018)
+PERF-03,P0036,method,Квазиньютоновское ускорение оптимизации в высокоразмерных моделях смесей (2009)
+PERF-03,P0125,method,Методы численного ускорения сходимости алгоритма EM (2023)
+PERF-04,P0114,method,Вычислительные алгоритмы для матриц рассеяния без избыточных аллокаций памяти (2016)
+PERF-04,P0001,foundation,Вычисление достаточной статистики без хранения полных данных (1977)
+DIAG-01,P0022,foundation,"Параметрический бутстреп-тест согласия для смесей распределений (McLachlan, 1987)"
+DIAG-01,P0051,method,Проверка гипотез о согласии и числе компонент в конечных смесях (2003)
+DIAG-01,P0079,method,Статистические критерии проверки гипотезы смеси распределений (1990)
+DIAG-01,P0134,benchmark,Ограниченный бутстреп-тест отношения правдоподобия для смесей (2015)
+DIAG-02,P0002,foundation,"Оценка информационной матрицы Фишера и формулы Луи для стандартных ошибок EM (McLachlan & Peel, 2000)"
+DIAG-02,P0022,method,"Бутстреп-оценка дисперсий и доверительных интервалов параметров смеси (McLachlan, 1987)"
+DIAG-02,P0042,method,Оценивание стандартных ошибок параметров смесей в EM-алгоритме (1992)
+DIAG-02,P0023,benchmark,"Асимптотические ковариации и стандартные ошибки в процедуре refit (FlexMix, 2004)"
+DIAG-02,P0038,method,Использование бутстреп-интервалов в конечных смесях (1996)
+DIAG-03,P0087,method,Сравнительный бенчмаркинг скорости сходимости и времени шагов пакетов смесей (1997)
+DIAG-03,P0153,method,Анализ вычислительной сложности и временных затрат на итерацию (2022)
+STRUC-12,P0405
+STRUC-12,P0406
+STRUC-12,P0395
+STRUC-13,P0407
+STRUC-13,P0396
+STRUC-14,P0412
+STRUC-14,P0413
+STRUC-14,P0399
+STRUC-14,P0400
+STRUC-14,P0416
+STRUC-14,P0422
+STRUC-14,P0424
+STRUC-15,P0414
+STRUC-10,P0409
+STRUC-10,P0417
+STRUC-07,P0410
+STRUC-07,P0411
+STRUC-08,P0423
+STRUC-11,P0415
+STRUC-11,P0418
+STRUC-11,P0420
+STRUC-11,P0425
+STRUC-07,P0408
+STRUC-07,P0421
+STRUC-01,P0419
+STRUC-01,P0426
+STRUC-01,P0427
+STRUC-16,P0408,foundation,"Supervised ML подход (Random Forest на мета-фичах выборки) для мгновенного предсказания числа кластеров/компонент"
+STRUC-16,P0421,method,"Мета-обучение на индексах топологии и конформации распределения для предсказания числа компонент"
+STRUC-16,P0423,method,"Оценка устойчивости компонент смеси через бутстреп-ресемплинг как признак для мета-обучения"
+STRUC-17,P0418,foundation,"Применение нейронных сетей (MLP, CNN) для прямой классификации одномерных параметрических семейств по выборкам"
+STRUC-17,P0420,foundation,"Теория L-моментов Хоскинга: построение диаграмм отношения L-моментов для однозначной сепарации параметрических семейств"
+STRUC-17,P0425,method,"Нейронные сети на объединенных векторах моментов и квантилей для аппроксимации и идентификации одномерных распределений"
+STRUC-18,P0419,foundation,"Amortized Bayesian Mixture Models: амортизированный вывод структуры конечных смесей с помощью Deep Sets и обратимых сетей"
+STRUC-18,P0426,foundation,"Архитектура Deep Sets: пермутационно-инвариантные глубокие сети для прямого оценивания параметров смесей по выборке точек"
+STRUC-18,P0427,method,"Фундаментальный обзор нейросетевых методов амортизированного вывода (Point estimation и структура за < 1 мс)"
