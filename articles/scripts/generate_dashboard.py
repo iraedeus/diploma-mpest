@@ -81,6 +81,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PySATL mpest — Интерактивная матрица требований и навигатор литературы</title>
+  <!-- Early Dark Mode Detection -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
   <!-- Tailwind CSS via CDN with fallback styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -125,6 +133,19 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       max-height: calc(100vh - 270px);
       overflow: auto;
       scrollbar-width: thin;
+    }
+    .dark .table-container {
+      scrollbar-color: #475569 #0f172a;
+    }
+    .dark .table-container::-webkit-scrollbar {
+      background-color: #0f172a;
+    }
+    .dark .table-container::-webkit-scrollbar-thumb {
+      background-color: #334155;
+      border-radius: 4px;
+    }
+    .dark .table-container::-webkit-scrollbar-thumb:hover {
+      background-color: #475569;
     }
     .sticky-th {
       position: sticky;
@@ -202,28 +223,48 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .priority-should { background-color: #fed7aa; color: #9a3412; }
     .priority-could { background-color: #e2e8f0; color: #475569; }
 
+    /* Dark mode badge overrides */
+    .dark .status-yes {
+      background-color: #064e3b;
+      color: #6ee7b7;
+      border: 1px solid #047857;
+    }
+    .dark .status-partial {
+      background-color: #713f12;
+      color: #fde047;
+      border: 1px solid #a16207;
+    }
+    .dark .status-no {
+      background-color: #7f1d1d;
+      color: #fca5a5;
+      border: 1px solid #b91c1c;
+    }
+    .dark .priority-must { background-color: #881337; color: #fecdd3; }
+    .dark .priority-should { background-color: #7c2d12; color: #fed7aa; }
+    .dark .priority-could { background-color: #334155; color: #cbd5e1; }
+
     /* Modal slide-in */
     .drawer {
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased min-h-screen flex flex-col font-sans transition-colors duration-200">
 
   <!-- Header -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm transition-colors duration-200">
     <div class="max-w-[1920px] mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow">
           Ψ
         </div>
         <div>
-          <h1 class="text-lg font-bold text-slate-900 leading-tight flex items-center gap-2">
+          <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight flex items-center gap-2">
             PySATL mpest — Навигатор требований и доказательной литературы
-            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700">ВКР 2026</span>
-            <span id="build-timestamp-badge" class="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">__BUILD_TIMESTAMP__</span>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">ВКР 2026</span>
+            <span id="build-timestamp-badge" class="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">__BUILD_TIMESTAMP__</span>
           </h1>
-          <p id="header-subtitle" class="text-xs text-slate-500">
+          <p id="header-subtitle" class="text-xs text-slate-500 dark:text-slate-400">
             Сравнительный анализ __NUM_TOOLS__ открытых пакетов (Python, R, Julia, C++), __NUM_REQS__ требований и __NUM_ARTICLES__ рецензируемых публикаций
           </p>
         </div>
@@ -231,52 +272,55 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
       <!-- Quick Metrics & Actions -->
       <div class="flex items-center flex-wrap gap-2 text-xs">
-        <div class="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
-          <span class="text-slate-500">Показано:</span>
-          <span id="metric-reqs" class="font-bold text-slate-900">__NUM_REQS__ требований</span>
-          <span class="text-slate-300">|</span>
-          <span id="metric-tools" class="font-bold text-slate-900">__NUM_TOOLS__ пакетов</span>
+        <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+          <span class="text-slate-500 dark:text-slate-400">Показано:</span>
+          <span id="metric-reqs" class="font-bold text-slate-900 dark:text-slate-100">__NUM_REQS__ требований</span>
+          <span class="text-slate-300 dark:text-slate-600">|</span>
+          <span id="metric-tools" class="font-bold text-slate-900 dark:text-slate-100">__NUM_TOOLS__ пакетов</span>
         </div>
-        <button id="btn-export-markdown" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-900 text-white font-medium rounded-lg shadow-sm transition flex items-center gap-1.5">
+        <button id="btn-theme-toggle" class="px-2.5 py-1.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5" title="Переключить тему оформления">
+          <span id="theme-toggle-icon">🌙</span> <span id="theme-toggle-text">Темная</span>
+        </button>
+        <button id="btn-export-markdown" class="px-3 py-1.5 bg-slate-800 dark:bg-indigo-600 hover:bg-slate-900 dark:hover:bg-indigo-700 text-white font-medium rounded-lg shadow-sm transition flex items-center gap-1.5">
           <span>📋</span> Скопировать Markdown
         </button>
-        <button id="btn-export-csv" class="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 font-medium rounded-lg border border-slate-300 shadow-sm transition flex items-center gap-1.5">
+        <button id="btn-export-csv" class="px-3 py-1.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5">
           <span>📊</span> Экспорт CSV
         </button>
-        <button id="btn-help" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-slate-600 font-medium rounded-lg border border-slate-300 shadow-sm transition">
+        <button id="btn-help" class="px-2.5 py-1.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm transition">
           ❓ Легенда
         </button>
       </div>
     </div>
 
     <!-- Filter & Search Toolbar -->
-    <div class="bg-slate-50 border-t border-slate-200 px-4 py-2.5">
+    <div class="bg-slate-50 dark:bg-slate-900/90 border-t border-slate-200 dark:border-slate-800 px-4 py-2.5">
       <div class="max-w-[1920px] mx-auto flex flex-wrap items-center justify-between gap-3">
         <!-- Left: Search and Categories -->
         <div class="flex flex-wrap items-center gap-2 flex-grow">
           <!-- Live search -->
           <div class="relative w-72">
             <input type="text" id="input-search" placeholder="Поиск (код, фича, статья, автор)..."
-                   class="w-full pl-8 pr-3 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm">
-            <span class="absolute left-2.5 top-2 text-slate-400 text-xs">🔍</span>
+                   class="w-full pl-8 pr-3 py-1.5 text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm">
+            <span class="absolute left-2.5 top-2 text-slate-400 dark:text-slate-500 text-xs">🔍</span>
           </div>
 
           <!-- Type filter dropdown -->
-          <select id="select-category" class="py-1.5 px-3 text-xs bg-white border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm font-medium">
+          <select id="select-category" class="py-1.5 px-3 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm font-medium">
             <option value="all">Все категории (__NUM_REQS__)</option>
             <!-- Generated dynamically -->
           </select>
 
           <!-- Ecosystem filter -->
-          <div class="flex items-center bg-white border border-slate-300 rounded-lg p-0.5 shadow-sm text-xs" id="eco-tabs">
-            <button data-eco="all" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 bg-indigo-50 text-indigo-700">Все пакеты (__NUM_TOOLS__)</button>
-            <button data-eco="python" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 hover:text-slate-900">Python (__NUM_PYTHON__)</button>
-            <button data-eco="r" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 hover:text-slate-900">R (__NUM_R__)</button>
-            <button data-eco="julia_cpp" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 hover:text-slate-900">Julia / C++ (__NUM_JULIA_CPP__)</button>
+          <div class="flex items-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-0.5 shadow-sm text-xs" id="eco-tabs">
+            <button data-eco="all" class="eco-btn px-2.5 py-1 rounded font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/70">Все пакеты (__NUM_TOOLS__)</button>
+            <button data-eco="python" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Python (__NUM_PYTHON__)</button>
+            <button data-eco="r" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">R (__NUM_R__)</button>
+            <button data-eco="julia_cpp" class="eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Julia / C++ (__NUM_JULIA_CPP__)</button>
           </div>
 
           <!-- Preset filters -->
-          <select id="select-preset" class="py-1.5 px-3 text-xs bg-white border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm font-medium">
+          <select id="select-preset" class="py-1.5 px-3 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm font-medium">
             <option value="all">⚡ Пресет: Все требования</option>
             <option value="mpest-killer">🎯 Киллер-фичи pysatl-mpest (mpest=Есть, аналоги=Нет/Частично)</option>
             <option value="mpest-backlog">⚠️ Бэклог pysatl-mpest (Must/Should со статусом Частично/Нет)</option>
@@ -287,10 +331,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
         <!-- Right: Tool selector modal button & reset -->
         <div class="flex items-center gap-2">
-          <button id="btn-custom-tools" class="px-2.5 py-1.5 bg-white hover:bg-slate-100 text-slate-700 text-xs font-medium rounded-lg border border-slate-300 shadow-sm transition flex items-center gap-1">
+          <button id="btn-custom-tools" class="px-2.5 py-1.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1">
             <span>⚙️</span> Выбрать пакеты (<span id="selected-tools-count">__NUM_TOOLS__</span>)
           </button>
-          <button id="btn-reset-filters" class="px-2.5 py-1.5 text-xs text-slate-500 hover:text-slate-800 font-medium transition">
+          <button id="btn-reset-filters" class="px-2.5 py-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-medium transition">
             Сброс фильтров
           </button>
         </div>
@@ -300,25 +344,25 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   <!-- Main Matrix Container -->
   <main class="flex-grow max-w-[1920px] w-full mx-auto p-4">
-    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+    <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors duration-200">
       <div class="table-container">
         <table id="matrix-table" class="w-full text-left border-collapse text-xs">
           <thead>
-            <tr id="matrix-header-row" class="bg-slate-100 text-slate-700 border-b border-slate-200 font-semibold select-none">
+            <tr id="matrix-header-row" class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-b border-slate-200 dark:border-slate-800 font-semibold select-none">
               <!-- Dynamically populated -->
             </tr>
           </thead>
-          <tbody id="matrix-body" class="divide-y divide-slate-100">
+          <tbody id="matrix-body" class="divide-y divide-slate-100 dark:divide-slate-800">
             <!-- Dynamically populated -->
           </tbody>
         </table>
       </div>
 
       <!-- Footer / Status bar inside table container -->
-      <div class="px-4 py-2.5 bg-slate-50 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
+      <div class="px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <span>Клик по статусу — обоснование и строка кода.</span>
-          <span>Клик по <span class="font-bold text-indigo-600">📚 N</span> — полный список статей с фильтрами цитирования.</span>
+          <span>Клик по <span class="font-bold text-indigo-600 dark:text-indigo-400">📚 N</span> — полный список статей с фильтрами цитирования.</span>
         </div>
         <div class="flex items-center gap-3">
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Есть (yes)</span>
@@ -335,9 +379,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div id="drawer-backdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
 
     <div class="absolute inset-y-0 right-0 pl-10 max-w-full flex">
-      <div class="drawer w-screen max-w-2xl bg-white shadow-2xl flex flex-col h-full transform translate-x-full">
+      <div class="drawer w-screen max-w-2xl bg-white dark:bg-slate-900 shadow-2xl flex flex-col h-full border-l border-slate-200 dark:border-slate-800 transform translate-x-full">
         <!-- Drawer Header -->
-        <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+        <div class="px-6 py-4 bg-slate-900 dark:bg-slate-950 text-white flex items-center justify-between border-b border-slate-800">
           <div>
             <div class="flex items-center gap-2 mb-1">
               <span id="lit-req-id" class="px-2 py-0.5 rounded bg-indigo-500 text-white text-xs font-mono font-bold">EST-01</span>
@@ -350,22 +394,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </div>
 
         <!-- Description Note -->
-        <div class="px-6 py-3 bg-indigo-50/50 border-b border-indigo-100 text-xs text-slate-700">
+        <div class="px-6 py-3 bg-indigo-50/50 dark:bg-indigo-950/40 border-b border-indigo-100 dark:border-indigo-900/60 text-xs text-slate-700 dark:text-slate-300">
           <p id="lit-req-desc" class="italic leading-relaxed"></p>
         </div>
 
         <!-- Literature Filter Bar -->
-        <div class="px-6 py-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="px-6 py-3 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
           <!-- Search in articles -->
           <div class="w-48">
             <input type="text" id="lit-filter-text" placeholder="Поиск в статьях..."
-                   class="w-full px-2.5 py-1 text-xs border border-slate-300 rounded focus:ring-1 focus:ring-indigo-500">
+                   class="w-full px-2.5 py-1 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 rounded focus:ring-1 focus:ring-indigo-500">
           </div>
 
           <!-- Min Citations Filter -->
           <div class="flex items-center gap-1.5">
-            <span class="text-slate-500">Мин. цитат:</span>
-            <select id="lit-filter-citations" class="border border-slate-300 rounded px-2 py-1 text-xs bg-white font-medium">
+            <span class="text-slate-500 dark:text-slate-400">Мин. цитат:</span>
+            <select id="lit-filter-citations" class="border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
               <option value="0">Все (≥ 0)</option>
               <option value="20">≥ 20</option>
               <option value="50">≥ 50</option>
@@ -377,8 +421,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
           <!-- Role Filter -->
           <div class="flex items-center gap-1.5">
-            <span class="text-slate-500">Роль:</span>
-            <select id="lit-filter-role" class="border border-slate-300 rounded px-2 py-1 text-xs bg-white font-medium">
+            <span class="text-slate-500 dark:text-slate-400">Роль:</span>
+            <select id="lit-filter-role" class="border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
               <option value="all">Все роли</option>
               <option value="foundation">Базис (foundation)</option>
               <option value="method">Метод (method)</option>
@@ -388,8 +432,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
           <!-- Sort -->
           <div class="flex items-center gap-1.5">
-            <span class="text-slate-500">Сортировка:</span>
-            <select id="lit-filter-sort" class="border border-slate-300 rounded px-2 py-1 text-xs bg-white font-medium">
+            <span class="text-slate-500 dark:text-slate-400">Сортировка:</span>
+            <select id="lit-filter-sort" class="border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
               <option value="citations-desc">Цитаты ↓</option>
               <option value="year-desc">Год: новые ↓</option>
               <option value="year-asc">Год: старые ↑</option>
@@ -398,8 +442,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
           <!-- Limit -->
           <div class="flex items-center gap-1.5">
-            <span class="text-slate-500">Лимит:</span>
-            <select id="lit-filter-limit" class="border border-slate-300 rounded px-2 py-1 text-xs bg-white font-medium">
+            <span class="text-slate-500 dark:text-slate-400">Лимит:</span>
+            <select id="lit-filter-limit" class="border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
               <option value="5">Топ 5</option>
               <option value="10" selected>Топ 10</option>
               <option value="25">Топ 25</option>
@@ -409,23 +453,23 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </div>
 
         <!-- Action / Export bar for articles -->
-        <div class="px-6 py-2 bg-slate-100 border-b border-slate-200 flex items-center justify-between text-xs">
-          <div class="text-slate-600 font-medium">
-            Найдено статей: <span id="lit-matched-count" class="font-bold text-indigo-700">0</span> из <span id="lit-total-count" class="font-bold">0</span>
+        <div class="px-6 py-2 bg-slate-100 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
+          <div class="text-slate-600 dark:text-slate-400 font-medium">
+            Найдено статей: <span id="lit-matched-count" class="font-bold text-indigo-700 dark:text-indigo-400">0</span> из <span id="lit-total-count" class="font-bold text-slate-900 dark:text-slate-100">0</span>
           </div>
           <div class="flex items-center gap-2">
-            <button id="btn-copy-lit-markdown" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1">
+            <button id="btn-copy-lit-markdown" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium flex items-center gap-1">
               <span>📋</span> Копировать список (Markdown)
             </button>
-            <span class="text-slate-300">|</span>
-            <button id="btn-copy-lit-bibtex" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1">
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <button id="btn-copy-lit-bibtex" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium flex items-center gap-1">
               <span>📚</span> BibTeX
             </button>
           </div>
         </div>
 
         <!-- Articles Cards List -->
-        <div id="lit-articles-list" class="flex-grow overflow-y-auto p-6 space-y-3 divide-y divide-slate-100">
+        <div id="lit-articles-list" class="flex-grow overflow-y-auto p-6 space-y-3 divide-y divide-slate-100 dark:divide-slate-800">
           <!-- Dynamically populated -->
         </div>
       </div>
@@ -436,28 +480,33 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="modal-evidence" class="fixed inset-0 z-50 overflow-y-auto hidden">
     <div class="min-h-screen px-4 text-center flex items-center justify-center">
       <div id="modal-evidence-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"></div>
-      <div class="inline-block bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all my-8 max-w-lg w-full z-10 p-6 border border-slate-200">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+      <div class="inline-block bg-white dark:bg-slate-900 rounded-xl text-left overflow-hidden shadow-2xl transform transition-all my-8 max-w-lg w-full z-10 p-6 border border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">
           <div>
-            <div id="ev-tool-name" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Инструмент</div>
-            <h3 id="ev-title" class="text-base font-bold text-slate-900">Оценка функционального требования</h3>
+            <div id="ev-tool-name" class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Инструмент</div>
+            <h3 id="ev-title" class="text-base font-bold text-slate-900 dark:text-slate-100">Оценка функционального требования</h3>
           </div>
-          <button id="btn-close-evidence" class="text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
+          <button id="btn-close-evidence" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg font-bold">✕</button>
         </div>
 
         <div class="space-y-4 text-xs">
           <div>
-            <span class="text-slate-500 block mb-1">Статус поддержки:</span>
+            <span class="text-slate-500 dark:text-slate-400 block mb-1">Описание требования:</span>
+            <div id="ev-req-desc" class="p-3 bg-slate-50 dark:bg-slate-800/70 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 leading-relaxed font-sans"></div>
+          </div>
+
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block mb-1">Статус поддержки:</span>
             <div id="ev-status-badge"></div>
           </div>
 
           <div>
-            <span class="text-slate-500 block mb-1">Обоснование и специфика реализации:</span>
-            <div id="ev-note" class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-slate-800 leading-relaxed font-sans"></div>
+            <span class="text-slate-500 dark:text-slate-400 block mb-1">Обоснование и специфика реализации:</span>
+            <div id="ev-note" class="p-3 bg-slate-50 dark:bg-slate-800/70 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 leading-relaxed font-sans"></div>
           </div>
 
           <div>
-            <span class="text-slate-500 block mb-1">Доказательная ссылка / место в коде:</span>
+            <span class="text-slate-500 dark:text-slate-400 block mb-1">Доказательная ссылка / место в коде:</span>
             <div id="ev-link-container"></div>
           </div>
         </div>
@@ -475,28 +524,28 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="modal-tools" class="fixed inset-0 z-50 overflow-y-auto hidden">
     <div class="min-h-screen px-4 text-center flex items-center justify-center">
       <div id="modal-tools-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"></div>
-      <div class="inline-block bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all my-8 max-w-2xl w-full z-10 p-6 border border-slate-200">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+      <div class="inline-block bg-white dark:bg-slate-900 rounded-xl text-left overflow-hidden shadow-2xl transform transition-all my-8 max-w-2xl w-full z-10 p-6 border border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">
           <div>
-            <h3 class="text-base font-bold text-slate-900">Выбор отображаемых инструментов</h3>
-            <p class="text-xs text-slate-500">Выберите интересующие пакеты для прямого сравнения без лишних колонок</p>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Выбор отображаемых инструментов</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Выберите интересующие пакеты для прямого сравнения без лишних колонок</p>
           </div>
-          <button id="btn-close-tools" class="text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
+          <button id="btn-close-tools" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg font-bold">✕</button>
         </div>
 
         <div class="flex items-center justify-between mb-3 text-xs">
           <div class="space-x-2">
-            <button id="btn-select-all-tools" class="text-indigo-600 hover:underline font-medium">Выбрать все (__NUM_TOOLS__)</button>
-            <span class="text-slate-300">|</span>
-            <button id="btn-select-only-mpest" class="text-indigo-600 hover:underline font-medium">Только mpest</button>
-            <span class="text-slate-300">|</span>
-            <button id="btn-select-python-tools" class="text-indigo-600 hover:underline font-medium">Все Python (__NUM_PYTHON__)</button>
-            <span class="text-slate-300">|</span>
-            <button id="btn-select-r-tools" class="text-indigo-600 hover:underline font-medium">Все R (__NUM_R__)</button>
+            <button id="btn-select-all-tools" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Выбрать все (__NUM_TOOLS__)</button>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <button id="btn-select-only-mpest" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Только mpest</button>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <button id="btn-select-python-tools" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Все Python (__NUM_PYTHON__)</button>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <button id="btn-select-r-tools" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Все R (__NUM_R__)</button>
           </div>
         </div>
 
-        <div id="tools-checkbox-grid" class="max-h-96 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 gap-2.5 p-2 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+        <div id="tools-checkbox-grid" class="max-h-96 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 gap-2.5 p-2 bg-slate-50 dark:bg-slate-950/60 rounded-lg border border-slate-200 dark:border-slate-800 text-xs">
           <!-- Dynamically populated -->
         </div>
 
@@ -513,15 +562,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="modal-help" class="fixed inset-0 z-50 overflow-y-auto hidden">
     <div class="min-h-screen px-4 text-center flex items-center justify-center">
       <div id="modal-help-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"></div>
-      <div class="inline-block bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all my-8 max-w-xl w-full z-10 p-6 border border-slate-200 text-xs">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-          <h3 class="text-base font-bold text-slate-900">Справочник и цветовая шкала матрицы</h3>
-          <button id="btn-close-help" class="text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
+      <div class="inline-block bg-white dark:bg-slate-900 rounded-xl text-left overflow-hidden shadow-2xl transform transition-all my-8 max-w-xl w-full z-10 p-6 border border-slate-200 dark:border-slate-800 text-xs">
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">
+          <h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Справочник и цветовая шкала матрицы</h3>
+          <button id="btn-close-help" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg font-bold">✕</button>
         </div>
 
-        <div class="space-y-4 text-slate-700">
+        <div class="space-y-4 text-slate-700 dark:text-slate-300">
           <div>
-            <h4 class="font-bold text-slate-900 mb-1.5">Цветовая шкала статусов поддержки:</h4>
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1.5">Цветовая шкала статусов поддержки:</h4>
             <div class="space-y-1.5">
               <div class="flex items-center gap-2">
                 <span class="status-badge status-yes">✓ Есть</span>
@@ -539,7 +588,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           </div>
 
           <div>
-            <h4 class="font-bold text-slate-900 mb-1.5">Приоритеты требований:</h4>
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1.5">Приоритеты требований:</h4>
             <div class="space-y-1">
               <div><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase priority-must">must</span> — критически необходимо для базового релиза библиотеки.</div>
               <div><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase priority-should">should</span> — важное конкурентное преимущество, запланированное к выпуску.</div>
@@ -548,7 +597,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           </div>
 
           <div>
-            <h4 class="font-bold text-slate-900 mb-1.5">Наукометрическая доказательная база:</h4>
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1.5">Наукометрическая доказательная база:</h4>
             <p class="leading-relaxed">
               Колонка <b>«Статьи (N)»</b> отображает число рецензируемых публикаций, в которых данное требование исследовано математически или реализовано. Клик по кнопке открывает перечень статей с сортировкой по цитируемости и фильтрами.
             </p>
@@ -565,7 +614,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-2 rounded-lg text-xs font-medium shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-2 rounded-lg text-xs font-medium shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
     Уведомление
   </div>
 
@@ -687,12 +736,12 @@ __RAW_JSON_DATA__
       const toolsGrid = document.getElementById('tools-checkbox-grid');
       tools.forEach(t => {
         const label = document.createElement('label');
-        label.className = 'flex items-center gap-2 p-2 bg-white rounded border border-slate-200 hover:border-indigo-400 cursor-pointer select-none';
+        label.className = 'flex items-center gap-2 p-2 bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 cursor-pointer select-none';
         label.innerHTML = `
           <input type="checkbox" value="${t.tool_id}" class="tool-checkbox rounded text-indigo-600 focus:ring-indigo-500" ${selectedToolIds.includes(t.tool_id) ? 'checked' : ''}>
           <div class="truncate">
-            <span class="font-bold text-slate-800">${t.tool_id}</span>
-            <span class="text-[10px] text-slate-400 block">${t.ecosystem}</span>
+            <span class="font-bold text-slate-800 dark:text-slate-200">${t.tool_id}</span>
+            <span class="text-[10px] text-slate-400 dark:text-slate-500 block">${t.ecosystem}</span>
           </div>
         `;
         toolsGrid.appendChild(label);
@@ -779,28 +828,28 @@ __RAW_JSON_DATA__
       // Render Matrix Header
       function renderHeader() {
         let html = `
-          <th class="sticky-header-corner-1 bg-slate-100 p-2.5 w-16 text-center border-r border-slate-200">Код</th>
-          <th class="sticky-header-corner-2 bg-slate-100 p-2.5 w-60 border-r border-slate-200">Требование / Возможность</th>
+          <th class="sticky-header-corner-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-2.5 w-16 text-center border-r border-slate-200 dark:border-slate-700">Код</th>
+          <th class="sticky-header-corner-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-2.5 w-60 border-r border-slate-200 dark:border-slate-700">Требование / Возможность</th>
         `;
 
         selectedToolIds.forEach(tId => {
           const tool = toolMap.get(tId);
           const isTarget = tId === 'pysatl-mpest';
           const headerClass = isTarget
-            ? 'sticky-header-corner-target bg-indigo-50 border-r-2 border-indigo-300 text-indigo-900 font-bold px-2 py-2 text-center min-w-[110px]'
-            : 'sticky-th bg-slate-100 border-r border-slate-200 px-2 py-2 text-center min-w-[95px] max-w-[120px] truncate';
+            ? 'sticky-header-corner-target bg-indigo-50 dark:bg-indigo-950/80 border-r-2 border-indigo-300 dark:border-indigo-600 text-indigo-900 dark:text-indigo-200 font-bold px-2 py-2 text-center min-w-[110px]'
+            : 'sticky-th bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-r border-slate-200 dark:border-slate-700 px-2 py-2 text-center min-w-[95px] max-w-[120px] truncate';
 
           html += `
             <th class="${headerClass}" title="${tool ? tool.name + ' (' + tool.ecosystem + ')' : tId}">
               <div class="truncate text-xs">${tool ? tool.name : tId}</div>
-              <div class="text-[10px] font-normal text-slate-400">${tool ? tool.ecosystem : ''}</div>
+              <div class="text-[10px] font-normal text-slate-400 dark:text-slate-500">${tool ? tool.ecosystem : ''}</div>
             </th>
           `;
         });
 
         html += `
-          <th class="sticky-th bg-slate-100 p-2.5 text-center w-24 border-r border-slate-200">Статьи (N)</th>
-          <th class="sticky-th bg-slate-100 p-2.5 min-w-[240px]">Ключевые публикации (цитирования)</th>
+          <th class="sticky-th bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-2.5 text-center w-24 border-r border-slate-200 dark:border-slate-700">Статьи (N)</th>
+          <th class="sticky-th bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-2.5 min-w-[240px]">Ключевые публикации (цитирования)</th>
         `;
 
         tableHead.innerHTML = html;
@@ -818,7 +867,7 @@ __RAW_JSON_DATA__
         if (filteredReqs.length === 0) {
           tableBody.innerHTML = `
             <tr>
-              <td colspan="${selectedToolIds.length + 4}" class="p-8 text-center text-slate-400">
+              <td colspan="${selectedToolIds.length + 4}" class="p-8 text-center text-slate-400 dark:text-slate-500">
                 По заданным критериям фильтрации требований не найдено.
               </td>
             </tr>
@@ -838,9 +887,9 @@ __RAW_JSON_DATA__
         reqsByType.forEach((typeReqs, typeKey) => {
           const typeTitle = category_names[typeKey] || typeKey;
           bodyHtml += `
-            <tr class="bg-slate-200/60 font-semibold text-slate-700 text-xs select-none">
-              <td colspan="${selectedToolIds.length + 4}" class="px-3 py-1.5 border-y border-slate-300">
-                📁 ${typeTitle} <span class="text-slate-500 font-normal">(${typeReqs.length})</span>
+            <tr class="bg-slate-200/60 dark:bg-slate-800/80 font-semibold text-slate-700 dark:text-slate-200 text-xs select-none">
+              <td colspan="${selectedToolIds.length + 4}" class="px-3 py-1.5 border-y border-slate-300 dark:border-slate-700">
+                📁 ${typeTitle} <span class="text-slate-500 dark:text-slate-400 font-normal">(${typeReqs.length})</span>
               </td>
             </tr>
           `;
@@ -851,24 +900,24 @@ __RAW_JSON_DATA__
 
             const prioBadge = `priority-${req.priority}`;
 
-            bodyHtml += `<tr class="hover:bg-indigo-50/20 transition-colors group">`;
+            bodyHtml += `<tr class="hover:bg-indigo-50/20 dark:hover:bg-slate-800/50 transition-colors group">`;
 
             // Col 1: Code
             bodyHtml += `
-              <td class="sticky-col-1 bg-white group-hover:bg-slate-50 p-2 font-mono font-bold text-slate-700 border-r border-slate-200 text-center">
+              <td class="sticky-col-1 bg-white dark:bg-slate-900 group-hover:bg-slate-50 dark:group-hover:bg-slate-800 p-2 font-mono font-bold text-slate-700 dark:text-slate-300 border-r border-slate-200 dark:border-slate-800 text-center">
                 ${req.req_id}
               </td>
             `;
 
             // Col 2: Name & priority
             bodyHtml += `
-              <td class="sticky-col-2 bg-white group-hover:bg-slate-50 p-2 border-r border-slate-200 max-w-[240px]">
+              <td class="sticky-col-2 bg-white dark:bg-slate-900 group-hover:bg-slate-50 dark:group-hover:bg-slate-800 p-2 border-r border-slate-200 dark:border-slate-800 max-w-[240px]">
                 <div class="flex items-center gap-1.5 mb-0.5">
-                  <span class="font-semibold text-slate-900 leading-snug">${req.name}</span>
+                  <span class="font-semibold text-slate-900 dark:text-slate-100 leading-snug">${req.name}</span>
                 </div>
                 <div class="flex items-center gap-1.5">
                   <span class="px-1.5 py-0.2 rounded text-[10px] font-semibold uppercase ${prioBadge}">${req.priority}</span>
-                  <span class="text-[10px] text-slate-400 truncate max-w-[180px]" title="${req.description}">${req.description}</span>
+                  <span class="text-[10px] text-slate-400 dark:text-slate-400 truncate max-w-[180px]" title="${req.description}">${req.description}</span>
                 </div>
               </td>
             `;
@@ -890,8 +939,8 @@ __RAW_JSON_DATA__
               }
 
               const cellBgClass = isTarget
-                ? 'sticky-col-target bg-indigo-50/50 group-hover:bg-indigo-100/50 border-r-2 border-indigo-300'
-                : 'border-r border-slate-200';
+                ? 'sticky-col-target bg-indigo-50/50 dark:bg-indigo-950/40 group-hover:bg-indigo-100/50 dark:group-hover:bg-indigo-900/50 border-r-2 border-indigo-300 dark:border-indigo-700'
+                : 'border-r border-slate-200 dark:border-slate-800';
 
               bodyHtml += `
                 <td class="${cellBgClass} p-1.5 text-center">
@@ -906,8 +955,8 @@ __RAW_JSON_DATA__
 
             // Col: Articles count (clickable)
             bodyHtml += `
-              <td class="p-1.5 text-center border-r border-slate-200">
-                <button class="btn-open-lit inline-flex items-center gap-1 px-2 py-1 rounded bg-slate-100 hover:bg-indigo-100 text-slate-700 hover:text-indigo-800 font-semibold text-xs border border-slate-200 hover:border-indigo-300 transition"
+              <td class="p-1.5 text-center border-r border-slate-200 dark:border-slate-800">
+                <button class="btn-open-lit inline-flex items-center gap-1 px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-slate-700 dark:text-slate-300 hover:text-indigo-800 dark:hover:text-indigo-200 font-semibold text-xs border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-500 transition"
                         data-req-id="${req.req_id}">
                   <span>📚</span> ${nArticles}
                 </button>
@@ -925,16 +974,16 @@ __RAW_JSON_DATA__
                 const citStr = cit >= 1000 ? (cit / 1000).toFixed(1) + 'k' : cit;
                 const doi = a.article.doi || a.article.url;
                 const link = (doi && doi.startsWith('http')) ? doi : '#';
-                return `<a href="${link}" target="_blank" class="hover:text-indigo-600 hover:underline">${author} (${yr}, <b>${citStr}</b>)</a>`;
+                return `<a href="${link}" target="_blank" class="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline">${author} (${yr}, <b>${citStr}</b>)</a>`;
               });
               topArticlesHtml = previewItems.join(', ');
               if (nArticles > 2) {
-                topArticlesHtml += `, <span class="text-slate-400 italic cursor-pointer btn-open-lit" data-req-id="${req.req_id}">+${nArticles - 2} еще</span>`;
+                topArticlesHtml += `, <span class="text-slate-400 dark:text-slate-500 italic cursor-pointer btn-open-lit" data-req-id="${req.req_id}">+${nArticles - 2} еще</span>`;
               }
             }
 
             bodyHtml += `
-              <td class="p-2 text-slate-600 text-xs">
+              <td class="p-2 text-slate-600 dark:text-slate-400 text-xs">
                 ${topArticlesHtml}
               </td>
             `;
@@ -974,6 +1023,11 @@ __RAW_JSON_DATA__
         document.getElementById('ev-tool-name').textContent = `${tool ? tool.name : toolId} (${tool ? tool.ecosystem : ''})`;
         document.getElementById('ev-title').textContent = `${reqId}: ${req ? req.name : ''}`;
 
+        const reqDescContainer = document.getElementById('ev-req-desc');
+        if (reqDescContainer) {
+          reqDescContainer.textContent = req && req.description ? req.description : 'Описание требования отсутствует.';
+        }
+
         const statusBadgeContainer = document.getElementById('ev-status-badge');
         const noteContainer = document.getElementById('ev-note');
         const linkContainer = document.getElementById('ev-link-container');
@@ -992,15 +1046,21 @@ __RAW_JSON_DATA__
           if (tool && tool.repository_url && !link.startsWith('http')) {
             // Build GitHub/GitLab link if relative
             const repo = tool.repository_url.replace(/\/+$/, '');
-            fullUrl = `${repo}/blob/master/${link}`;
+            let branch = 'master';
+            if (tool.tool_id === 'pysatl-mpest') {
+              branch = 'refactor/rework-arch';
+            } else if (repo.includes('scikit-learn')) {
+              branch = 'main';
+            }
+            fullUrl = `${repo}/blob/${branch}/${link}`;
           }
           linkContainer.innerHTML = `
-            <a href="${fullUrl}" target="_blank" class="text-indigo-600 hover:text-indigo-800 hover:underline break-all font-mono inline-flex items-center gap-1">
+            <a href="${fullUrl}" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 hover:underline break-all font-mono inline-flex items-center gap-1">
               <span>🔗</span> ${ev.evidence_link}
             </a>
           `;
         } else {
-          linkContainer.innerHTML = '<span class="text-slate-400 italic">Ссылка на строку кода не указана</span>';
+          linkContainer.innerHTML = '<span class="text-slate-400 dark:text-slate-500 italic">Ссылка на строку кода не указана</span>';
         }
 
         modalEvidence.classList.remove('hidden');
@@ -1086,7 +1146,7 @@ __RAW_JSON_DATA__
         const listContainer = document.getElementById('lit-articles-list');
         if (displayList.length === 0) {
           listContainer.innerHTML = `
-            <div class="py-12 text-center text-slate-400">
+            <div class="py-12 text-center text-slate-400 dark:text-slate-500">
               Статей по заданным критериям фильтрации не найдено.
             </div>
           `;
@@ -1101,45 +1161,45 @@ __RAW_JSON_DATA__
           const cit = art.citations_count || 0;
           const citStr = cit.toLocaleString('ru-RU');
 
-          let roleBadgeClass = 'bg-slate-100 text-slate-700';
+          let roleBadgeClass = 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700';
           let roleTitle = item.role;
           if (item.role === 'foundation') {
-            roleBadgeClass = 'bg-purple-100 text-purple-800 font-semibold';
+            roleBadgeClass = 'bg-purple-100 dark:bg-purple-950/70 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-semibold';
             roleTitle = 'Теоретический базис (foundation)';
           } else if (item.role === 'method') {
-            roleBadgeClass = 'bg-blue-100 text-blue-800 font-semibold';
+            roleBadgeClass = 'bg-blue-100 dark:bg-blue-950/70 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 font-semibold';
             roleTitle = 'Алгоритмический метод (method)';
           } else if (item.role === 'benchmark') {
-            roleBadgeClass = 'bg-emerald-100 text-emerald-800 font-semibold';
+            roleBadgeClass = 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 font-semibold';
             roleTitle = 'Бенчмарк (benchmark)';
           }
 
           html += `
             <div class="pt-3 first:pt-0">
               <div class="flex items-start justify-between gap-3 mb-1">
-                <h4 class="font-bold text-slate-900 text-sm leading-snug">
-                  ${hasDoiLink ? `<a href="${doi}" target="_blank" class="hover:text-indigo-600 hover:underline">${art.title}</a>` : art.title}
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm leading-snug">
+                  ${hasDoiLink ? `<a href="${doi}" target="_blank" class="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline">${art.title}</a>` : art.title}
                 </h4>
                 <div class="flex items-center gap-1.5 shrink-0">
-                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${cit >= 500 ? 'bg-amber-100 text-amber-900' : 'bg-slate-100 text-slate-800'}">
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${cit >= 500 ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700' : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700'}">
                     🔥 ${citStr}
                   </span>
                 </div>
               </div>
 
-              <div class="text-xs text-slate-600 mb-2">
-                <span class="font-medium text-slate-800">${art.authors}</span> · <span class="font-semibold text-slate-900">${art.year}</span>
+              <div class="text-xs text-slate-600 dark:text-slate-400 mb-2">
+                <span class="font-medium text-slate-800 dark:text-slate-200">${art.authors}</span> · <span class="font-semibold text-slate-900 dark:text-slate-100">${art.year}</span>
               </div>
 
               <div class="flex items-center gap-2 mb-2 flex-wrap">
                 <span class="px-2 py-0.5 rounded text-[11px] ${roleBadgeClass}">${roleTitle}</span>
-                <span class="text-[11px] font-mono text-slate-400">[ID: ${art.article_id}]</span>
-                ${hasDoiLink ? `<a href="${doi}" target="_blank" class="text-[11px] text-indigo-600 hover:underline inline-flex items-center gap-0.5"><span>DOI:</span> ${doi.replace('https://doi.org/', '')} ↗</a>` : ''}
+                <span class="text-[11px] font-mono text-slate-400 dark:text-slate-500">[ID: ${art.article_id}]</span>
+                ${hasDoiLink ? `<a href="${doi}" target="_blank" class="text-[11px] text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5"><span>DOI:</span> ${doi.replace('https://doi.org/', '')} ↗</a>` : ''}
               </div>
 
               ${item.context_note ? `
-                <div class="p-2.5 rounded bg-slate-50 border border-slate-200 text-slate-700 text-xs italic leading-relaxed">
-                  <b class="not-italic text-slate-900">Обоснование для требования:</b> ${item.context_note}
+                <div class="p-2.5 rounded bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs italic leading-relaxed">
+                  <b class="not-italic text-slate-900 dark:text-slate-100">Обоснование для требования:</b> ${item.context_note}
                 </div>
               ` : ''}
             </div>
@@ -1299,9 +1359,9 @@ __RAW_JSON_DATA__
         const btn = e.target.closest('.eco-btn');
         if (!btn) return;
         ecoTabs.querySelectorAll('.eco-btn').forEach(b => {
-          b.className = 'eco-btn px-2.5 py-1 rounded font-medium text-slate-600 hover:text-slate-900';
+          b.className = 'eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white';
         });
-        btn.className = 'eco-btn px-2.5 py-1 rounded font-medium text-slate-600 bg-indigo-50 text-indigo-700';
+        btn.className = 'eco-btn px-2.5 py-1 rounded font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/70';
 
         const eco = btn.getAttribute('data-eco');
         currentEco = eco;
@@ -1389,6 +1449,35 @@ __RAW_JSON_DATA__
           modalHelp.classList.add('hidden');
         }
       });
+
+      // Theme toggle logic
+      const btnThemeToggle = document.getElementById('btn-theme-toggle');
+      const themeToggleIcon = document.getElementById('theme-toggle-icon');
+      const themeToggleText = document.getElementById('theme-toggle-text');
+
+      function syncThemeButton() {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (themeToggleIcon) themeToggleIcon.textContent = isDark ? '☀️' : '🌙';
+        if (themeToggleText) themeToggleText.textContent = isDark ? 'Светлая' : 'Темная';
+      }
+
+      syncThemeButton();
+
+      if (btnThemeToggle) {
+        btnThemeToggle.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.contains('dark');
+          if (isDark) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+            showToast('Включена светлая тема');
+          } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+            showToast('Включена темная тема');
+          }
+          syncThemeButton();
+        });
+      }
 
       // Initial render
       renderMatrix();

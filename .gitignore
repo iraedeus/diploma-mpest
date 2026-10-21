@@ -26,3 +26,4 @@ _minted-*
 build/
 rework-pysatl-mpest/
 .agents/
+__pycache__/

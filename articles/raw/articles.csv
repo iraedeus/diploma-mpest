@@ -11,7 +11,7 @@ P0009,On the identifiability of finite mixtures of distributions (Corresp.),Essa
 P0010,Identifiability of finite mixtures using a new transform,Khalaf E. Ahmad,1988,35,https://doi.org/10.1007/bf00052342,https://doi.org/10.1007/bf00052342
 P0011,Identifiability of Finite Mixtures for Directional Data,John T. Kent,1983,28,https://doi.org/10.1214/aos/1176346264,https://doi.org/10.1214/aos/1176346264
 P0012,Identifiability of Finite Mixtures - with Applications to Circular Distributions,"Hajo Holzmann; Axel Munk; Stratma, Bernd",2004,21,,https://openalex.org/W2517983048
-P0013,On some Variants of the EM Algorithm for the Fitting of Finite Mixture Models,Shu‐Kay Ng; Geoffrey John McLachlan,2003,17,https://doi.org/10.17713/ajs.v32i1&2.454,https://doi.org/10.17713/ajs.v32i1&2.454
+P0013,On some Variants of the EM Algorithm for the Fitting of Finite Mixture Models,Shu‐Kay Ng; Geoffrey John McLachlan,2003,17,,https://ajs.or.at/index.php/ajs/article/view/vol32%261-2-4
 P0014,On the Identifiability of Finite Mixtures of Finite Product Measures,Behrooz Tahmasebi; Seyed Abolfazl Motahari; Mohammad Ali Maddah-Ali,2018,6,https://doi.org/10.48550/arxiv.1807.05444,https://doi.org/10.48550/arxiv.1807.05444
 P0015,Order selection with confidence for finite mixture models,Hien D. Nguyen; Daniel Fryer; Geoffrey John McLachlan,2022,3,https://doi.org/10.1007/s42952-022-00195-z,https://doi.org/10.1007/s42952-022-00195-z
 P0016,"mclust 5: Clustering, Classification and Density Estimation Using Gaussian Finite Mixture Models","Luca Scrucca; Michael Fop; Thomas Brendan Murphy; Adrian,E. Raftery",2016,2898,https://doi.org/10.32614/rj-2016-021,https://doi.org/10.32614/rj-2016-021
@@ -187,7 +187,7 @@ P0185,Skew Dimension-Wise Scaled Mixtures of Normal Distributions and Their Appl
 P0186,Reversible Jump MCMC With No Regrets: Bayesian Variable Selection Using Mixtures of Mutually Singular Distributions,Don van den Bergh; Merlise A. Clyde; Adrian E. Raftery; Maarten Marsman,2026,0,https://doi.org/10.48550/arxiv.2604.27791,https://doi.org/10.48550/arxiv.2604.27791
 P0187,Initialization method of finite mixture model using kernel density estimation and application on model-based clustering,Hyun-Ju Cho; Yeojin Chung; Youngmin Kim,2018,0,https://doi.org/10.7465/jkdi.2018.29.2.327,https://doi.org/10.7465/jkdi.2018.29.2.327
 P0188,fitmix: Finite Mixture Model Fitting of Lifespan Datasets,Emine Guven; Hong HQ Qin,2021,0,https://doi.org/10.32614/cran.package.fitmix,https://doi.org/10.32614/cran.package.fitmix
-P0189,Model Based Clustering using Finite Mixture Models of Lognormal Distribution,R. Deepana; Kiruthika,2019,0,https://doi.org/10.37591/rrjost.v7i3.1678,https://doi.org/10.37591/rrjost.v7i3.1678
+P0189,Model Based Clustering using Finite Mixture Models of Lognormal Distribution,R. Deepana; Kiruthika,2019,0,,https://openalex.org/W2948684789
 P0190,CONSISTENT ORDER ESTIMATION AND THE LOCAL GEOMETRY OF MIXTURES,Élisabeth Gassiat; Ramon van Handel,2010,0,,https://openalex.org/W1515515656
 P0191,ORDER ESTIMATION FOR MULTIVARIATE MIXTURE REGRESSION MODELS,ABDELAZIZ ALOUI; Hassania Hamzaoui; Abdelaziz El Matouat,2025,0,https://doi.org/10.5281/zenodo.23150997,https://doi.org/10.5281/zenodo.23150997
 P0192,Selection of the number of components in mixture regression models by instability,Beixue Huang,2015,0,https://doi.org/10.5353/th_b5576790,https://doi.org/10.5353/th_b5576790
@@ -199,7 +199,6 @@ P0197,Heterogeneous Mixture Distributions for Modeling Skewed Data in Engineerin
 P0198,"Normal–Weibull Mixture Distribution: Properties, Parameter Estimation, and Applications",Reza Etesami; Mohsen Madadi; Ahad Jamalizadeh; Reza Ashraf Ganjoei,2026,0,https://doi.org/10.1080/15366367.2026.2714408,https://doi.org/10.1080/15366367.2026.2714408
 P0199,Finite Mixture Examples; MAPIS Details,Russell C. H. Cheng,2017,0,https://doi.org/10.1093/oso/9780198505044.003.0018,https://doi.org/10.1093/oso/9780198505044.003.0018
 P0200,"On Selection Rules for Finite Mixtures of Distributions,",Shubhanshu Gupta; Wentao Huang,1977,0,,https://openalex.org/W332943463
-P0201,Letters between Karl Pearson and Vito Volterra,Giorgio Israel; Ana Millán Gasca,2002,0,https://doi.org/10.1007/978-3-0348-8123-4_17,https://doi.org/10.1007/978-3-0348-8123-4_17
 P0202,Application of the ECM algorithm to the estimation of the likelihood function in financial auditing,Grzegorz Sitek,2024,0,https://doi.org/10.29119/1641-3466.2024.198.26,https://doi.org/10.29119/1641-3466.2024.198.26
 P0203,Parameter-Expanded ECME Algorithms for Logistic and Penalized Logistic Regression,Nicholas C. Henderson; Zhongzhe Ouyang,2023,1,https://doi.org/10.48550/arxiv.2304.03904,https://doi.org/10.48550/arxiv.2304.03904
 P0204,Minimum Hellinger Distance Estimation of ARCH/GARCH Models,"Chen, Liang",2018,0,https://doi.org/10.11575/prism/31918,https://doi.org/10.11575/prism/31918
@@ -242,14 +241,12 @@ P0240,Pitfalls in the Implementation of Bayesian Hierarchical Modeling of Areal 
 P0241,Robust Mixture Modeling Based on Two-Piece Scale Mixtures of Normal Family,Mohsen Maleki; Javier E. Contreras‐Reyes; Mohammad Reza Mahmoudi,2019,29,https://doi.org/10.3390/axioms8020038,https://doi.org/10.3390/axioms8020038
 P0242,MDL-based selection of the number of components in mixture models for pattern classification,Hiroshi Tenmoto; Mineichi Kudo; Masaru Shimbo,1998,28,https://doi.org/10.1007/bfb0033308,https://doi.org/10.1007/bfb0033308
 P0243,On finite mixtures of geometric and negative binomial distributions,Carl M. Harris,1983,28,https://doi.org/10.1080/03610928308828511,https://doi.org/10.1080/03610928308828511
-P0244,Flame Propagation Characteristics in a Heterogeneous Concentration Distribution of a Fuel-Air Mixture,Jianguang Zhou; Keiya Nishida; Takuo Yoshizaki; Hiroyuki HIROYASU,1998,25,https://doi.org/10.4271/982563,https://doi.org/10.4271/982563
 P0245,MAXIMUM LIKELIHOOD ESTIMATION FROM INCOMPLETE DATA VIA EM-TYPE ALGORITHMS,Chuanhai Liu,2003,22,https://doi.org/10.1142/9789812388759_0028,https://doi.org/10.1142/9789812388759_0028
 P0246,Nonlinear random effects mixture models: Maximum likelihood estimation via the EM algorithm,Xiaoning Wang; Alan Schumitzky; David Z. D’Argenio,2007,22,https://doi.org/10.1016/j.csda.2007.03.008,https://doi.org/10.1016/j.csda.2007.03.008
 P0247,On finite mixture models,Jiahua Chen,2017,18,https://doi.org/10.1080/24754269.2017.1321883,https://doi.org/10.1080/24754269.2017.1321883
 P0248,Product Representations for Random Variables with Weibull Distributions and Their Applications*,Victor Yu. Korolev,2016,17,https://doi.org/10.1007/s10958-016-3031-7,https://doi.org/10.1007/s10958-016-3031-7
 P0249,Location wise comparison of mixture distributions for assessment of wind power potential: A parametric study,G. K. Gugliani; Arnab Sarkar; Santanu Mandal; Vikas K. Agrawal,2017,17,https://doi.org/10.1080/15435075.2017.1327865,https://doi.org/10.1080/15435075.2017.1327865
 P0250,Using Bootstrap Likelihood Ratio in Finite Mixture Models,Ziding Feng; Charles E. McCulloch,1994,15,,https://openalex.org/W1748375318
-P0251,Adsorption of binary liquid mixtures on heterogeneous adsorbents with uniform energy distribution,Shivaji Sircar,1984,14,https://doi.org/10.1016/0039-6028(84)90594-6,https://doi.org/10.1016/0039-6028(84)90594-6
 P0252,A likelihood ratio test of a homoscedastic normal mixture against a heteroscedastic normal mixture,Yungtai Lo,2008,13,https://doi.org/10.1007/s11222-008-9052-4,https://doi.org/10.1007/s11222-008-9052-4
 P0253,Bayesian Volterra system identification using reversible jump MCMC algorithm,Oktay Karakuş; Erçan E. Kuruoğlu; Mustafa A. Altınkaya,2017,11,https://doi.org/10.1016/j.sigpro.2017.05.031,https://doi.org/10.1016/j.sigpro.2017.05.031
 P0254,Bayesian inference for mixtures of von Mises distributions using reversible jump MCMC sampler,Kees Mulder; Pieter Jongsma; Irene G. Klugkist,2020,11,https://doi.org/10.1080/00949655.2020.1740997,https://doi.org/10.1080/00949655.2020.1740997
@@ -291,7 +288,6 @@ P0289,On Finite and Non-Finite Bayesian Mixture Models,Rasaki Olawale Olanrewaju
 P0290,Estimation in the Mixture Transition Distribution Model for High Order Markov Chains,Simon Tavaré; Adrian E. Raftery,1991,0,,https://openalex.org/W304339689
 P0291,Model selection confidence sets for the number of mixture components,"Casa, Alessandro; Ferrari, Davide",2025,0,,https://openalex.org/W7113426231
 P0292,heterogeneous mixture distributions for multi-source extreme rainfall,Taha B. M. J. Ouarda; Hyun‐Han Kwon; T. S. Lee,2013,0,,https://openalex.org/W2991211274
-P0293,Distribution of Ignition Probability in a Heterogeneous Mixture,Kunio Terao; C. Liao,1992,0,https://doi.org/10.1143/jjap.31.1217,https://doi.org/10.1143/jjap.31.1217
 P0294,Mixture Distributions in a Heterogeneous Portfolio of Policies,Viera Pacáková,2002,0,,https://openalex.org/W2526698157
 P0295,Component-Weighted Sparse Group LASSO for Variable Selection in Finite Mixture Regression Models,Vinay Joshy,2026,0,,https://openalex.org/W7203563374
 P0296,Component-weighted sparse group LASSO for finite mixture regression models,Vinay Joshy; Zeny Feng; Grace Stelter; Lorna E. Deeth; Alysha Cooper,2026,0,https://doi.org/10.48550/arxiv.2609.16050,https://doi.org/10.48550/arxiv.2609.16050
@@ -303,13 +299,11 @@ P0301,Modeling Heterogeneous Trajectories of Chronic Kidney Disease Progression 
 P0302,Length-biased Gamma and Weibull bimodal mixtures for wind speed stochasticity,Brahim Taoussi; Naima Boudrissa; Sidi Mohammed Boudia; Nadjia El Saadi,2026,0,https://doi.org/10.1007/s00477-026-03279-y,https://doi.org/10.1007/s00477-026-03279-y
 P0303,Finite Mixture Modeling with Mixture Outcomes Using the EM Algorithm,Bengt Muthén; Kerby Shedden,1999,1488,https://doi.org/10.1111/j.0006-341x.1999.00463.x,https://doi.org/10.1111/j.0006-341x.1999.00463.x
 P0304,Latent Class Analysis and Finite Mixture Modeling,Katherine E. Masyn,2013,1616,https://doi.org/10.1093/oxfordhb/9780199934898.013.0025,https://doi.org/10.1093/oxfordhb/9780199934898.013.0025
-P0305,Dirichlet Multinomial Mixtures: Generative Models for Microbial Metagenomics,Ian H Holmes; Keith J. Harris; Christopher Quince,2012,859,https://doi.org/10.1371/journal.pone.0030126,https://doi.org/10.1371/journal.pone.0030126
 P0306,Noise properties of the EM algorithm. I. Theory,Harrison H. Barrett; Donald W. Wilson; B.M.W. Tsui,1994,391,https://doi.org/10.1088/0031-9155/39/5/004,https://doi.org/10.1088/0031-9155/39/5/004
 P0307,Finite mixture models and model-based clustering,Volodymyr Melnykov; Ranjan Maitra,2010,314,https://doi.org/10.1214/09-ss053,https://doi.org/10.1214/09-ss053
 P0308,EM Algorithms for nonparametric estimation of mixing distributions,Kenneth E. Train,2008,277,https://doi.org/10.1016/s1755-5345(13)70022-8,https://doi.org/10.1016/s1755-5345(13)70022-8
 P0309,Nonparametric estimation of component distributions in a multivariate mixture,Peter M. Hall; Xiao‐Hua Zhou,2003,213,https://doi.org/10.1214/aos/1046294462,https://doi.org/10.1214/aos/1046294462
 P0310,Fitting finite mixtures of generalized linear regressions in R,Bettina Grün; Friedrich Leisch,2006,184,https://doi.org/10.1016/j.csda.2006.08.014,https://doi.org/10.1016/j.csda.2006.08.014
-P0311,Morphism and evolution,Julian Sorell Huxley,1955,176,https://doi.org/10.1038/hdy.1955.1,https://doi.org/10.1038/hdy.1955.1
 P0312,A Dynamic Mixture Model for Unsupervised Tail Estimation without Threshold Selection,Arnoldo Frigessi; Ola Haug; Håvard Rue,2002,167,https://doi.org/10.1023/a:1024072610684,https://doi.org/10.1023/a:1024072610684
 P0313,Hypothesis test for normal mixture models: The EM approach,Jiahua Chen; Pengfei Li,2009,168,https://doi.org/10.1214/08-aos651,https://doi.org/10.1214/08-aos651
 P0314,EM algorithms for Gaussian mixtures with split-and-merge operation,Zhihua Zhang; Chibiao Chen; Jian Sun; Kap Luk Chan,2003,153,https://doi.org/10.1016/s0031-3203(03)00059-1,https://doi.org/10.1016/s0031-3203(03)00059-1
@@ -319,7 +313,6 @@ P0317,Modeling loss data using mixtures of distributions,Tatjana Miljkovic; Bett
 P0318,Competitive EM algorithm for finite mixture models,Baibo Zhang; Changshui Zhang; Yi Xing,2003,101,https://doi.org/10.1016/s0031-3203(03)00140-7,https://doi.org/10.1016/s0031-3203(03)00140-7
 P0319,Maximum weighted likelihood via rival penalized EM for density mixture clustering with automatic model selection,Yiu‐ming Cheung,2005,98,https://doi.org/10.1109/tkde.2005.97,https://doi.org/10.1109/tkde.2005.97
 P0320,Multilevel thresholding for image segmentation using Krill Herd Optimization algorithm,K.P. Baby Resma; Prof. (Dr.) Madhu S. Nair,2018,97,https://doi.org/10.1016/j.jksuci.2018.04.007,https://doi.org/10.1016/j.jksuci.2018.04.007
-P0321,Thesaurus of univariate discrete probability distributions,Gejza Wimmer; Gabriel Altmann,1999,96,,https://openalex.org/W31058128
 P0322,EM algorithms without missing data,Mark P. Becker; Ilsoon Yang; Kenneth L. Lange,1997,98,https://doi.org/10.1177/096228029700600104,https://doi.org/10.1177/096228029700600104
 P0323,ML Estimation of the MultivariatetDistribution and the EM Algorithm,Chuanhai Liu,1997,85,https://doi.org/10.1006/jmva.1997.1703,https://doi.org/10.1006/jmva.1997.1703
 P0324,On the mixture of wind speed distribution in a Nordic region,Taha B. M. J. Ouarda; Christian Charron,2018,81,https://doi.org/10.1016/j.enconman.2018.08.007,https://doi.org/10.1016/j.enconman.2018.08.007
@@ -330,7 +323,6 @@ P0328,Fuzzy clustering for the estimation of the parameters of the components of
 P0329,Partial identification of finite mixtures in econometric models,Marc Henry; Yuichi Kitamura; Bernard Salanié,2014,58,https://doi.org/10.3982/qe170,https://doi.org/10.3982/qe170
 P0330,Finite Mixture Coding: A New Approach to Coding Continuous Characters,David S. Strait; Marc A. Moniz; Peggy Tang Strait,1996,62,https://doi.org/10.1093/sysbio/45.1.67,https://doi.org/10.1093/sysbio/45.1.67
 P0331,Non-Parametric Estimation of Finite Mixtures from Repeated Measurements,Stéphane Bonhomme; Koen Jochmans; Jean‐Marc Robin,2015,53,https://doi.org/10.1111/rssb.12110,https://doi.org/10.1111/rssb.12110
-P0332,A model of epigenetic evolution based on theory of open quantum systems,Masanari Asano; Irina Basieva; Andrei Yu. Khrennikov; Masanori Ohya; Yoshiharu Tanaka; Ichiro Yamato,2013,53,https://doi.org/10.1007/s11693-013-9109-3,https://doi.org/10.1007/s11693-013-9109-3
 P0333,A new condition for identifiability of finite mixture distributions,Nieves Atienza; Joaquín García-Heras; Juan Manuel Muñoz Pichardo,2005,51,https://doi.org/10.1007/s00184-005-0013-z,https://doi.org/10.1007/s00184-005-0013-z
 P0334,An approach to operational modal analysis using the expectation maximization algorithm,Francisco Javier Cara Cañas; Jaime Carpio; Jesús Juan; Enrique Alarcón,2012,49,https://doi.org/10.1016/j.ymssp.2012.04.004,https://doi.org/10.1016/j.ymssp.2012.04.004
 P0335,On estimating of the number of constituents of a finite mixture of continuous distributions,Jõgi Henna,1985,46,https://doi.org/10.1007/bf02481094,https://doi.org/10.1007/bf02481094
@@ -374,7 +366,6 @@ P0372,A Model Fit Comparative Study of K-Component Mixture of One Parameter Univ
 P0373,Analysis of a Finite Mixture of Truncated Zeta Distributions for Degree Distribution,Hohyun Jung; Frederick Kin Hing Phoa,2021,1,https://doi.org/10.1007/978-3-030-65351-4_40,https://doi.org/10.1007/978-3-030-65351-4_40
 P0374,Image segmentation using logit-t mixtures,Abbas Mahdavi; Javier E. Contreras‐Reyes,2026,1,https://doi.org/10.1007/s10260-026-00859-8,https://doi.org/10.1007/s10260-026-00859-8
 P0375,Order Selection in Finite Mixtures of Linear Regressions,Nicolas Depraetere; Martina L. Vandebroek,2011,21,https://doi.org/10.2139/ssrn.1974875,https://doi.org/10.2139/ssrn.1974875
-P0376,"Karl Pearson, William Bateson e a controvérsia da homotipose",Lilian Al-Chueyr Pereira Martins,2007,1,https://doi.org/10.5281/zenodo.6581836,https://doi.org/10.5281/zenodo.6581836
 P0377,Forward-reverse EM algorithm for Markov chains: convergence and numerical analysis,Christian Bayer; Hilmar Mai; John G. M. Schoenmakers,2015,1,https://doi.org/10.48550/arxiv.1501.07091,https://doi.org/10.48550/arxiv.1501.07091
 P0378,Parameter estimation of hidden Markov models: comparison of EM and quasi-Newton methods with a new hybrid algorithm,Sidonie Foulon; Thérèse Truong; Anne‐Louise Leutenegger; Hervé Perdry,2024,1,https://doi.org/10.48550/arxiv.2409.02477,https://doi.org/10.48550/arxiv.2409.02477
 P0379,Polynomial Time and Private Learning of Unbounded Gaussian Mixture Models,Jamil Arbas; Hassan Ashtiani; Christopher Liaw,2023,2,https://doi.org/10.48550/arxiv.2303.04288,https://doi.org/10.48550/arxiv.2303.04288
@@ -397,24 +388,22 @@ P0395,A Greedy Merge Learning Algorithm for Gaussian Mixture Model,Yan Li; Lei L
 P0396,Splitting and Merging Gaussian Mixture Model Components: An Evolutionary Approach,Thiago F. Covões; Eduardo R. Hruschka,2011,2,https://doi.org/10.1109/icmla.2011.132,https://doi.org/10.1109/icmla.2011.132
 P0397,Mixtures of Gaussians are Privately Learnable with a Polynomial Number of Samples,Mohammad Afzali; Hassan Ashtiani; Christopher Liaw,2023,1,https://doi.org/10.48550/arxiv.2309.03847,https://doi.org/10.48550/arxiv.2309.03847
 P0398,Asymptotic methods for tests of homogeneity for finite mixture models,Michael I. Stewart,2002,0,,https://openalex.org/W297316948
-P0399,Identifying connected components in Gaussian finite mixture models via density level sets,Luca Scrucca,2016,28,https://doi.org/10.1016/j.csda.2014.07.014,https://doi.org/10.1016/j.csda.2014.07.014
+P0399,Identifying connected components in Gaussian finite mixture models via density level sets,Luca Scrucca,2016,28,https://doi.org/10.1016/j.csda.2015.01.006,https://doi.org/10.1016/j.csda.2015.01.006
 P0400,Ridgeline Plot and Clusterwise Stability as Tools for Merging Gaussian Mixture Components,Christian Martin Hennig,2010,12,https://doi.org/10.1007/978-3-642-10745-0_11,https://doi.org/10.1007/978-3-642-10745-0_11
 P0401,Maximum Likelihood Estimation via the ECM Algorithm: A General Framework,Xiao-Li Meng; Donald B. Rubin,1993,1860,https://doi.org/10.1093/biomet/80.2.267,https://doi.org/10.1093/biomet/80.2.267
 P0402,The ECME Algorithm: A Simple Extension of EM and ECM with Faster Monotone Convergence,Chuanhai Liu; Donald B. Rubin,1994,613,https://doi.org/10.1093/biomet/81.4.633,https://doi.org/10.1093/biomet/81.4.633
-P0403,Consistent Estimation of the Order of Mixture Models of Distributions with BIC,Christine Keribin,2000,0,https://doi.org/10.2307/25053114,https://www.jstor.org/stable/25053114
-P0404,Reliable Queuing One-Way Delay Metric for Computer Networks,Maksim Kulya; Ruslan Pusev; Dmitriy Moskvitin,2025,0,https://doi.org/10.1109/SmartIndustryCon65166.2025.10986156,https://doi.org/10.1109/SmartIndustryCon65166.2025.10986156
+P0403,Consistent Estimation of the Order of Mixture Models of Distributions with BIC,Christine Keribin,2000,512,,https://www.jstor.org/stable/25053114
 P0405,A Greedy EM Algorithm for Gaussian Mixture Learning,Nikos A. Vlassis; Aristidis C. Likas,2002,301,https://doi.org/10.1023/a:1013844811137,https://doi.org/10.1023/a:1013844811137
 P0406,Efficient Greedy Learning of Gaussian Mixture Models,Jakob Jozef Verbeek; Nikos A. Vlassis; Ben Kröse,2003,339,https://doi.org/10.1162/089976603762553004,https://doi.org/10.1162/089976603762553004
 P0407,SMEM Algorithm for Mixture Models,Naonori Ueda; Ryohei Nakano; Zoubin Ghahramani A et al.,2000,411,https://doi.org/10.1162/089976600300015088,https://doi.org/10.1162/089976600300015088
 P0408,A Meta-learning approach for recommending the number of clusters for clustering algorithms,Bruno Almeida Pimentel; André C. P. L. F. de Carvalho,2020,30,https://doi.org/10.1016/j.knosys.2020.105682,https://doi.org/10.1016/j.knosys.2020.105682
-P0409,Variational Bayesian Model Selection for Mixture Distributions,Adrian Corduneanu; Chris Bishop,2001,345,,https://openalex.org/W61015563
 P0410,X-means: Extending K-means with Efficient Estimation of the Number of Clusters,Dan Pelleg; Andrew Moore,2000,2237,,https://openalex.org/W1585610988
 P0411,Learning the k in k-means,Greg Hamerly; Charles Elkan,2003,843,,https://openalex.org/W2150753219
 P0412,Methods for merging Gaussian mixture components,Christian Martin Hennig,2010,246,https://doi.org/10.1007/s11634-010-0058-3,https://doi.org/10.1007/s11634-010-0058-3
 P0413,Combining Mixture Components for Clustering,Jean-Patrick Baudry; Adrian E. Raftery; Gilles Celeux et al.,2010,349,https://doi.org/10.1198/jcgs.2010.08111,https://doi.org/10.1198/jcgs.2010.08111
 P0414,Computer-Assisted Analysis of Mixtures (C.A.MAN): Statistical Algorithms,Dankmar Böhning; Peter Schlattmann; Bruce G. Lindsay,1992,140,https://doi.org/10.2307/2532756,https://doi.org/10.2307/2532756
 P0415,Genetic-based EM algorithm for learning Gaussian mixture models,Franz Pernkopf; Djamel Bouchaffra,2005,266,https://doi.org/10.1109/tpami.2005.162,https://doi.org/10.1109/tpami.2005.162
-P0416,A fast and efficient Modal EM algorithm for Gaussian mixtures,Luca Scrucca,2021,18,https://doi.org/10.1007/s11222-021-10022-0,https://doi.org/10.1007/s11222-021-10022-0
+P0416,A fast and efficient Modal EM algorithm for Gaussian mixtures,Luca Scrucca,2021,18,https://doi.org/10.1002/sam.11527,https://doi.org/10.1002/sam.11527
 P0417,Estimating the Number of Components in Finite Mixture Models via Variational Approximation,Chenyang Wang; Yun Yang,2026,4,https://doi.org/10.1080/01621459.2026.2721735,https://doi.org/10.1080/01621459.2026.2721735
 P0418,Neural networks for classifying probability distributions,Siham Khoussi; N. Alan Heckert; Abdella Battou et al.,2021,9,https://doi.org/10.6028/NIST.TN.2152,https://doi.org/10.6028/NIST.TN.2152
 P0419,Amortized Bayesian Mixture Models,Šimon Kucharský; Paul‐Christian Bürkner,2026,0,https://doi.org/10.48550/arxiv.2501.10229,https://doi.org/10.48550/arxiv.2501.10229
@@ -422,7 +411,7 @@ P0420,L-Moments: Analysis and Estimation of Distributions Using Linear Combinati
 P0421,A Meta-Learning Recommendation System for Characterizing Unsupervised Problems: On Using Quality Indices to Describe Data Conformations,José A. Sáez; Emilio Corchado,2019,14,https://doi.org/10.1109/access.2019.2917004,https://doi.org/10.1109/access.2019.2917004
 P0422,Mode-finding for mixtures of Gaussian distributions,Miguel Á. Carreira-Perpiñán,2000,192,https://doi.org/10.1109/34.888716,https://doi.org/10.1109/34.888716
 P0423,Cluster-wise assessment of cluster stability,Christian Martin Hennig,2006,917,https://doi.org/10.1016/j.csda.2006.11.025,https://doi.org/10.1016/j.csda.2006.11.025
-P0424,Model selection in mixtures of Gaussians using modal distance,Surajit Ray; Bruce G. Lindsay,2008,48,https://doi.org/10.1016/j.jspi.2007.03.030,https://doi.org/10.1016/j.jspi.2007.03.030
+P0424,Model selection in mixtures of Gaussians using modal distance,Surajit Ray; Bruce G. Lindsay,2008,48,https://doi.org/10.1111/j.1467-9868.2007.00623.x,https://doi.org/10.1111/j.1467-9868.2007.00623.x
 P0425,Quantile and moment neural networks for learning functionals of distributions,Xavier Warin,2023,3,https://doi.org/10.48550/arxiv.2303.11060,https://doi.org/10.48550/arxiv.2303.11060
 P0426,Deep Sets,Manzil Zaheer; Satwik Kottur; Siamak Ravanbakhsh; Barnabás Póczos; Ruslan R. Salakhutdinov; Alexander J. Smola,2017,3180,https://doi.org/10.48550/arxiv.1703.06114,https://doi.org/10.48550/arxiv.1703.06114
-P0427,Neural Methods for Amortized Inference,Andrew Zammit-Mangion; Matthew Sainsbury-Dale; Raphaël Huser,2024,52,https://doi.org/10.1146/annurev-statistics-040523-013348,https://doi.org/10.1146/annurev-statistics-040523-013348
+P0427,Neural Methods for Amortized Inference,Andrew Zammit-Mangion; Matthew Sainsbury-Dale; Raphaël Huser,2024,52,https://doi.org/10.1146/annurev-statistics-112723-034123,https://doi.org/10.1146/annurev-statistics-112723-034123
