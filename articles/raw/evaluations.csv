@@ -1862,3 +1862,246 @@ armadillo,STRUC-03,yes,Встроенный C++ класс gmm_diag/gmm_full д�
 armadillo,STRUC-04,no,Реализованы исключительно гауссовские смеси распределений,include/armadillo_bits/
 bnpy,STRUC-03,yes,"Байесовский непараметрический анализ смесей Гаусса (Gaussian, ZeroMeanGauss)",bnpy/allocmodel/
 bnpy,STRUC-04,no,"Поддерживаются гауссовские, мультиномиальные и авторегрессионные модели",bnpy/
+pysatl-mpest,EST-17,no,Веса наблюдений и частотные веса не поддерживаются в текущей версии пайплайна оценивания,
+scikit-learn,EST-17,yes,Аргумент sample_weight поддерживается в методе fit для GaussianMixture и BayesianGaussianMixture,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-17,yes,Параметр sample_weight поддерживается во всех моделях GeneralMixtureModel,https://github.com/jmschrei/pomegranate
+mixem,EST-17,no,Взвешивание наблюдений не предусмотрено сигнатурой em(),https://github.com/sseemayer/mixem
+stepmix,EST-17,yes,Параметр sample_weight поддерживается в методе fit,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-17,no,Веса наблюдений не поддерживаются,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-17,no,Веса наблюдений не поддерживаются,https://github.com/kasakh/Mixture-Models
+distfit,EST-17,no,Веса наблюдений не поддерживаются в модуле подгонки,https://github.com/erdogant/distfit
+mclust,EST-17,yes,Параметр weights поддерживается в функции densityMclust и алгоритмах кластеризации,https://github.com/cran/mclust
+mixtools,EST-17,yes,Параметр w поддерживается во многих процедурах подгонки смесей,https://github.com/cran/mixtools
+flexmix,EST-17,yes,Аргумент weights встроен в формулу спецификации модели flexmix,https://github.com/cran/flexmix
+mixR,EST-17,yes,Параметр weights в функции mixfit для частотного взвешивания,https://github.com/GaryBAYLOR/mixR
+rebmix,EST-17,yes,Параметр Weights в функции REBMIX для взвешенных выборок,https://github.com/cran/rebmix
+Rmixmod,EST-17,yes,Параметр weight в процедуре mixmodCluster,https://github.com/mixmod/mixmod
+ClusterR,EST-17,yes,Параметр sample_weight в GMM_EM,https://github.com/mlampros/ClusterR
+mixdist,EST-17,yes,Входные данные в виде сгруппированных частотных весов и интервалов,https://github.com/cran/mixdist
+EMCluster,EST-17,no,Веса наблюдений не поддерживаются,https://github.com/snoweye/EMCluster
+teigen,EST-17,no,Веса наблюдений не поддерживаются,https://github.com/cran/teigen
+fpc,EST-17,partial,Ограниченная поддержка весов через обертки над mclust,https://github.com/cran/fpc
+sn,EST-17,yes,Параметр weights в функциях selm и dmsn,https://github.com/cran/sn
+brms,EST-17,yes,Поддержка весов наблюдений через формульный синтаксис weights(),https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-17,no,Веса наблюдений не поддерживаются,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-17,yes,"Функция fit(MixtureModel, ...) поддерживает аргумент Weights",https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-17,no,Веса наблюдений не поддерживаются в mlpack::gmm,https://github.com/mlpack/mlpack
+armadillo,EST-17,no,Класс gmm_diag не поддерживает веса точек данных,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-17,yes,Поддержка весов наблюдений в контейнерах DataObj,https://github.com/bnpy/bnpy
+CAMAN,EST-17,yes,Поддержка весов и частот наблюдений через аргумент weights в mixalg,https://github.com/cran/CAMAN
+pysatl-mpest,EST-18,no,Оценивание по цензурированным и усеченным наблюдениям отсутствует; требуется полная выборка,
+scikit-learn,EST-18,no,Цензурированные и усеченные выборки не поддерживаются,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/jmschrei/pomegranate
+mixem,EST-18,no,Цензурирование не поддерживается,https://github.com/sseemayer/mixem
+stepmix,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-18,no,Цензурирование не поддерживается,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/kasakh/Mixture-Models
+distfit,EST-18,no,Цензурированные выборки не поддерживаются,https://github.com/erdogant/distfit
+mclust,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/cran/mclust
+mixtools,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/cran/mixtools
+flexmix,EST-18,partial,Поддержка моделей выживаемости и цензурирования через драйвер FLXMRglm,https://github.com/cran/flexmix
+mixR,EST-18,yes,"Явная поддержка левостороннего, правостороннего и интервального цензурирования через параметры rcensored и lcensored",https://github.com/GaryBAYLOR/mixR
+rebmix,EST-18,no,Цензурирование не поддерживается,https://github.com/cran/rebmix
+Rmixmod,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/mixmod/mixmod
+ClusterR,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/mlampros/ClusterR
+mixdist,EST-18,no,Цензурированные непрерывные наблюдения не поддерживаются напрямую,https://github.com/cran/mixdist
+EMCluster,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/snoweye/EMCluster
+teigen,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/cran/teigen
+fpc,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/cran/fpc
+sn,EST-18,no,Цензурирование не поддерживается,https://github.com/cran/sn
+brms,EST-18,yes,Полная поддержка цензурирования cens() и усечения trunc() в смесях через Stan,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-18,no,Цензурирование не поддерживается,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-18,partial,"Обертка Truncated поддерживается для одиночных распределений, но без специализированного EM для смеси",https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/mlpack/mlpack
+armadillo,EST-18,no,Цензурирование не поддерживается,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-18,no,Цензурированные данные не поддерживаются,https://github.com/bnpy/bnpy
+CAMAN,EST-18,no,Цензурированные наблюдения не поддерживаются,https://github.com/cran/CAMAN
+pysatl-mpest,EST-19,no,"Экстраполяция шагов и алгоритмы ускорения сходимости (Aitken, SQUAREM) не реализованы",
+scikit-learn,EST-19,no,Используются стандартные EM-итерации без процедур экстраполяции сходимости,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-19,no,Ускорения типа SQUAREM или Aitken не реализованы,https://github.com/jmschrei/pomegranate
+mixem,EST-19,no,Ускорение сходимости не реализовано,https://github.com/sseemayer/mixem
+stepmix,EST-19,no,Ускорение EM-алгоритма не реализовано,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-19,no,Ускорения сходимости нет,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-19,no,Ускорение EM-алгоритма отсутствует,https://github.com/kasakh/Mixture-Models
+distfit,EST-19,no,Ускорение сходимости не применимо,https://github.com/erdogant/distfit
+mclust,EST-19,partial,Критерий остановки на основе ускорения Эйткена (Aitken acceleration),https://github.com/cran/mclust
+mixtools,EST-19,no,Ускорения сходимости SQUAREM не встроены,https://github.com/cran/mixtools
+flexmix,EST-19,no,Используется классический цикл EM без экстраполяции,https://github.com/cran/flexmix
+mixR,EST-19,no,Ускорение сходимости не реализовано,https://github.com/GaryBAYLOR/mixR
+rebmix,EST-19,no,Ускорение EM не применимо к алгоритму REB,https://github.com/cran/rebmix
+Rmixmod,EST-19,no,Ускорение EM-алгоритма отсутствует,https://github.com/mixmod/mixmod
+ClusterR,EST-19,no,Ускорения EM нет,https://github.com/mlampros/ClusterR
+mixdist,EST-19,partial,Использует метод квази-Ньютона на наблюдаемом правдоподобии вместо чистого EM,https://github.com/cran/mixdist
+EMCluster,EST-19,no,Экстраполяция сходимости не реализована,https://github.com/snoweye/EMCluster
+teigen,EST-19,partial,Ускорение Эйткена для оценки асимптотического предела правдоподобия и критерия сходимости,https://github.com/cran/teigen
+fpc,EST-19,no,Ускорение сходимости не реализовано,https://github.com/cran/fpc
+sn,EST-19,no,Ускорение сходимости отсутствует,https://github.com/cran/sn
+brms,EST-19,no,"Оценивание методом MCMC (NUTS), а не ускоренным EM",https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-19,no,Ускорение сходимости отсутствует,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-19,no,Стандартный EM без ускорения,https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-19,no,Ускорение сходимости не реализовано,https://github.com/mlpack/mlpack
+armadillo,EST-19,no,Ускорение сходимости не реализовано,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-19,partial,Ускоренные вариационные аппроксимации и динамическое слияние,https://github.com/bnpy/bnpy
+CAMAN,EST-19,partial,Алгоритмы VEM и градиентного ускорения сходимости для непараметрических смесей,https://github.com/cran/CAMAN
+pysatl-mpest,EST-20,no,Потоковый и рекурсивный онлайн EM-алгоритм не реализован; требуется полная загрузка данных в память,
+scikit-learn,EST-20,no,Метод partial_fit не реализован для GaussianMixture,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-20,partial,Поддерживается пакетное обучение на генераторах данных через fit(batches=True),https://github.com/jmschrei/pomegranate
+mixem,EST-20,no,Потоковое оценивание отсутствует,https://github.com/sseemayer/mixem
+stepmix,EST-20,no,Потоковый режим не поддерживается,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-20,no,Потоковый режим не реализован,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-20,no,Потоковый режим не поддерживается,https://github.com/kasakh/Mixture-Models
+distfit,EST-20,no,Потоковый режим отсутствует,https://github.com/erdogant/distfit
+mclust,EST-20,no,Потоковый онлайн EM-алгоритм не реализован,https://github.com/cran/mclust
+mixtools,EST-20,no,Потоковый онлайн EM не реализован,https://github.com/cran/mixtools
+flexmix,EST-20,no,Потоковый режим не поддерживается,https://github.com/cran/flexmix
+mixR,EST-20,no,Потоковый онлайн EM не поддерживается,https://github.com/GaryBAYLOR/mixR
+rebmix,EST-20,no,Потоковый режим не реализован,https://github.com/cran/rebmix
+Rmixmod,EST-20,no,Потоковый онлайн EM не поддерживается,https://github.com/mixmod/mixmod
+ClusterR,EST-20,no,Потоковый режим не реализован,https://github.com/mlampros/ClusterR
+mixdist,EST-20,no,Потоковый режим не поддерживается,https://github.com/cran/mixdist
+EMCluster,EST-20,no,Потоковый режим отсутствует,https://github.com/snoweye/EMCluster
+teigen,EST-20,no,Потоковый режим отсутствует,https://github.com/cran/teigen
+fpc,EST-20,no,Потоковый режим отсутствует,https://github.com/cran/fpc
+sn,EST-20,no,Потоковый режим не поддерживается,https://github.com/cran/sn
+brms,EST-20,no,Потоковый режим не поддерживается,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-20,no,Потоковый режим отсутствует,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-20,no,Потоковый режим не реализован,https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-20,no,Потоковый онлайн EM не реализован,https://github.com/mlpack/mlpack
+armadillo,EST-20,no,Потоковый режим не поддерживается,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-20,yes,Специализированная архитектура для потокового стохастического и мемоизированного онлайн EM-обучения на больших данных,https://github.com/bnpy/bnpy
+CAMAN,EST-20,no,Потоковый режим не поддерживается,https://github.com/cran/CAMAN
+pysatl-mpest,EST-21,no,Оценивание методом минимального расстояния Хеллингера не поддерживается,
+scikit-learn,EST-21,no,Оценивание методом расстояния Хеллингера не поддерживается,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-21,no,Метод минимального расстояния Хеллингера отсутствует,https://github.com/jmschrei/pomegranate
+mixem,EST-21,no,Оценивание по расстоянию Хеллингера не поддерживается,https://github.com/sseemayer/mixem
+stepmix,EST-21,no,Минимальное расстояние Хеллингера не поддерживается,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-21,no,Оценивание по расстоянию Хеллингера не реализовано,https://github.com/kasakh/Mixture-Models
+distfit,EST-21,no,Оценивание методом расстояния Хеллингера отсутствует,https://github.com/erdogant/distfit
+mclust,EST-21,no,Оценивание по расстоянию Хеллингера не поддерживается,https://github.com/cran/mclust
+mixtools,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/cran/mixtools
+flexmix,EST-21,no,Оценивание методом Хеллингера не реализовано,https://github.com/cran/flexmix
+mixR,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/GaryBAYLOR/mixR
+rebmix,EST-21,no,Оценивание по расстоянию Хеллингера не поддерживается,https://github.com/cran/rebmix
+Rmixmod,EST-21,no,Оценивание по расстоянию Хеллингера не поддерживается,https://github.com/mixmod/mixmod
+ClusterR,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/mlampros/ClusterR
+mixdist,EST-21,partial,Поддерживает метод взвешенных наименьших квадратов и минимум хи-квадрат как альтернативу MLE,https://github.com/cran/mixdist
+EMCluster,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/snoweye/EMCluster
+teigen,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/cran/teigen
+fpc,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/cran/fpc
+sn,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/cran/sn
+brms,EST-21,no,Байесовское апостериорное сэмплирование взамен критериев минимального расстояния,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-21,no,Оценивание по расстоянию Хеллингера не поддерживается,https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/mlpack/mlpack
+armadillo,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/bnpy/bnpy
+CAMAN,EST-21,no,Оценивание по расстоянию Хеллингера отсутствует,https://github.com/cran/CAMAN
+pysatl-mpest,STRUC-21,no,Межкомпонентные равенства и линейные ограничения параметров компонент не поддерживаются,
+scikit-learn,STRUC-21,partial,"Режим covariance_type=""tied"" фиксирует общую ковариационную матрицу для всех компонент",https://github.com/scikit-learn/scikit-learn
+pomegranate,STRUC-21,partial,Поддерживается связывание и разделение параметров через граф распределений,https://github.com/jmschrei/pomegranate
+mixem,STRUC-21,no,Параметры компонент оцениваются полностью независимо,https://github.com/sseemayer/mixem
+stepmix,STRUC-21,yes,Поддерживаются структурные ограничения параметров и инвариантность между скрытыми классами,https://github.com/Labo-Lacourse/stepmix
+student-mixture,STRUC-21,no,Межкомпонентные ограничения параметров не поддерживаются,https://github.com/omritomer/student-mixture
+kasakh-gmm,STRUC-21,no,Межкомпонентные ограничения отсутствуют,https://github.com/kasakh/Mixture-Models
+distfit,STRUC-21,no,Ограничения между компонентами не поддерживаются,https://github.com/erdogant/distfit
+mclust,STRUC-21,yes,"14 экономных параметризаций ковариаций с ограничениями на равенство объема, формы и ориентации",https://github.com/cran/mclust
+mixtools,STRUC-21,partial,Опция arbvar=FALSE задает равенство дисперсий компонент в нормальных смесях,https://github.com/cran/mixtools
+flexmix,STRUC-21,yes,Полная поддержка равенства и фиксации параметров через FLXcontrol и синтаксис моделей,https://github.com/cran/flexmix
+mixR,STRUC-21,partial,Опция equal.variance=TRUE для фиксации равных дисперсий нормальных компонент,https://github.com/GaryBAYLOR/mixR
+rebmix,STRUC-21,no,Ограничения между компонентами не поддерживаются,https://github.com/cran/rebmix
+Rmixmod,STRUC-21,yes,Поддержка четырнадцати экономных моделей ковариационных матриц с ограничениями равенства,https://github.com/mixmod/mixmod
+ClusterR,STRUC-21,no,Ограничения равенства параметров отсутствуют,https://github.com/mlampros/ClusterR
+mixdist,STRUC-21,yes,Параметр constr позволяет накладывать равенства и константные ограничения на параметры,https://github.com/cran/mixdist
+EMCluster,STRUC-21,yes,Поддерживает ограничения на общую дисперсию и форму ковариаций,https://github.com/snoweye/EMCluster
+teigen,STRUC-21,yes,Поддерживает 14 экономных параметризаций масштабных матриц распределения Стьюдента,https://github.com/cran/teigen
+fpc,STRUC-21,no,Собственные ограничения параметров не накладываются,https://github.com/cran/fpc
+sn,STRUC-21,partial,Возможность фиксации отдельных параметров асимметрии,https://github.com/cran/sn
+brms,STRUC-21,yes,Нелинейный синтаксис формул позволяет задавать произвольные ограничения равенства параметров компонент,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,STRUC-21,no,Межкомпонентные ограничения отсутствуют,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,STRUC-21,no,Параметры компонент оцениваются раздельно,https://github.com/JuliaStats/Distributions.jl
+mlpack,STRUC-21,no,Межкомпонентные ограничения отсутствуют,https://github.com/mlpack/mlpack
+armadillo,STRUC-21,no,Ограничения между компонентами не поддерживаются,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,STRUC-21,no,Межкомпонентные ограничения параметров не поддерживаются,https://github.com/bnpy/bnpy
+CAMAN,STRUC-21,no,Ограничения параметров не поддерживаются,https://github.com/cran/CAMAN
+pysatl-mpest,STRUC-22,no,Распределения Стьюдента и скошенные нормальные распределения отсутствуют в библиотеке,
+scikit-learn,STRUC-22,no,Поддерживается только нормальное распределение Гаусса,https://github.com/scikit-learn/scikit-learn
+pomegranate,STRUC-22,partial,Одномерное распределение Стьюдента (StudentT) поддерживается в качестве компоненты,https://github.com/jmschrei/pomegranate
+mixem,STRUC-22,no,"Только базовые нормальные, экспоненциальные и логнормальные компоненты",https://github.com/sseemayer/mixem
+stepmix,STRUC-22,no,Ограничен категориальными и нормальными откликами,https://github.com/Labo-Lacourse/stepmix
+student-mixture,STRUC-22,yes,Специализированная библиотека для смесей многомерных распределений Стьюдента,https://github.com/omritomer/student-mixture
+kasakh-gmm,STRUC-22,no,Только смеси Гауссиан,https://github.com/kasakh/Mixture-Models
+distfit,STRUC-22,partial,"Поддерживает распределение Стьюдента для одиночных распределений, но не в смесях",https://github.com/erdogant/distfit
+mclust,STRUC-22,no,Только смеси нормальных распределений,https://github.com/cran/mclust
+mixtools,STRUC-22,no,"Только стандартные экспоненциальные, пуассоновские и нормальные семейства",https://github.com/cran/mixtools
+flexmix,STRUC-22,partial,Поддержка обобщенных линейных моделей компонент через семейство FLXMRglm,https://github.com/cran/flexmix
+mixR,STRUC-22,partial,"Поддерживает Вейбулл, гамма и логнормальные смеси, но не скошенные распределения Стьюдента",https://github.com/GaryBAYLOR/mixR
+rebmix,STRUC-22,no,Только классические непрерывные и дискретные семейства,https://github.com/cran/rebmix
+Rmixmod,STRUC-22,no,Только нормальные и мультиномиальные смеси,https://github.com/mixmod/mixmod
+ClusterR,STRUC-22,no,Только гауссовы смеси,https://github.com/mlampros/ClusterR
+mixdist,STRUC-22,no,"Стандартные семейства (нормальное, гамма, экспоненциальное, логнормальное)",https://github.com/cran/mixdist
+EMCluster,STRUC-22,no,Только многомерные нормальные смеси,https://github.com/snoweye/EMCluster
+teigen,STRUC-22,yes,Специализированная библиотека для смесей многомерных распределений Стьюдента,https://github.com/cran/teigen
+fpc,STRUC-22,no,Только гауссовы смеси,https://github.com/cran/fpc
+sn,STRUC-22,yes,Каноническая реализация скошенных нормальных и скошенных распределений Стьюдента,https://github.com/cran/sn
+brms,STRUC-22,yes,Прямая поддержка семейств student_t и skew_normal в смесях,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,STRUC-22,no,Только смеси Гауссиан,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,STRUC-22,partial,"Поддерживает распределение Стьюдента в структуре MixtureModel, но без скошенных модификаций",https://github.com/JuliaStats/Distributions.jl
+mlpack,STRUC-22,no,Только гауссовы смеси,https://github.com/mlpack/mlpack
+armadillo,STRUC-22,no,Только гауссовы смеси,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,STRUC-22,partial,Поддержка распределений Лапласа и Гаусса,https://github.com/bnpy/bnpy
+CAMAN,STRUC-22,no,Только экспоненциальные и нормальные компоненты,https://github.com/cran/CAMAN
+pysatl-mpest,STRUC-23,no,Вариационный байесовский вывод (VBEM) не реализован,
+scikit-learn,STRUC-23,yes,Класс BayesianGaussianMixture реализует вариационный байесовский вывод с априорным процессом Дирихле,https://github.com/scikit-learn/scikit-learn
+pomegranate,STRUC-23,no,Вариационный вывод не реализован; доступен только классический EM,https://github.com/jmschrei/pomegranate
+mixem,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/sseemayer/mixem
+stepmix,STRUC-23,no,Вариационный байесовский вывод не поддерживается,https://github.com/Labo-Lacourse/stepmix
+student-mixture,STRUC-23,yes,Реализован вариационный класс VariationalStudentMixture,https://github.com/omritomer/student-mixture
+kasakh-gmm,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/kasakh/Mixture-Models
+distfit,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/erdogant/distfit
+mclust,STRUC-23,no,Вариационный вывод не реализован; используется байесовская регуляризация через априорные сопряженные распределения,https://github.com/cran/mclust
+mixtools,STRUC-23,no,Вариационный байесовский вывод не поддерживается,https://github.com/cran/mixtools
+flexmix,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/cran/flexmix
+mixR,STRUC-23,no,Вариационный вывод не поддерживается,https://github.com/GaryBAYLOR/mixR
+rebmix,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/cran/rebmix
+Rmixmod,STRUC-23,no,Вариационный вывод не реализован,https://github.com/mixmod/mixmod
+ClusterR,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/mlampros/ClusterR
+mixdist,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/cran/mixdist
+EMCluster,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/snoweye/EMCluster
+teigen,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/cran/teigen
+fpc,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/cran/fpc
+sn,STRUC-23,no,Вариационный вывод не реализован,https://github.com/cran/sn
+brms,STRUC-23,partial,"Поддержка алгоритма вариационного вывода Stan (algorithm=""meanfield"")",https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/JuliaStats/Distributions.jl
+mlpack,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/mlpack/mlpack
+armadillo,STRUC-23,no,Вариационный вывод отсутствует,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,STRUC-23,yes,Масштабируемый вариационный байесовский вывод (VBEM) с априорными процессами Дирихле,https://github.com/bnpy/bnpy
+CAMAN,STRUC-23,no,Вариационный вывод отсутствует,https://github.com/cran/CAMAN
+pysatl-mpest,DIAG-04,no,Метрики энтропии разделения и оценки матриц попарного наложения компонент не вычисляются,
+scikit-learn,DIAG-04,no,Метрики перекрытия и энтропии разделения компонент не рассчитываются,https://github.com/scikit-learn/scikit-learn
+pomegranate,DIAG-04,no,Диагностика перекрытия компонент не встроена,https://github.com/jmschrei/pomegranate
+mixem,DIAG-04,no,Анализ перекрытия компонент не поддерживается,https://github.com/sseemayer/mixem
+stepmix,DIAG-04,partial,Расчет энтропии классификации и относительной энтропии неопределенности,https://github.com/Labo-Lacourse/stepmix
+student-mixture,DIAG-04,no,Метрики перекрытия не вычисляются,https://github.com/omritomer/student-mixture
+kasakh-gmm,DIAG-04,no,Диагностика отделимости компонент отсутствует,https://github.com/kasakh/Mixture-Models
+distfit,DIAG-04,no,Метрики отделимости не рассчитываются,https://github.com/erdogant/distfit
+mclust,DIAG-04,partial,Расчет неопределенности классификации (uncertainty) и энтропии отнесения к компонентам,https://github.com/cran/mclust
+mixtools,DIAG-04,partial,Функции расчета энтропии апостериорных вероятностей,https://github.com/cran/mixtools
+flexmix,DIAG-04,partial,Расчет энтропии и апостериорных мер определенности отнесения,https://github.com/cran/flexmix
+mixR,DIAG-04,no,Оценка перекрытия компонент не поддерживается,https://github.com/GaryBAYLOR/mixR
+rebmix,DIAG-04,no,Диагностика перекрытия отсутствует,https://github.com/cran/rebmix
+Rmixmod,DIAG-04,no,Меры отделимости компонент не рассчитываются,https://github.com/mixmod/mixmod
+ClusterR,DIAG-04,no,Меры перекрытия компонент не поддерживаются,https://github.com/mlampros/ClusterR
+mixdist,DIAG-04,no,Диагностика перекрытия отсутствует,https://github.com/cran/mixdist
+EMCluster,DIAG-04,partial,Функции расчета вероятностей ложной классификации и наложения кластеров,https://github.com/snoweye/EMCluster
+teigen,DIAG-04,partial,Метрики неопределенности и энтропии отнесения наблюдений,https://github.com/cran/teigen
+fpc,DIAG-04,yes,Функции overlap.exact и overlap.fpc для строгого расчета матрицы взаимного перекрытия компонент,https://github.com/cran/fpc
+sn,DIAG-04,no,Диагностика перекрытия компонент не поддерживается,https://github.com/cran/sn
+brms,DIAG-04,no,Метрики отделимости не рассчитываются автоматически,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,DIAG-04,no,Диагностика перекрытия не реализована,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,DIAG-04,no,Метрики отделимости компонент не предусмотрены,https://github.com/JuliaStats/Distributions.jl
+mlpack,DIAG-04,no,Диагностика отделимости не предусмотрена,https://github.com/mlpack/mlpack
+armadillo,DIAG-04,no,Диагностика перекрытия отсутствует,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,DIAG-04,partial,Расчет расстояний Кульбака-Лейблера и метрик сходства между компонентами,https://github.com/bnpy/bnpy
+CAMAN,DIAG-04,no,Метрики отделимости не предусмотрены,https://github.com/cran/CAMAN
