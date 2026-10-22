@@ -275,6 +275,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
       <!-- Quick Metrics & Actions -->
       <div class="flex items-center flex-wrap gap-2 text-xs">
+        <a href="usecases_dashboard.html" class="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/70 hover:bg-indigo-100 dark:hover:bg-indigo-900 text-indigo-700 dark:text-indigo-300 font-semibold rounded-lg border border-indigo-200 dark:border-indigo-800 shadow-sm transition flex items-center gap-1.5" title="Перейти к прикладным юзкейсам">
+          <span>🎯</span> Прикладные сценарии и бенчмарки →
+        </a>
         <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
           <span class="text-slate-500 dark:text-slate-400">Показано:</span>
           <span id="metric-reqs" class="font-bold text-slate-900 dark:text-slate-100">__NUM_REQS__ требований</span>
@@ -1524,9 +1527,1532 @@ def generate_dashboard(data_dir: Path, output_file: Path):
     print(f"✓ Дашборд успешно сгенерирован: {output_file} ({output_file.stat().st_size / 1024:.1f} KB)")
 
 
+
+
+USECASES_HTML_TEMPLATE = r"""<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прикладные сценарии и открытые бенчмарки — pysatl-mpest</title>
+  <!-- Early Dark Mode Detection -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <!-- Tailwind CSS via CDN with fallback styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .hidden { display: none !important; }
+    body { overflow-x: hidden; }
+    .table-container {
+      max-height: calc(100vh - 280px);
+      overflow: auto;
+      scrollbar-width: thin;
+    }
+    .dark .table-container { scrollbar-color: #475569 #0f172a; }
+    .dark .table-container::-webkit-scrollbar { background-color: #0f172a; }
+    .dark .table-container::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 4px; }
+    .dark .table-container::-webkit-scrollbar-thumb:hover { background-color: #475569; }
+
+    /* Custom sticky headers */
+    .sticky-th { position: sticky; top: 0; z-index: 20; }
+    .sticky-col-1 { position: sticky; left: 0; z-index: 10; }
+    .sticky-header-corner { position: sticky; left: 0; top: 0; z-index: 30; }
+
+    /* Guaranteed Drawer Animation with !important */
+    #drawer {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    #drawer.is-open {
+      transform: translateX(0) !important;
+      pointer-events: auto !important;
+      visibility: visible !important;
+    }
+    #drawer.is-closed {
+      transform: translateX(100%) !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-200">
+
+  <!-- Header Section -->
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm transition-colors duration-200">
+    <div class="max-w-[1920px] mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <!-- Title & Branding -->
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white font-black text-xl shadow-md">
+          🎯
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Прикладные сценарии и открытые бенчмарки</h1>
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+              pysatl-mpest
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            5-осевая таксономия задач, 52 открытых исследования и матрица готовности 27 инструментов оценивания
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics & Navigation -->
+      <div class="flex items-center flex-wrap gap-2 text-xs">
+        <a href="dashboard.html" class="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/70 hover:bg-indigo-100 dark:hover:bg-indigo-900 text-indigo-700 dark:text-indigo-300 font-semibold rounded-lg border border-indigo-200 dark:border-indigo-800 shadow-sm transition flex items-center gap-1.5" title="Перейти к матрице требований">
+          <span>←</span> Матрица требований (86 фич)
+        </a>
+
+        <div class="hidden xl:flex items-center gap-2 bg-slate-50 dark:bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+          <span class="font-bold text-slate-900 dark:text-slate-100">10 сценариев</span>
+          <span class="text-slate-300 dark:text-slate-600">|</span>
+          <span class="font-bold text-slate-900 dark:text-slate-100">52 бенчмарка</span>
+          <span class="text-slate-300 dark:text-slate-600">|</span>
+          <span class="font-bold text-slate-900 dark:text-slate-100">27 библиотек</span>
+          <span class="text-slate-300 dark:text-slate-600">|</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">100% открытые данные</span>
+        </div>
+
+        <button id="btn-theme-toggle" class="px-2.5 py-1.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5" title="Переключить тему оформления">
+          <span id="theme-toggle-icon">🌙</span> <span id="theme-toggle-text">Темная</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- View Switcher & Filter Toolbar -->
+    <div class="bg-slate-50 dark:bg-slate-900/90 border-t border-slate-200 dark:border-slate-800 px-4 py-2.5">
+      <div class="max-w-[1920px] mx-auto flex flex-wrap items-center justify-between gap-3">
+        
+        <!-- Left: View Tabs -->
+        <div class="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-0.5 shadow-sm text-xs">
+          <button id="tab-cards" class="view-tab-btn px-3 py-1.5 rounded-md font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/70 transition flex items-center gap-1.5">
+            <span>📑</span> Карточки сценариев (10)
+          </button>
+          <button id="tab-matrix" class="view-tab-btn px-3 py-1.5 rounded-md font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5">
+            <span>📊</span> Матрица готовности библиотек (27×10)
+          </button>
+          <button id="tab-audit" class="view-tab-btn px-3 py-1.5 rounded-md font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5">
+            <span>🔬</span> Аудит воспроизводимости (52 статьи)
+          </button>
+        </div>
+
+        <!-- Center: Search Input -->
+        <div class="relative w-64 flex-grow max-w-xs">
+          <input type="text" id="input-search" placeholder="Поиск по сценарию, датасету, автору, библиотеке..."
+                 class="w-full pl-8 pr-3 py-1.5 text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm">
+          <span class="absolute left-2.5 top-2 text-slate-400 dark:text-slate-500 text-xs">🔍</span>
+        </div>
+
+        <!-- Right: 5-Axis Filters Dropdowns -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Domain Filter -->
+          <select id="filter-domain" class="py-1.5 px-2 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+            <option value="all">Все области (10)</option>
+            <option value="Астрофизика">Астрофизика</option>
+            <option value="Экология и гидрохимия">Экология</option>
+            <option value="Фармакогенетика и биомедицина">Фармакогенетика</option>
+            <option value="Метрология и историческое материаловедение">Метрология</option>
+            <option value="Гидрогеология и геофизика">Геология</option>
+            <option value="Промышленная надежность">Надежность</option>
+            <option value="Метеорология и ветроэнергетика">Метеорология</option>
+            <option value="Актуарные расчеты и финансовые риски">Финансы и риски</option>
+            <option value="Иммунология и проточная цитометрия">Цитометрия</option>
+            <option value="Сетевой трафик и телекоммуникации">Сетевой трафик</option>
+          </select>
+
+          <!-- Mixture Type Filter -->
+          <select id="filter-mixture-type" class="py-1.5 px-2 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+            <option value="all">Смесь: Все</option>
+            <option value="homogeneous">Однородная (homogeneous)</option>
+            <option value="heterogeneous">Разнородная (heterogeneous)</option>
+          </select>
+
+          <!-- Morphology Filter -->
+          <select id="filter-morphology" class="py-1.5 px-2 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+            <option value="all">Морфология: Все</option>
+            <option value="symmetric">Симметричные</option>
+            <option value="skewed">Скошенные</option>
+            <option value="semi_bounded">Полуограниченные [0, ∞)</option>
+            <option value="heavy_tailed">Тяжелохвостые</option>
+          </select>
+
+          <!-- Prior Knowledge (Status of K) Filter -->
+          <select id="filter-prior-knowledge" class="py-1.5 px-2 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+            <option value="all">Число K: Все (10)</option>
+            <option value="known">K известно (4 сценария)</option>
+            <option value="unknown">K неизвестно (6 сценариев)</option>
+          </select>
+
+          <!-- Observation Regime Filter -->
+          <select id="filter-observation-regime" class="py-1.5 px-2 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+            <option value="all">Режим: Все</option>
+            <option value="direct">Прямые отсчеты</option>
+            <option value="censored">Цензурированные</option>
+            <option value="binned">Сгруппированные (binned)</option>
+            <option value="imbalanced">Дисбаланс / редкие</option>
+          </select>
+
+          <!-- Sample Regime Filter -->
+          <select id="filter-sample-regime" class="py-1.5 px-2 text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+            <option value="all">Выборка: Все</option>
+            <option value="small">Малая (N &lt; 100)</option>
+            <option value="moderate">Умеренная (100–10k)</option>
+            <option value="large">Большая (10k–100k)</option>
+            <option value="massive">Big Data (N &ge; 1M)</option>
+          </select>
+
+          <!-- Reset Button -->
+          <button id="btn-reset-filters" class="px-2.5 py-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-medium transition">
+            Сброс
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Area -->
+  <main class="flex-grow max-w-[1920px] w-full mx-auto p-4">
+
+    <!-- Active Filter Counter -->
+    <div id="filter-status-bar" class="mb-3 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between">
+      <span id="filter-status-text">Показано: 10 из 10 сценариев</span>
+    </div>
+
+    <!-- VIEW 1: Cards View -->
+    <div id="view-cards-container" class="space-y-4">
+      <div id="cards-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <!-- Rendered via JS -->
+      </div>
+      <div id="cards-empty" class="hidden text-center py-16 text-slate-400 dark:text-slate-500 text-sm">
+        <div class="text-3xl mb-2">🔍</div>
+        Ни один прикладной сценарий не соответствует выбранным критериям фильтрации.
+      </div>
+    </div>
+
+    <!-- VIEW 2: Readiness Matrix View -->
+    <div id="view-matrix-container" class="hidden bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+      <!-- Toolbar inside Matrix -->
+      <div class="p-3 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 bg-slate-50 dark:bg-slate-900/50 text-xs">
+        <div class="flex items-center flex-wrap gap-2">
+          <span class="font-semibold text-slate-700 dark:text-slate-300">Готовность к сценариям:</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ≥80% Высокая
+          </span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> 50–79% Частичная
+          </span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> &lt;50% Недостаточная
+          </span>
+          <span class="text-slate-400 dark:text-slate-500">|</span>
+          <span class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-400">
+            <span>✓</span> Все крит. требования закрыты
+          </span>
+          <span class="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400">
+            <span>⚠</span> Не хватает критических фич
+          </span>
+        </div>
+
+        <!-- Ecosystem filter for matrix -->
+        <div class="flex items-center gap-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-0.5">
+          <button data-matrix-eco="all" class="matrix-eco-btn px-2.5 py-1 rounded font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/70">Все (27)</button>
+          <button data-matrix-eco="Python" class="matrix-eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Python (8)</button>
+          <button data-matrix-eco="R" class="matrix-eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">R (14)</button>
+          <button data-matrix-eco="other" class="matrix-eco-btn px-2.5 py-1 rounded font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Julia/C++ (5)</button>
+        </div>
+      </div>
+
+      <!-- Matrix Table -->
+      <div class="table-container">
+        <table class="w-full text-left border-collapse text-xs min-w-[1100px]" id="table-matrix">
+          <!-- Rendered via JS -->
+        </table>
+      </div>
+    </div>
+
+    <!-- VIEW 3: Reproducibility & Open Science Audit View -->
+    <div id="view-audit-container" class="hidden space-y-4">
+      <!-- Top Audit KPI Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Всего эмпирических публикаций</div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-white mt-1">52 исследования</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">49 уникальных статей в 10 доменах</div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Полная воспроизводимость (full)</div>
+          <div class="text-2xl font-bold text-emerald-700 dark:text-emerald-300 mt-1" id="audit-stat-full">24 статьи</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Открытый датасет + открытый код / R-пакет</div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xs text-sky-600 dark:text-sky-400 font-medium">Открытые данные (data_only)</div>
+          <div class="text-2xl font-bold text-sky-700 dark:text-sky-300 mt-1" id="audit-stat-data">28 статей</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Датасет в открытом доступе / в тексте статьи</div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">Доля открытости данных</div>
+          <div class="text-2xl font-bold text-indigo-700 dark:text-indigo-300 mt-1">100%</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Все 52 бенчмарка доступны публично</div>
+        </div>
+      </div>
+
+      <!-- Audit Articles Table -->
+      <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+        <div class="p-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-between">
+          <h3 class="font-bold text-xs text-slate-900 dark:text-white">Реестр открытых прикладных бенчмарков и их воспроизводимость</h3>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Прямые ссылки на открытые репозитории (Zenodo, CRAN, GitHub, Kaggle, DOI)</span>
+        </div>
+        <div class="table-container">
+          <table class="w-full text-left border-collapse text-xs" id="table-audit">
+            <!-- Rendered via JS -->
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Slide-over Drawer for Use Case Details -->
+  <div id="drawer-backdrop" class="hidden fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-40 transition-opacity duration-300 opacity-0" onclick="closeDrawer()"></div>
+  <aside id="drawer" class="is-closed fixed top-0 right-0 h-full w-full max-w-2xl bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl z-50 flex flex-col" style="transform: translateX(100%);">
+    
+    <!-- Drawer Header -->
+    <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4 bg-slate-50 dark:bg-slate-900/80">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span id="drawer-uc-id" class="px-2 py-0.5 text-xs font-black rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+            UC-01
+          </span>
+          <span id="drawer-uc-domain" class="text-xs font-semibold text-slate-500 dark:text-slate-400">
+            Астрофизика
+          </span>
+        </div>
+        <h2 id="drawer-uc-name" class="text-base font-bold text-slate-900 dark:text-white leading-snug">
+          Название сценария
+        </h2>
+      </div>
+      <button id="btn-close-drawer" type="button" onclick="closeDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition" title="Закрыть панель (Escape)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Content Scrollable -->
+    <div class="flex-grow overflow-y-auto p-4 space-y-5 text-xs">
+      <!-- Verbal Description -->
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-1.5 flex items-center gap-1.5">
+          <span>📖</span> Описание прикладной задачи
+        </h4>
+        <p id="drawer-uc-desc" class="text-slate-600 dark:text-slate-300 leading-relaxed text-justify bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-200 dark:border-slate-800">
+          Описание...
+        </p>
+      </div>
+
+      <!-- 5-Axis Taxonomy Pills -->
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-2 flex items-center gap-1.5">
+          <span>📐</span> Классификация по 5 осям таксономии
+        </h4>
+        <div class="grid grid-cols-2 gap-2" id="drawer-taxonomy-grid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Requirements & Academic Rationales (Grouped by Category) -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
+              <span>⚙️</span> Требования к библиотеке
+            </h4>
+            <span id="drawer-reqs-count" class="text-[11px] font-semibold text-slate-500 dark:text-slate-400"></span>
+          </div>
+
+          <!-- Grouping Toggle: by Category or by Importance -->
+          <div class="flex items-center bg-slate-200 dark:bg-slate-800 p-0.5 rounded text-[10px]">
+            <button type="button" id="btn-group-by-cat" class="px-2 py-0.5 rounded font-semibold text-indigo-700 dark:text-indigo-300 bg-white dark:bg-slate-900 shadow-sm transition">
+              По группам
+            </button>
+            <button type="button" id="btn-group-by-imp" class="px-2 py-0.5 rounded font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+              По важности
+            </button>
+          </div>
+        </div>
+        <div id="drawer-reqs-list" class="space-y-3">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Benchmark Datasets & Associated Papers -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
+            <span>📚</span> Открытые датасеты и публикации
+          </h4>
+          <span id="drawer-articles-count" class="text-[11px] font-semibold text-slate-500 dark:text-slate-400"></span>
+        </div>
+        <div id="drawer-articles-list" class="space-y-2">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Ecosystem Readiness Ranking for this UC -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
+            <span>🏆</span> Рейтинг готовности библиотек
+          </h4>
+          <button id="btn-toggle-all-rankings" type="button" class="text-[11px] text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">
+            Показать все 27
+          </button>
+        </div>
+        <div id="drawer-readiness-ranking" class="space-y-1.5 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-lg border border-slate-200 dark:border-slate-800">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 flex items-center justify-between">
+      <span class="text-[11px] text-slate-500 dark:text-slate-400">Нажмите Escape или кликните вне окна для закрытия</span>
+      <button type="button" onclick="closeDrawer()" class="px-4 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold rounded-lg text-xs transition">
+        Закрыть
+      </button>
+    </div>
+  </aside>
+
+  <!-- Embedded Data & Client Application -->
+  <script>
+    const RAW_DATA = __RAW_USECASES_DATA__;
+
+    // State
+    const state = {
+      activeView: 'cards', // 'cards' | 'matrix' | 'audit'
+      searchQuery: '',
+      filterDomain: 'all',
+      filterMixtureType: 'all',
+      filterMorphology: 'all',
+      filterPriorKnowledge: 'all',
+      filterObservationRegime: 'all',
+      filterSampleRegime: 'all',
+      filterMatrixEco: 'all',
+      selectedUseCaseId: null,
+      showAllRankings: false,
+      drawerReqsGrouping: 'category' // 'category' | 'importance'
+    };
+
+    // Category Metadata matching dashboard.html
+    const CATEGORY_META = {
+      estimation: { title: 'Оценивание параметров (EST)', icon: '📈', prefix: 'EST' },
+      structure: { title: 'Структура смеси и выбор K (STRUC)', icon: '🧩', prefix: 'STRUC' },
+      initialization: { title: 'Инициализация параметров (INIT)', icon: '🎯', prefix: 'INIT' },
+      technical: { title: 'Архитектура и API (TECH)', icon: '⚙️', prefix: 'TECH' },
+      representation: { title: 'Представление смеси и интерфейс (REPR)', icon: '📦', prefix: 'REPR' },
+      performance: { title: 'Производительность и параллелизация (PERF)', icon: '⚡', prefix: 'PERF' },
+      visualization: { title: 'Визуализация и графики (VIS)', icon: '📊', prefix: 'VIS' },
+      diagnostics: { title: 'Статистическая диагностика и бенчмарки (DIAG)', icon: '🔬', prefix: 'DIAG' },
+      proprietary: { title: 'Проприетарные возможности (PROP)', icon: '💎', prefix: 'PROP' },
+      infrastructure: { title: 'Инженерия качества и CI (INFRA)', icon: '🛠️', prefix: 'INFRA' }
+    };
+
+    const CATEGORY_ORDER = [
+      'estimation',
+      'structure',
+      'initialization',
+      'technical',
+      'representation',
+      'performance',
+      'visualization',
+      'diagnostics',
+      'proprietary',
+      'infrastructure'
+    ];
+
+    // DOM Elements
+    const el = {
+      tabCards: document.getElementById('tab-cards'),
+      tabMatrix: document.getElementById('tab-matrix'),
+      tabAudit: document.getElementById('tab-audit'),
+      viewCards: document.getElementById('view-cards-container'),
+      viewMatrix: document.getElementById('view-matrix-container'),
+      viewAudit: document.getElementById('view-audit-container'),
+      cardsGrid: document.getElementById('cards-grid'),
+      cardsEmpty: document.getElementById('cards-empty'),
+      filterStatusBar: document.getElementById('filter-status-bar'),
+      filterStatusText: document.getElementById('filter-status-text'),
+      tableMatrix: document.getElementById('table-matrix'),
+      tableAudit: document.getElementById('table-audit'),
+      inputSearch: document.getElementById('input-search'),
+      filterDomain: document.getElementById('filter-domain'),
+      filterMixtureType: document.getElementById('filter-mixture-type'),
+      filterMorphology: document.getElementById('filter-morphology'),
+      filterPriorKnowledge: document.getElementById('filter-prior-knowledge'),
+      filterObservationRegime: document.getElementById('filter-observation-regime'),
+      filterSampleRegime: document.getElementById('filter-sample-regime'),
+      btnResetFilters: document.getElementById('btn-reset-filters'),
+      btnThemeToggle: document.getElementById('btn-theme-toggle'),
+      themeToggleIcon: document.getElementById('theme-toggle-icon'),
+      themeToggleText: document.getElementById('theme-toggle-text'),
+      drawer: document.getElementById('drawer'),
+      drawerBackdrop: document.getElementById('drawer-backdrop'),
+      btnCloseDrawer: document.getElementById('btn-close-drawer'),
+      drawerUcId: document.getElementById('drawer-uc-id'),
+      drawerUcDomain: document.getElementById('drawer-uc-domain'),
+      drawerUcName: document.getElementById('drawer-uc-name'),
+      drawerUcDesc: document.getElementById('drawer-uc-desc'),
+      drawerTaxonomyGrid: document.getElementById('drawer-taxonomy-grid'),
+      drawerReqsCount: document.getElementById('drawer-reqs-count'),
+      drawerReqsList: document.getElementById('drawer-reqs-list'),
+      drawerArticlesCount: document.getElementById('drawer-articles-count'),
+      drawerArticlesList: document.getElementById('drawer-articles-list'),
+      drawerReadinessRanking: document.getElementById('drawer-readiness-ranking'),
+      btnToggleAllRankings: document.getElementById('btn-toggle-all-rankings'),
+      btnGroupByCat: document.getElementById('btn-group-by-cat'),
+      btnGroupByImp: document.getElementById('btn-group-by-imp')
+    };
+
+    // Translation maps for 5-axis taxonomy
+    const TAXONOMY_LABELS = {
+      mixture_type: {
+        'homogeneous': 'Однородная',
+        'heterogeneous': 'Разнородная'
+      },
+      prior_knowledge: {
+        'known_k_separated': 'K известно (K=2, разделенные моды)',
+        'known_k_overlapping': 'K известно (K=2, перекрытие мод)',
+        'known_k_competing': 'K известно (K=2, конкурирующие риски)',
+        'known_k_heterogeneous': 'K известно (K=2, тело и хвост)',
+        'unknown_k_separated': 'K неизвестно (моды разделены)',
+        'unknown_k_overlapping': 'K неизвестно (перекрытие мод)',
+        'unknown_k_heterogeneous': 'K неизвестно (разнородные законы)'
+      },
+      component_morphology: {
+        'symmetric': 'Симметричные плотности',
+        'skewed': 'Асимметричные (скошенные)',
+        'semi_bounded': 'Полуограниченный [0, ∞)',
+        'heavy_tailed': 'Тяжелохвостые (степенные)'
+      },
+      observation_regime: {
+        'direct': 'Прямые непрерывные отсчеты',
+        'censored': 'Цензурированные наблюдения',
+        'binned': 'Сгруппированные (binned)',
+        'imbalanced': 'Дисбаланс / редкие моды'
+      },
+      sample_regime: {
+        'small': 'Малая (N < 100)',
+        'moderate': 'Умеренная (100–10k)',
+        'large': 'Большая (10k–100k)',
+        'massive': 'Big Data (N ≥ 1M)'
+      }
+    };
+
+    function formatNumber(numStr) {
+      if (!numStr) return '—';
+      const n = parseInt(numStr, 10);
+      if (isNaN(n)) return numStr;
+      return n.toLocaleString('ru-RU');
+    }
+
+    // Color mapper for readiness score
+    function getReadinessClass(score, critOk) {
+      if (!critOk) {
+        return 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900';
+      }
+      if (score >= 80) {
+        return 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
+      }
+      if (score >= 50) {
+        return 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800';
+      }
+      return 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700';
+    }
+
+    // Filter Logic for Use Cases
+    function getFilteredUseCases() {
+      const q = state.searchQuery.toLowerCase().trim();
+      return RAW_DATA.usecases.filter(uc => {
+        if (state.filterDomain !== 'all' && uc.domain !== state.filterDomain) return false;
+        if (state.filterMixtureType !== 'all' && uc.mixture_type !== state.filterMixtureType) return false;
+        if (state.filterMorphology !== 'all' && uc.component_morphology !== state.filterMorphology) return false;
+        if (state.filterPriorKnowledge !== 'all') {
+          if (state.filterPriorKnowledge === 'known' && !uc.prior_knowledge.startsWith('known')) return false;
+          if (state.filterPriorKnowledge === 'unknown' && !uc.prior_knowledge.startsWith('unknown')) return false;
+        }
+        if (state.filterObservationRegime !== 'all' && uc.observation_regime !== state.filterObservationRegime) return false;
+        if (state.filterSampleRegime !== 'all' && uc.sample_regime !== state.filterSampleRegime) return false;
+
+        if (q) {
+          const inName = uc.name.toLowerCase().includes(q);
+          const inDesc = uc.description.toLowerCase().includes(q);
+          const inDomain = uc.domain.toLowerCase().includes(q);
+          const inId = uc.usecase_id.toLowerCase().includes(q);
+          const arts = RAW_DATA.usecase_articles[uc.usecase_id] || [];
+          const inArts = arts.some(a => 
+            (a.dataset_name && a.dataset_name.toLowerCase().includes(q)) ||
+            (a.title && a.title.toLowerCase().includes(q)) ||
+            (a.authors && a.authors.toLowerCase().includes(q))
+          );
+          if (!inName && !inDesc && !inDomain && !inId && !inArts) return false;
+        }
+
+        return true;
+      });
+    }
+
+    // Render Cards View
+    function renderCards() {
+      const filtered = getFilteredUseCases();
+      el.cardsGrid.innerHTML = '';
+
+      el.filterStatusText.innerText = `Показано: ${filtered.length} из ${RAW_DATA.usecases.length} сценариев`;
+
+      if (filtered.length === 0) {
+        el.cardsEmpty.classList.remove('hidden');
+        return;
+      }
+      el.cardsEmpty.classList.add('hidden');
+
+      filtered.forEach(uc => {
+        const uid = uc.usecase_id;
+        const arts = RAW_DATA.usecase_articles[uid] || [];
+        const reqs = RAW_DATA.usecase_requirements[uid] || [];
+        const primaryArt = arts.find(a => a.case_role === 'primary_benchmark') || arts[0] || {};
+        
+        const critReqs = reqs.filter(r => r.importance === 'critical');
+        const desReqs = reqs.filter(r => r.importance === 'desirable');
+
+        const card = document.createElement('div');
+        card.className = 'bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-indigo-400 dark:hover:border-indigo-600 transition flex flex-col p-4 cursor-pointer';
+        card.onclick = () => openDrawer(uid);
+
+        card.innerHTML = `
+          <!-- Card Header -->
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="px-2 py-0.5 text-[11px] font-black rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+                  ${uc.usecase_id}
+                </span>
+                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                  ${uc.domain}
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                ${uc.name}
+              </h3>
+            </div>
+          </div>
+
+          <!-- Description Preview -->
+          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 mb-3 text-justify leading-relaxed">
+            ${uc.description}
+          </p>
+
+          <!-- 5-Axis Badges (including Status of K) -->
+          <div class="flex flex-wrap gap-1.5 mb-2 text-[10px]">
+            <!-- Axis 1: Mixture Type -->
+            <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+              ${TAXONOMY_LABELS.mixture_type[uc.mixture_type] || uc.mixture_type}
+            </span>
+
+            <!-- Axis 3: Status of K (Known vs Unknown) -->
+            ${uc.prior_knowledge && uc.prior_knowledge.startsWith('known') ? `
+              <span class="px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-semibold border border-amber-300 dark:border-amber-800" title="Число компонент смеси известно априори">
+                🔒 ${TAXONOMY_LABELS.prior_knowledge[uc.prior_knowledge] || 'K фиксировано'}
+              </span>
+            ` : `
+              <span class="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-200 dark:border-indigo-800" title="Число компонент смеси подлежит отбору">
+                🔍 ${TAXONOMY_LABELS.prior_knowledge[uc.prior_knowledge] || 'K неизвестно'}
+              </span>
+            `}
+
+            <!-- Axis 2: Morphology -->
+            <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+              ${TAXONOMY_LABELS.component_morphology[uc.component_morphology] || uc.component_morphology}
+            </span>
+
+            <!-- Axis 4: Observation Regime -->
+            <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+              ${TAXONOMY_LABELS.observation_regime[uc.observation_regime] || uc.observation_regime}
+            </span>
+
+            <!-- Axis 5: Sample Regime -->
+            <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+              ${TAXONOMY_LABELS.sample_regime[uc.sample_regime] || uc.sample_regime}
+            </span>
+          </div>
+
+          <!-- Category Chips Breakdown -->
+          <div class="flex flex-wrap items-center gap-1 mb-3">
+            ${(() => {
+              const catCounts = {};
+              reqs.forEach(r => {
+                const pfx = r.req_id.split('-')[0];
+                catCounts[pfx] = (catCounts[pfx] || 0) + 1;
+              });
+              return Object.entries(catCounts).map(([pfx, cnt]) => `
+                <span class="px-1.5 py-0.2 rounded font-mono text-[9px] font-semibold bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700" title="Требований в группе ${pfx}">
+                  ${pfx}: ${cnt}
+                </span>
+              `).join('');
+            })()}
+          </div>
+
+          <!-- Benchmark Box -->
+          <div class="bg-slate-50 dark:bg-slate-800/50 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 mb-3 text-xs flex-grow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-1">
+                <span class="font-bold text-slate-700 dark:text-slate-300">Бенчмарк: ${primaryArt.dataset_name || 'Данные'}</span>
+                <span class="px-1.5 py-0.2 font-mono text-[10px] bg-slate-200 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-semibold">N = ${formatNumber(primaryArt.sample_size)}</span>
+              </div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400 truncate mb-1.5">
+                ${primaryArt.authors ? primaryArt.authors.split(';')[0] + ' (' + primaryArt.year + ')' : ''} — ${primaryArt.title || ''}
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-[10px] pt-1.5 border-t border-slate-200/60 dark:border-slate-700/60 flex-wrap" onclick="event.stopPropagation()">
+              ${primaryArt.dataset_url ? `
+                <a href="${primaryArt.dataset_url}" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline flex items-center gap-0.5">
+                  <span>📊</span> Датасет ↗
+                </a>
+              ` : (primaryArt.data_availability === 'in_paper' ? `
+                <span class="text-slate-500 text-[10px]">📋 В статье</span>
+              ` : '')}
+              ${primaryArt.reproducibility_link && primaryArt.code_availability !== 'none' ? `
+                <a href="${primaryArt.reproducibility_link}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline flex items-center gap-0.5">
+                  <span>💻</span> Код ↗
+                </a>
+              ` : ''}
+              ${primaryArt.doi ? `
+                <a href="${primaryArt.doi}" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:underline flex items-center gap-0.5 ml-auto">
+                  <span>📄</span> DOI ↗
+                </a>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- Card Footer: Reqs count & Readiness preview -->
+          <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
+            <div class="flex items-center gap-2">
+              <span class="text-rose-600 dark:text-rose-400 font-semibold" title="Критические требования">🔥 ${critReqs.length} крит.</span>
+              <span class="text-slate-400 dark:text-slate-500">|</span>
+              <span class="text-slate-600 dark:text-slate-400 font-medium" title="Желательные требования">✨ ${desReqs.length} жел.</span>
+            </div>
+            <span class="text-indigo-600 dark:text-indigo-400 font-bold hover:underline flex items-center gap-1">
+              Детали сценария →
+            </span>
+          </div>
+        `;
+
+        el.cardsGrid.appendChild(card);
+      });
+    }
+
+    // Render Matrix View
+    function renderMatrix() {
+      const ucs = getFilteredUseCases();
+      const ecoFilter = state.filterMatrixEco;
+      const q = state.searchQuery.toLowerCase().trim();
+      
+      const filteredTools = RAW_DATA.tools.filter(t => {
+        if (ecoFilter === 'Python' && t.ecosystem !== 'Python') return false;
+        if (ecoFilter === 'R' && !t.ecosystem.includes('R')) return false;
+        if (ecoFilter === 'other' && (t.ecosystem.includes('R') || t.ecosystem === 'Python')) return false;
+        if (q && !t.name.toLowerCase().includes(q) && !t.ecosystem.toLowerCase().includes(q)) return false;
+        return true;
+      });
+
+      el.filterStatusText.innerText = `Матрица: ${filteredTools.length} библиотек × ${ucs.length} сценариев`;
+
+      const sortedTools = [...filteredTools].sort((a, b) => {
+        if (a.tool_id === 'pysatl-mpest') return -1;
+        if (b.tool_id === 'pysatl-mpest') return 1;
+        return (RAW_DATA.tool_avg_readiness[b.tool_id] || 0) - (RAW_DATA.tool_avg_readiness[a.tool_id] || 0);
+      });
+
+      let html = `
+        <thead>
+          <tr class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-b border-slate-200 dark:border-slate-700">
+            <th class="p-2.5 font-bold sticky-header-corner bg-slate-100 dark:bg-slate-800 min-w-[200px] border-r border-slate-200 dark:border-slate-700">
+              Библиотека / Пакет (${sortedTools.length})
+            </th>
+            <th class="p-2.5 font-bold sticky-th text-center min-w-[70px] bg-slate-100 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700" title="Средняя готовность по всем 10 сценариям">
+              Среднее
+            </th>
+      `;
+
+      ucs.forEach(uc => {
+        html += `
+          <th class="p-2 font-bold sticky-th text-center min-w-[95px] bg-slate-100 dark:bg-slate-800 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 border-r border-slate-200 dark:border-slate-700" onclick="openDrawer('${uc.usecase_id}')" title="${uc.name} (${uc.domain})">
+            <div class="text-[10px] text-indigo-600 dark:text-indigo-400 font-black">${uc.usecase_id}</div>
+            <div class="truncate text-[10px] font-medium text-slate-600 dark:text-slate-300 max-w-[85px] mx-auto">${uc.domain.split(' ')[0]}</div>
+          </th>
+        `;
+      });
+
+      html += `</tr></thead><tbody>`;
+
+      sortedTools.forEach(t => {
+        const isTarget = t.tool_id === 'pysatl-mpest';
+        const avgScore = RAW_DATA.tool_avg_readiness[t.tool_id] || 0;
+        const rowClass = isTarget 
+          ? 'bg-indigo-50/70 dark:bg-indigo-950/40 font-bold border-b-2 border-indigo-500' 
+          : 'border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50';
+
+        html += `
+          <tr class="${rowClass}">
+            <td class="p-2.5 sticky-col-1 ${isTarget ? 'bg-indigo-50 dark:bg-slate-900 font-bold text-indigo-900 dark:text-indigo-300' : 'bg-white dark:bg-slate-900'} border-r border-slate-200 dark:border-slate-800">
+              <div class="flex items-center gap-1.5">
+                <span class="truncate">${t.name}</span>
+                <span class="text-[10px] text-slate-400 font-normal">(${t.ecosystem})</span>
+              </div>
+            </td>
+            <td class="p-2 text-center font-bold font-mono border-r border-slate-200 dark:border-slate-800 ${avgScore >= 70 ? 'text-emerald-600 dark:text-emerald-400' : (avgScore >= 50 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500')}">
+              ${avgScore}%
+            </td>
+        `;
+
+        ucs.forEach(uc => {
+          const res = RAW_DATA.readiness_matrix[t.tool_id]?.[uc.usecase_id] || { score: 0, critical_ok: false };
+          const cellBadge = getReadinessClass(res.score, res.critical_ok);
+          const flag = res.critical_ok ? '✓' : '⚠';
+
+          html += `
+            <td class="p-1.5 text-center border-r border-slate-200 dark:border-slate-800">
+              <span class="inline-flex items-center justify-center gap-1 px-1.5 py-0.5 rounded text-[11px] font-mono font-bold border ${cellBadge} cursor-pointer hover:scale-105 transition" onclick="openDrawer('${uc.usecase_id}')" title="${t.name} в ${uc.usecase_id}: ${res.score}% (${res.critical_ok ? 'Все крит. требования выполнены' : 'Не хватает крит. требований'}) — кликните для деталей">
+                <span>${res.score}%</span>
+                <span class="text-[9px] ${res.critical_ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}">${flag}</span>
+              </span>
+            </td>
+          `;
+        });
+
+        html += `</tr>`;
+      });
+
+      html += `</tbody>`;
+      el.tableMatrix.innerHTML = html;
+    }
+
+    // Render Audit View
+    function renderAudit() {
+      const q = state.searchQuery.toLowerCase().trim();
+      const allArts = [];
+      Object.entries(RAW_DATA.usecase_articles).forEach(([uid, arts]) => {
+        arts.forEach(a => {
+          allArts.push({ ...a, usecase_id: uid });
+        });
+      });
+
+      const filteredArts = allArts.filter(a => {
+        if (state.filterDomain !== 'all') {
+          const uc = RAW_DATA.usecases.find(u => u.usecase_id === a.usecase_id);
+          if (uc && uc.domain !== state.filterDomain) return false;
+        }
+        if (q) {
+          const inTitle = a.title && a.title.toLowerCase().includes(q);
+          const inAuthors = a.authors && a.authors.toLowerCase().includes(q);
+          const inDs = a.dataset_name && a.dataset_name.toLowerCase().includes(q);
+          const inId = a.article_id && a.article_id.toLowerCase().includes(q);
+          const inUc = a.usecase_id && a.usecase_id.toLowerCase().includes(q);
+          if (!inTitle && !inAuthors && !inDs && !inId && !inUc) return false;
+        }
+        return true;
+      });
+
+      el.filterStatusText.innerText = `Аудит: ${filteredArts.length} бенчмарков`;
+
+      let fullCount = allArts.filter(a => a.reproducibility_link && a.code_availability !== 'none' && (a.dataset_url || a.data_availability === 'open')).length;
+      let dataCount = allArts.filter(a => a.dataset_url || a.data_availability === 'open' || a.data_availability === 'in_paper').length;
+
+      document.getElementById('audit-stat-full').innerText = `${fullCount} бенчмарков`;
+      document.getElementById('audit-stat-data').innerText = `${dataCount} бенчмарков`;
+
+      let html = `
+        <thead>
+          <tr class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-b border-slate-200 dark:border-slate-700">
+            <th class="p-2.5 font-bold sticky-th">Сценарий</th>
+            <th class="p-2.5 font-bold sticky-th">Бенчмарк / Датасет</th>
+            <th class="p-2.5 font-bold sticky-th">Объем (N)</th>
+            <th class="p-2.5 font-bold sticky-th">Доступность данных и кода</th>
+            <th class="p-2.5 font-bold sticky-th">Научная публикация</th>
+            <th class="p-2.5 font-bold sticky-th">Прямые ссылки (Датасет / Код)</th>
+          </tr>
+        </thead>
+        <tbody>
+      `;
+
+      filteredArts.forEach(a => {
+        const hasCode = a.reproducibility_link && a.code_availability !== 'none';
+        const hasOpenData = !!a.dataset_url || a.data_availability === 'open';
+        const isDataInPaper = a.data_availability === 'in_paper';
+
+        let repClass = 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300';
+        let repLabel = 'Данные закрыты';
+
+        if (hasCode && hasOpenData) {
+          repClass = 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border-emerald-300';
+          repLabel = 'Полная (код + данные)';
+        } else if (hasOpenData) {
+          repClass = 'bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 border-sky-300';
+          repLabel = 'Открытый датасет';
+        } else if (isDataInPaper) {
+          repClass = 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border-amber-300';
+          repLabel = 'Данные в тексте статьи';
+        }
+
+        html += `
+          <tr class="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+            <td class="p-2.5 font-bold text-indigo-600 dark:text-indigo-400">
+              <span class="cursor-pointer hover:underline" onclick="openDrawer('${a.usecase_id}')">${a.usecase_id}</span>
+            </td>
+            <td class="p-2.5 font-semibold text-slate-800 dark:text-slate-200">
+              ${a.dataset_name}
+            </td>
+            <td class="p-2.5 font-mono text-slate-600 dark:text-slate-400">
+              ${formatNumber(a.sample_size)}
+            </td>
+            <td class="p-2.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold border ${repClass}">
+                ${repLabel}
+              </span>
+            </td>
+            <td class="p-2.5 max-w-md">
+              <div class="font-medium text-slate-900 dark:text-slate-100 flex items-start justify-between gap-1.5">
+                <span>${a.title}</span>
+                ${a.doi ? `
+                  <a href="${a.doi}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 shrink-0 text-xs font-mono" title="Открыть DOI публикации">
+                    DOI ↗
+                  </a>
+                ` : ''}
+              </div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">${a.authors} (${a.year})</div>
+            </td>
+            <td class="p-2.5">
+              <div class="flex items-center gap-2 flex-wrap text-[11px]">
+                ${a.dataset_url ? `
+                  <a href="${a.dataset_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:underline font-semibold">
+                    <span>📊</span> Датасет ↗
+                  </a>
+                ` : (isDataInPaper ? `
+                  <span class="text-slate-400 text-[10px]">📋 В таблицах статьи</span>
+                ` : '')}
+                ${hasCode ? `
+                  <a href="${a.reproducibility_link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">
+                    <span>💻</span> Код ↗
+                  </a>
+                ` : ''}
+                ${!a.dataset_url && !hasCode && !isDataInPaper ? '<span class="text-slate-400 text-xs">—</span>' : ''}
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+
+      html += `</tbody>`;
+      el.tableAudit.innerHTML = html;
+    }
+
+    // Drawer Open & Close Functions
+    function openDrawer(ucId) {
+      const uc = RAW_DATA.usecases.find(x => x.usecase_id === ucId);
+      if (!uc) return;
+
+      state.selectedUseCaseId = ucId;
+      state.showAllRankings = false;
+      el.btnToggleAllRankings.innerText = 'Показать все 27';
+
+      el.drawerUcId.innerText = uc.usecase_id;
+      el.drawerUcDomain.innerText = uc.domain;
+      el.drawerUcName.innerText = uc.name;
+      el.drawerUcDesc.innerText = uc.description;
+
+      // Render Taxonomy Grid
+      el.drawerTaxonomyGrid.innerHTML = `
+        <div class="bg-slate-100 dark:bg-slate-800/80 p-2 rounded border border-slate-200 dark:border-slate-700">
+          <div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Тип смеси</div>
+          <div class="font-semibold text-slate-800 dark:text-slate-200">${TAXONOMY_LABELS.mixture_type[uc.mixture_type] || uc.mixture_type}</div>
+        </div>
+        <div class="bg-slate-100 dark:bg-slate-800/80 p-2 rounded border border-slate-200 dark:border-slate-700">
+          <div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Число компонент (K)</div>
+          <div class="font-semibold ${uc.prior_knowledge && uc.prior_knowledge.startsWith('known') ? 'text-amber-600 dark:text-amber-400 font-bold' : 'text-indigo-600 dark:text-indigo-400 font-bold'}">${TAXONOMY_LABELS.prior_knowledge[uc.prior_knowledge] || uc.prior_knowledge}</div>
+        </div>
+        <div class="bg-slate-100 dark:bg-slate-800/80 p-2 rounded border border-slate-200 dark:border-slate-700">
+          <div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Морфология</div>
+          <div class="font-semibold text-slate-800 dark:text-slate-200">${TAXONOMY_LABELS.component_morphology[uc.component_morphology] || uc.component_morphology}</div>
+        </div>
+        <div class="bg-slate-100 dark:bg-slate-800/80 p-2 rounded border border-slate-200 dark:border-slate-700">
+          <div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Режим наблюдения</div>
+          <div class="font-semibold text-slate-800 dark:text-slate-200">${TAXONOMY_LABELS.observation_regime[uc.observation_regime] || uc.observation_regime}</div>
+        </div>
+        <div class="bg-slate-100 dark:bg-slate-800/80 p-2 rounded border border-slate-200 dark:border-slate-700 col-span-2">
+          <div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Масштаб выборки</div>
+          <div class="font-semibold text-slate-800 dark:text-slate-200">${TAXONOMY_LABELS.sample_regime[uc.sample_regime] || uc.sample_regime}</div>
+        </div>
+      `;
+
+      // Render Requirements (with category grouping support)
+      const reqs = RAW_DATA.usecase_requirements[ucId] || [];
+      el.drawerReqsCount.innerText = `${reqs.length} требований`;
+      renderDrawerRequirementsList(reqs);
+
+      // Render Articles
+      const arts = RAW_DATA.usecase_articles[ucId] || [];
+      el.drawerArticlesCount.innerText = `${arts.length} публикаций`;
+      el.drawerArticlesList.innerHTML = arts.map(a => {
+        const roleLabel = a.case_role === 'primary_benchmark' ? 'Первичный бенчмарк' : (a.case_role === 'validation' ? 'Валидация' : 'Применение');
+        const roleClass = a.case_role === 'primary_benchmark' 
+          ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border-amber-300'
+          : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300';
+
+        const dataBadgeOrLink = a.dataset_url ? `
+          <a href="${a.dataset_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:underline font-semibold">
+            <span>📊</span> Открытый датасет →
+          </a>
+        ` : (a.data_availability === 'in_paper' ? `
+          <span class="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400 text-[10px] font-medium bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">
+            <span>📋</span> Данные в таблицах статьи
+          </span>
+        ` : '');
+
+        const codeLink = (a.reproducibility_link && a.code_availability !== 'none') ? `
+          <a href="${a.reproducibility_link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">
+            <span>💻</span> Репозиторий кода →
+          </a>
+        ` : '';
+
+        const doiLink = a.doi ? `
+          <a href="${a.doi}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:underline">
+            <span>📄</span> DOI статьи →
+          </a>
+        ` : '';
+
+        return `
+          <div class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="font-bold text-slate-900 dark:text-slate-100">${a.dataset_name} (N = ${formatNumber(a.sample_size)})</span>
+              <span class="px-1.5 py-0.5 text-[10px] font-bold rounded border ${roleClass}">${roleLabel}</span>
+            </div>
+            <div class="text-[11px] text-slate-600 dark:text-slate-300 font-medium mb-1">
+              ${a.title}
+            </div>
+            <div class="text-[10px] text-slate-500 dark:text-slate-400 mb-1.5">
+              ${a.authors} (${a.year})
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-400 italic mb-2">
+              ${a.case_note}
+            </p>
+            <div class="flex items-center gap-3 text-[11px] flex-wrap pt-1.5 border-t border-slate-200 dark:border-slate-800">
+              ${dataBadgeOrLink}
+              ${codeLink}
+              ${doiLink}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      renderDrawerRankings(ucId);
+
+      // Open drawer animation with inline style fallback
+      el.drawerBackdrop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        el.drawerBackdrop.classList.remove('opacity-0');
+        el.drawerBackdrop.classList.add('opacity-100');
+        el.drawer.classList.remove('is-closed');
+        el.drawer.classList.add('is-open');
+        el.drawer.style.transform = 'translateX(0)';
+      });
+    }
+
+        function renderSingleReqCard(r) {
+      const isCrit = r.importance === 'critical';
+      const impBadge = isCrit
+        ? '<span class="px-1.5 py-0.5 text-[10px] font-bold rounded border bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border-rose-300">Критическое</span>'
+        : '<span class="px-1.5 py-0.5 text-[10px] font-bold rounded border bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 border-sky-300">Желательное</span>';
+
+      const prioClass = r.priority === 'must'
+        ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300 border-rose-200'
+        : (r.priority === 'should'
+          ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border-amber-200'
+          : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border-slate-200');
+
+      const prioBadge = r.priority
+        ? `<span class="px-1.5 py-0.2 text-[9px] font-bold uppercase rounded border ${prioClass}">${r.priority}</span>`
+        : '';
+
+      const supportText = r.tools_supported_count !== undefined
+        ? `<span class="text-[10px] text-slate-400 dark:text-slate-500 font-mono" title="Число пакетов с поддержкой фичи">Библиотек: ${r.tools_supported_count}/${r.tools_supported_total}</span>`
+        : '';
+
+      return `
+        <div class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/70 hover:border-indigo-300 dark:hover:border-indigo-700 transition">
+          <div class="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-xs">${r.req_id}</span>
+              <span class="font-semibold text-slate-900 dark:text-slate-100 text-xs">${r.req_name || ''}</span>
+              ${prioBadge}
+            </div>
+            <div class="flex items-center gap-2">
+              ${supportText}
+              ${impBadge}
+            </div>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-justify text-[11px]">
+            ${r.rationale}
+          </p>
+        </div>
+      `;
+    }
+
+    function renderDrawerRequirementsList(reqs) {
+      if (!reqs || reqs.length === 0) {
+        el.drawerReqsList.innerHTML = '<div class="text-slate-400 text-center py-4">Нет привязанных требований</div>';
+        return;
+      }
+
+      if (state.drawerReqsGrouping === 'importance') {
+        // Flat sorted by critical first
+        const sorted = [...reqs].sort((a, b) => {
+          if (a.importance === 'critical' && b.importance !== 'critical') return -1;
+          if (a.importance !== 'critical' && b.importance === 'critical') return 1;
+          return a.req_id.localeCompare(b.req_id);
+        });
+        el.drawerReqsList.innerHTML = sorted.map(r => renderSingleReqCard(r)).join('');
+        return;
+      }
+
+      // Group by Category matching dashboard.html
+      const grouped = {};
+      reqs.forEach(r => {
+        const cat = r.req_type || (r.req_id.split('-')[0].toLowerCase() === 'est' ? 'estimation' : 'other');
+        grouped[cat] = grouped[cat] || [];
+        grouped[cat].push(r);
+      });
+
+      let html = '';
+      CATEGORY_ORDER.forEach(catKey => {
+        const catReqs = grouped[catKey];
+        if (!catReqs || catReqs.length === 0) return;
+        
+        // Sort inside category: critical first
+        catReqs.sort((a, b) => {
+          if (a.importance === 'critical' && b.importance !== 'critical') return -1;
+          if (a.importance !== 'critical' && b.importance === 'critical') return 1;
+          return a.req_id.localeCompare(b.req_id);
+        });
+
+        const meta = CATEGORY_META[catKey] || { title: catKey, icon: '📁', prefix: catKey.toUpperCase() };
+        const critCount = catReqs.filter(r => r.importance === 'critical').length;
+        const desCount = catReqs.filter(r => r.importance === 'desirable').length;
+
+        html += `
+          <div class="rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50/50 dark:bg-slate-900/40 shadow-sm">
+            <div class="px-3 py-2 bg-slate-200/70 dark:bg-slate-800 border-b border-slate-300 dark:border-slate-700 flex items-center justify-between text-xs select-none">
+              <div class="flex items-center gap-1.5 font-bold text-slate-800 dark:text-slate-100">
+                <span>${meta.icon}</span>
+                <span>${meta.title}</span>
+                <span class="text-[11px] text-slate-500 font-normal">(${catReqs.length})</span>
+              </div>
+              <div class="flex items-center gap-1 text-[10px]">
+                ${critCount > 0 ? `<span class="px-1.5 py-0.2 rounded font-bold bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-900">${critCount} крит.</span>` : ''}
+                ${desCount > 0 ? `<span class="px-1.5 py-0.2 rounded font-bold bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-900">${desCount} жел.</span>` : ''}
+              </div>
+            </div>
+            <div class="p-2 space-y-2">
+              ${catReqs.map(r => renderSingleReqCard(r)).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      // Handle any categories not in CATEGORY_ORDER
+      Object.keys(grouped).forEach(catKey => {
+        if (!CATEGORY_ORDER.includes(catKey)) {
+          const catReqs = grouped[catKey];
+          html += `
+            <div class="rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50/50 dark:bg-slate-900/40 p-2 space-y-2">
+              <div class="font-bold text-xs px-1 text-slate-700 dark:text-slate-300">${catKey} (${catReqs.length})</div>
+              ${catReqs.map(r => renderSingleReqCard(r)).join('')}
+            </div>
+          `;
+        }
+      });
+
+      el.drawerReqsList.innerHTML = html;
+    }
+
+    function renderDrawerRankings(ucId) {
+      const rankings = Object.entries(RAW_DATA.readiness_matrix).map(([tid, ucs]) => {
+        const t = RAW_DATA.tools.find(x => x.tool_id === tid);
+        return {
+          tid,
+          name: t ? t.name : tid,
+          ecosystem: t ? t.ecosystem : '',
+          score: ucs[ucId] ? ucs[ucId].score : 0,
+          critical_ok: ucs[ucId] ? ucs[ucId].critical_ok : false
+        };
+      }).sort((a, b) => b.score - a.score);
+
+      const items = state.showAllRankings ? rankings : rankings.slice(0, 10);
+
+      el.drawerReadinessRanking.innerHTML = items.map((r, i) => {
+        const isTarget = r.tid === 'pysatl-mpest';
+        const badge = getReadinessClass(r.score, r.critical_ok);
+        return `
+          <div class="flex items-center justify-between py-1 px-2 rounded ${isTarget ? 'bg-indigo-100 dark:bg-indigo-950 font-bold border border-indigo-300' : ''}">
+            <div class="flex items-center gap-2">
+              <span class="w-4 text-slate-400 font-mono text-[10px]">${i + 1}.</span>
+              <span class="${isTarget ? 'text-indigo-900 dark:text-indigo-200' : 'text-slate-700 dark:text-slate-300'}">${r.name}</span>
+              <span class="text-[10px] text-slate-400 font-normal">(${r.ecosystem})</span>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold border ${badge}">
+              ${r.score}% ${r.critical_ok ? '✓' : '⚠'}
+            </span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function closeDrawer() {
+      el.drawer.classList.remove('is-open');
+      el.drawer.classList.add('is-closed');
+      el.drawer.style.transform = 'translateX(100%)';
+      el.drawerBackdrop.classList.remove('opacity-100');
+      el.drawerBackdrop.classList.add('opacity-0');
+      setTimeout(() => {
+        el.drawerBackdrop.classList.add('hidden');
+      }, 300);
+    }
+
+    // Attach to window so onclick in HTML always works
+    window.openDrawer = openDrawer;
+    window.closeDrawer = closeDrawer;
+
+        el.btnGroupByCat.addEventListener('click', () => {
+      state.drawerReqsGrouping = 'category';
+      el.btnGroupByCat.className = 'px-2 py-0.5 rounded font-semibold text-indigo-700 dark:text-indigo-300 bg-white dark:bg-slate-900 shadow-sm transition';
+      el.btnGroupByImp.className = 'px-2 py-0.5 rounded font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition';
+      if (state.selectedUseCaseId) {
+        renderDrawerRequirementsList(RAW_DATA.usecase_requirements[state.selectedUseCaseId] || []);
+      }
+    });
+
+    el.btnGroupByImp.addEventListener('click', () => {
+      state.drawerReqsGrouping = 'importance';
+      el.btnGroupByImp.className = 'px-2 py-0.5 rounded font-semibold text-indigo-700 dark:text-indigo-300 bg-white dark:bg-slate-900 shadow-sm transition';
+      el.btnGroupByCat.className = 'px-2 py-0.5 rounded font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition';
+      if (state.selectedUseCaseId) {
+        renderDrawerRequirementsList(RAW_DATA.usecase_requirements[state.selectedUseCaseId] || []);
+      }
+    });
+
+    el.btnToggleAllRankings.addEventListener('click', () => {
+      state.showAllRankings = !state.showAllRankings;
+      el.btnToggleAllRankings.innerText = state.showAllRankings ? 'Свернуть до 10' : 'Показать все 27';
+      if (state.selectedUseCaseId) {
+        renderDrawerRankings(state.selectedUseCaseId);
+      }
+    });
+
+    // Switch View Tabs
+    function setView(viewName) {
+      state.activeView = viewName;
+      
+      [el.tabCards, el.tabMatrix, el.tabAudit].forEach(btn => {
+        btn.classList.remove('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+        btn.classList.add('text-slate-600', 'dark:text-slate-300');
+      });
+
+      el.viewCards.classList.add('hidden');
+      el.viewMatrix.classList.add('hidden');
+      el.viewAudit.classList.add('hidden');
+
+      if (viewName === 'cards') {
+        el.tabCards.classList.add('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+        el.tabCards.classList.remove('text-slate-600', 'dark:text-slate-300');
+        el.viewCards.classList.remove('hidden');
+        renderCards();
+      } else if (viewName === 'matrix') {
+        el.tabMatrix.classList.add('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+        el.tabMatrix.classList.remove('text-slate-600', 'dark:text-slate-300');
+        el.viewMatrix.classList.remove('hidden');
+        renderMatrix();
+      } else if (viewName === 'audit') {
+        el.tabAudit.classList.add('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+        el.tabAudit.classList.remove('text-slate-600', 'dark:text-slate-300');
+        el.viewAudit.classList.remove('hidden');
+        renderAudit();
+      }
+    }
+
+    // Refresh active view
+    function updateActiveView() {
+      if (state.activeView === 'cards') renderCards();
+      else if (state.activeView === 'matrix') renderMatrix();
+      else if (state.activeView === 'audit') renderAudit();
+    }
+
+    // Event Listeners
+    el.tabCards.addEventListener('click', () => setView('cards'));
+    el.tabMatrix.addEventListener('click', () => setView('matrix'));
+    el.tabAudit.addEventListener('click', () => setView('audit'));
+
+    el.inputSearch.addEventListener('input', e => {
+      state.searchQuery = e.target.value;
+      updateActiveView();
+    });
+
+    el.filterDomain.addEventListener('change', e => {
+      state.filterDomain = e.target.value;
+      updateActiveView();
+    });
+
+    el.filterMixtureType.addEventListener('change', e => {
+      state.filterMixtureType = e.target.value;
+      updateActiveView();
+    });
+
+    el.filterMorphology.addEventListener('change', e => {
+      state.filterMorphology = e.target.value;
+      updateActiveView();
+    });
+
+    el.filterPriorKnowledge.addEventListener('change', e => {
+      state.filterPriorKnowledge = e.target.value;
+      updateActiveView();
+    });
+
+    el.filterObservationRegime.addEventListener('change', e => {
+      state.filterObservationRegime = e.target.value;
+      updateActiveView();
+    });
+
+    el.filterSampleRegime.addEventListener('change', e => {
+      state.filterSampleRegime = e.target.value;
+      updateActiveView();
+    });
+
+    el.btnResetFilters.addEventListener('click', () => {
+      state.searchQuery = '';
+      state.filterDomain = 'all';
+      state.filterMixtureType = 'all';
+      state.filterMorphology = 'all';
+      state.filterPriorKnowledge = 'all';
+      state.filterObservationRegime = 'all';
+      state.filterSampleRegime = 'all';
+      state.filterMatrixEco = 'all';
+
+      el.inputSearch.value = '';
+      el.filterDomain.value = 'all';
+      el.filterMixtureType.value = 'all';
+      el.filterMorphology.value = 'all';
+      el.filterPriorKnowledge.value = 'all';
+      el.filterObservationRegime.value = 'all';
+      el.filterSampleRegime.value = 'all';
+
+      document.querySelectorAll('.matrix-eco-btn').forEach(b => {
+        b.classList.remove('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+        b.classList.add('text-slate-600', 'dark:text-slate-300');
+        if (b.dataset.matrixEco === 'all') {
+          b.classList.add('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+          b.classList.remove('text-slate-600', 'dark:text-slate-300');
+        }
+      });
+
+      updateActiveView();
+    });
+
+    // Matrix ecosystem filter buttons
+    document.querySelectorAll('.matrix-eco-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.matrix-eco-btn').forEach(b => {
+          b.classList.remove('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+          b.classList.add('text-slate-600', 'dark:text-slate-300');
+        });
+        btn.classList.add('bg-indigo-50', 'dark:bg-indigo-950/70', 'text-indigo-700', 'dark:text-indigo-300');
+        btn.classList.remove('text-slate-600', 'dark:text-slate-300');
+        state.filterMatrixEco = btn.dataset.matrixEco;
+        renderMatrix();
+      });
+    });
+
+    // Drawer close events
+    el.btnCloseDrawer.addEventListener('click', closeDrawer);
+    el.drawerBackdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    // Theme toggle
+    el.btnThemeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+      el.themeToggleIcon.innerText = isDark ? '☀️' : '🌙';
+      el.themeToggleText.innerText = isDark ? 'Светлая' : 'Темная';
+    });
+
+    // Init Theme button text
+    if (document.documentElement.classList.contains('dark')) {
+      el.themeToggleIcon.innerText = '☀️';
+      el.themeToggleText.innerText = 'Светлая';
+    } else {
+      el.themeToggleIcon.innerText = '🌙';
+      el.themeToggleText.innerText = 'Темная';
+    }
+
+    // Initial render
+    setView('cards');
+  </script>
+</body>
+</html>
+"""
+
+
+def generate_usecases_dashboard(data_dir: Path, output_file: Path):
+
+    # Load tools
+    with open(data_dir / "reqs" / "tools.csv", encoding="utf-8") as f:
+        tools = list(csv.DictReader(f))
+
+    # Load requirements
+    with open(data_dir / "requirements.csv", encoding="utf-8") as f:
+        requirements = list(csv.DictReader(f))
+    req_dict = {r["req_id"]: r for r in requirements}
+
+    # Load evaluations
+    with open(data_dir / "reqs" / "evaluations.csv", encoding="utf-8") as f:
+        evaluations = list(csv.DictReader(f))
+    eval_lookup = {(e["tool_id"], e["req_id"]): e["status"] for e in evaluations}
+
+    # Load articles
+    with open(data_dir / "articles.csv", encoding="utf-8") as f:
+        articles = list(csv.DictReader(f))
+    art_dict = {a["article_id"]: a for a in articles}
+
+    # Load use cases
+    with open(data_dir / "usecases" / "usecases.csv", encoding="utf-8") as f:
+        usecases = list(csv.DictReader(f))
+
+    # Load use case articles
+    with open(data_dir / "usecases" / "usecase_articles.csv", encoding="utf-8") as f:
+        usecase_articles = list(csv.DictReader(f))
+
+    # Load use case requirements
+    with open(data_dir / "usecases" / "usecase_requirements.csv", encoding="utf-8") as f:
+        usecase_requirements = list(csv.DictReader(f))
+
+    # Compute readiness scores
+    status_weight = {"yes": 1.0, "partial": 0.5, "no": 0.0}
+    imp_weight = {"critical": 2.0, "desirable": 1.0}
+
+    # Group reqs by UC
+    uc_reqs_map = {}
+    for ur in usecase_requirements:
+        item = dict(ur)
+        req_meta = req_dict.get(ur["req_id"], {})
+        item["req_name"] = req_meta.get("name", "")
+        item["req_type"] = req_meta.get("type", "")
+        item["priority"] = req_meta.get("priority", "")
+        supported = [t["name"] for t in tools if eval_lookup.get((t["tool_id"], ur["req_id"])) in {"yes", "partial"}]
+        item["tools_supported_count"] = len(supported)
+        item["tools_supported_total"] = len(tools)
+        uc_reqs_map.setdefault(ur["usecase_id"], []).append(item)
+
+    # Group arts by UC
+    uc_arts_map = {}
+    for ua in usecase_articles:
+        art = art_dict.get(ua["article_id"], {})
+        item = dict(ua)
+        item["title"] = art.get("title", "")
+        item["authors"] = art.get("authors", "")
+        item["year"] = art.get("year", "")
+        item["doi"] = art.get("doi", "")
+        item["url"] = art.get("url", "")
+        item["reproducibility_status"] = art.get("reproducibility_status", "not_applicable")
+        item["data_availability"] = art.get("data_availability", "not_applicable")
+        item["code_availability"] = art.get("code_availability", "not_applicable")
+        item["reproducibility_link"] = art.get("reproducibility_link", "")
+        item["dataset_url"] = ua.get("dataset_url", "")
+        uc_arts_map.setdefault(ua["usecase_id"], []).append(item)
+
+    # Build readiness matrix
+    readiness_matrix = {}
+    tool_avg_readiness = {}
+
+    for t in tools:
+        tid = t["tool_id"]
+        readiness_matrix[tid] = {}
+        total_score = 0.0
+        for uc in usecases:
+            uid = uc["usecase_id"]
+            r_list = uc_reqs_map.get(uid, [])
+            max_score = sum(imp_weight[r["importance"]] for r in r_list)
+            if max_score > 0:
+                cur_score = sum(imp_weight[r["importance"]] * status_weight[eval_lookup.get((tid, r["req_id"]), "no")] for r in r_list)
+                pct = round((cur_score / max_score) * 100, 1)
+                crit_ok = all(eval_lookup.get((tid, r["req_id"]), "no") in {"yes", "partial"} for r in r_list if r["importance"] == "critical")
+            else:
+                pct = 0.0
+                crit_ok = True
+            readiness_matrix[tid][uid] = {
+                "score": pct,
+                "critical_ok": crit_ok
+            }
+            total_score += pct
+        tool_avg_readiness[tid] = round(total_score / len(usecases), 1)
+
+    payload = {
+        "usecases": usecases,
+        "usecase_articles": uc_arts_map,
+        "usecase_requirements": uc_reqs_map,
+        "tools": tools,
+        "readiness_matrix": readiness_matrix,
+        "tool_avg_readiness": tool_avg_readiness
+    }
+
+    raw_json = json.dumps(payload, ensure_ascii=False)
+    html_content = USECASES_HTML_TEMPLATE.replace("__RAW_USECASES_DATA__", raw_json)
+
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    print(f"✓ Дашборд юзкейсов успешно сгенерирован: {output_file} ({output_file.stat().st_size / 1024:.1f} KB)")
+
+
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Генератор интерактивного HTML-дашборда анализа требований и литературы по смесям распределений."
+        description="Генератор интерактивных HTML-дашбордов анализа требований, литературы и прикладных юзкейсов."
     )
     parser.add_argument(
         "--data-dir", "-d",
@@ -1538,7 +3064,13 @@ def parse_args():
         "--output", "-o",
         type=Path,
         default=Path("articles/dashboard.html"),
-        help="Путь к результирующему HTML-файлу (по умолчанию: articles/dashboard.html)",
+        help="Путь к результирующему HTML-файлу матрицы требований (по умолчанию: articles/dashboard.html)",
+    )
+    parser.add_argument(
+        "--usecases-output", "-u",
+        type=Path,
+        default=Path("articles/usecases_dashboard.html"),
+        help="Путь к результирующему HTML-файлу дашборда юзкейсов (по умолчанию: articles/usecases_dashboard.html)",
     )
     return parser.parse_args()
 
@@ -1546,3 +3078,5 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     generate_dashboard(args.data_dir, args.output)
+    if (args.data_dir / "usecases").exists():
+        generate_usecases_dashboard(args.data_dir, args.usecases_output)
