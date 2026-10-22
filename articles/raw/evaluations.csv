@@ -2105,3 +2105,30 @@ mlpack,DIAG-04,no,Диагностика отделимости не преду�
 armadillo,DIAG-04,no,Диагностика перекрытия отсутствует,https://gitlab.com/conradsnicta/armadillo-code
 bnpy,DIAG-04,partial,Расчет расстояний Кульбака-Лейблера и метрик сходства между компонентами,https://github.com/bnpy/bnpy
 CAMAN,DIAG-04,no,Метрики отделимости не предусмотрены,https://github.com/cran/CAMAN
+pysatl-mpest,STRUC-24,no,Тесты LMR и модифицированные тесты отношения правдоподобия MLRT не реализованы,
+scikit-learn,STRUC-24,no,Не реализовано; для выбора K предлагается использовать BIC/AIC,https://github.com/scikit-learn/scikit-learn
+pomegranate,STRUC-24,no,Статистические критерии отношения правдоподобий отсутствуют,https://github.com/jmschrei/pomegranate
+mixem,STRUC-24,no,Критерии выбора числа компонент отсутствуют,https://github.com/sseemayer/mixem
+stepmix,STRUC-24,no,Выбор числа классов через информационные критерии AIC/BIC,https://github.com/Labo-Lacourse/stepmix
+student-mixture,STRUC-24,no,Аналитические тесты отношения правдоподобий не реализованы,https://github.com/omritomer/student-mixture
+kasakh-gmm,STRUC-24,no,Критерии выбора порядка не поддерживаются,https://github.com/kasakh/Mixture-Models
+distfit,STRUC-24,no,Скорректированные тесты отношения правдоподобия не реализованы,https://github.com/erdogant/distfit
+mclust,STRUC-24,partial,"Поддерживает параметрический бутстреп отношения правдоподобий mclustBootstrapLRT, но не аналитические тесты LMR",https://github.com/cran/mclust
+mixtools,STRUC-24,partial,"Реализованы специализированные тесты на основе бутстрепа (boot.comp), но аналитический LMR отсутствует",https://github.com/cran/mixtools
+flexmix,STRUC-24,no,"Отбор моделей опирается на критерии AIC, BIC, ICL",https://github.com/cran/flexmix
+mixR,STRUC-24,partial,Функция bs.test реализует бутстреп-тест отношения правдоподобия для числа компонент,https://github.com/GaryBAYLOR/mixR
+rebmix,STRUC-24,no,Порядок смеси определяется эвристическим алгоритмом REBMIX,https://github.com/cran/rebmix
+Rmixmod,STRUC-24,no,"Выбор моделей осуществляется по критериям BIC, ICL, NEC",https://github.com/mixmod/mixmod
+ClusterR,STRUC-24,no,Критерии проверки гипотез отсутствуют; используется внешний подбор K по BIC,https://github.com/mlampros/ClusterR
+mixdist,STRUC-24,no,Тестирование гипотез через классический критерий согласия хи-квадрат,https://github.com/cran/mixdist
+EMCluster,STRUC-24,no,Отбор числа компонент через информационные критерии,https://github.com/snoweye/EMCluster
+teigen,STRUC-24,no,Выбор числа компонент осуществляется через критерии BIC и ICL,https://github.com/cran/teigen
+fpc,STRUC-24,no,Используются внешние обертки над mclust и критерии разделения,https://github.com/cran/fpc
+sn,STRUC-24,no,Проверка гипотез о числе компонент не встроена,https://github.com/cran/sn
+brms,STRUC-24,no,Сравнение моделей через байесовские критерии LOO и WAIC,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,STRUC-24,no,Критерии отбора порядка не реализованы,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,STRUC-24,no,Проверка гипотез отношения правдоподобия для смеси не реализована,https://github.com/JuliaStats/Distributions.jl
+mlpack,STRUC-24,no,Критерии выбора K отсутствуют,https://github.com/mlpack/mlpack
+armadillo,STRUC-24,no,Выбор числа компонент не поддерживается,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,STRUC-24,no,Порядок смеси регулируется динамическим прунингом и слиянием компонент,https://github.com/bnpy/bnpy
+CAMAN,STRUC-24,partial,Поддерживает градиентный критерий максимума непараметрического правдоподобия VEM для проверки полноты набора компонент,https://github.com/cran/CAMAN
