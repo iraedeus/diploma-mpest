@@ -36,11 +36,13 @@ CATEGORY_NAMES = {
 
 
 def load_dataset(data_dir: Path) -> dict:
-    tools_path = data_dir / "tools.csv"
-    reqs_path = data_dir / "requirements.csv"
-    evals_path = data_dir / "evaluations.csv"
-    arts_path = data_dir / "articles.csv"
-    req_arts_path = data_dir / "requirement_articles.csv"
+    reqs_dir = data_dir / "reqs" if (data_dir / "reqs").is_dir() else data_dir
+
+    tools_path = reqs_dir / "tools.csv" if (reqs_dir / "tools.csv").exists() else data_dir / "tools.csv"
+    reqs_path = data_dir / "requirements.csv" if (data_dir / "requirements.csv").exists() else (reqs_dir / "requirements.csv" if (reqs_dir / "requirements.csv").exists() else data_dir.parent / "requirements.csv")
+    evals_path = reqs_dir / "evaluations.csv" if (reqs_dir / "evaluations.csv").exists() else data_dir / "evaluations.csv"
+    arts_path = data_dir / "articles.csv" if (data_dir / "articles.csv").exists() else (reqs_dir / "articles.csv" if (reqs_dir / "articles.csv").exists() else data_dir.parent / "articles.csv")
+    req_arts_path = reqs_dir / "requirement_articles.csv" if (reqs_dir / "requirement_articles.csv").exists() else data_dir / "requirement_articles.csv"
 
     for p in [tools_path, reqs_path, evals_path, arts_path, req_arts_path]:
         if not p.exists():

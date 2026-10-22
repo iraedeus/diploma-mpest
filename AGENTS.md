@@ -59,11 +59,15 @@
 
 База данных состоит из связанных CSV-файлов, между которыми поддерживается **100% ссылочная целостность**:
 
-* [`tools.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/tools.csv): 27 исследуемых инструментов.
-* [`requirements.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/requirements.csv): реестр требований (категории: `estimation`, `structure`, `initialization`, `technical`, `infrastructure`, `visualization`, `representation`, `performance`, `diagnostics`, `proprietary`).
-* [`evaluations.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/evaluations.csv): матрица оценок. Размер строго равен $27 \times N_{\text{reqs}}$. Для каждой пары `(tool_id, req_id)` задан статус (`yes`, `partial`, `no`), текстовое обоснование на русском языке (`evidence_note`) и рабочая ссылка на репозиторий или исходный код (`evidence_link`).
-* [`articles.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/articles.csv): библиотека рецензируемых публикаций по теме смесей распределений.
-* [`requirement_articles.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/requirement_articles.csv): связи требований со статьями из `articles.csv` (роли: `foundation`, `method`, `benchmark`).
+* **Общие реестры (`articles/raw/`)**:
+  * [`articles.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/articles.csv): библиотека рецензируемых публикаций по теме смесей распределений (теория, алгоритмы, бенчмарки, прикладные кейсы).
+  * [`requirements.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/requirements.csv): реестр требований (категории: `estimation`, `structure`, `initialization`, `technical`, `infrastructure`, `visualization`, `representation`, `performance`, `diagnostics`, `proprietary`).
+* **Каталог сопоставления библиотек и требований (`articles/raw/reqs/`)**:
+  * [`tools.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/reqs/tools.csv): 27 исследуемых инструментов.
+  * [`evaluations.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/reqs/evaluations.csv): матрица оценок. Размер строго равен $27 \times N_{\text{reqs}}$. Для каждой пары `(tool_id, req_id)` задан статус (`yes`, `partial`, `no`), текстовое обоснование на русском языке (`evidence_note`) и рабочая ссылка на репозиторий или исходный код (`evidence_link`).
+  * [`requirement_articles.csv`](file:///home/iraedeus/Projects/diploma-mpest/articles/raw/reqs/requirement_articles.csv): связи требований со статьями из `articles.csv` (роли: `foundation`, `method`, `benchmark`).
+* **Каталог прикладных юзкейсов (`articles/raw/usecases/`)**:
+  * Структура второго дашборда с прикладными сценариями и их связями с требованиями и статьями.
 
 После любых изменений структуры базы данных необходимо запускать генератор дашборда:
 ```bash
