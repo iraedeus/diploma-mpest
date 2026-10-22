@@ -2240,3 +2240,84 @@ mlpack,PROP-05,no,Автоматический синтез гетерогенн
 armadillo,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://gitlab.com/conradsnicta/armadillo-code
 bnpy,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/bnpy/bnpy
 CAMAN,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/CAMAN
+pysatl-mpest,EST-22,no,Покомпонентная координатная схема обновления с немедленным пересчетом весов не реализована,
+scikit-learn,EST-22,no,Классический одновременный M-шаг для всех компонент,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-22,no,Одновременное обновление параметров компонент через тензорные операции,https://github.com/jmschrei/pomegranate
+mixem,EST-22,no,Синхронное векторное обновление всех компонент на M-шаге,https://github.com/sseemayer/mixem
+stepmix,EST-22,no,Одновременный M-шаг для матриц параметров классов,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-22,no,Синхронное обновление параметров всех компонент,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-22,no,Синхронная оптимизация параметров всех компонент через autograd,https://github.com/kasakh/Mixture-Models
+distfit,EST-22,no,Подбор компонент выполняется независимо или через одновременный EM,https://github.com/erdogant/distfit
+mclust,EST-22,no,Классический одновременный M-шаг для параметров всех кластеров,https://github.com/cran/mclust
+mixtools,EST-22,no,Синхронное векторное обновление компонент на M-шаге,https://github.com/cran/mixtools
+flexmix,EST-22,no,Одновременное обновление моделей компонент в цикле драйвера,https://github.com/cran/flexmix
+mixR,EST-22,no,Синхронный M-шаг на C++ для параметров всех компонент,https://github.com/GaryBAYLOR/mixR
+rebmix,EST-22,no,Покомпонентная координатная оптимизация EM не поддерживается,https://github.com/cran/rebmix
+Rmixmod,EST-22,no,Синхронный M-шаг библиотеки MIXMOD на C++,https://github.com/mixmod/mixmod
+ClusterR,EST-22,no,Синхронное обновление параметров кластеров в Armadillo,https://github.com/mlampros/ClusterR
+mixdist,EST-22,no,Классический синхронный квазиньютоновский шаг,https://github.com/cran/mixdist
+EMCluster,EST-22,no,Синхронное векторное обновление параметров на C,https://github.com/snoweye/EMCluster
+teigen,EST-22,no,Синхронный M-шаг для всех компонент t-смеси,https://github.com/cran/teigen
+fpc,EST-22,no,Покомпонентный координатный EM не реализован,https://github.com/cran/fpc
+sn,EST-22,no,Синхронное оценивание параметров компонент,https://github.com/cran/sn
+brms,EST-22,no,"MCMC-сэмплирование параметров, координатный EM отсутствует",https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-22,no,Векторизованный синхронный M-шаг для всех компонент,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-22,no,Классический синхронный EM-алгоритм,https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-22,no,Синхронное обновление всех компонент GMM на C++,https://github.com/mlpack/mlpack
+armadillo,EST-22,no,Синхронный M-шаг класса gmm_full,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-22,partial,Поддержка координатных обновлений локальных и глобальных параметров в рамках Variational Coordinate Ascent,https://github.com/bnpy/bnpy
+CAMAN,EST-22,no,Градиентный алгоритм VEM без покомпонентной схемы Гаусса-Зейделя,https://github.com/cran/CAMAN
+pysatl-mpest,EST-23,no,Робастное усечение выборки по правдоподобию не реализовано,
+scikit-learn,EST-23,no,Отсечение наблюдений с наименьшим правдоподобием не предусмотрено,https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-23,no,Усечение доли аномальных наблюдений выборки отсутствует,https://github.com/jmschrei/pomegranate
+mixem,EST-23,no,Робастный шаг концентрации не поддерживается,https://github.com/sseemayer/mixem
+stepmix,EST-23,no,Усечение наблюдений по порогу правдоподобия отсутствует,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-23,partial,"Робастность обеспечивается тяжелыми хвостами t-распределения, но явное усечение наблюдений отсутствует",https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-23,no,Робастное усечение выборки не реализовано,https://github.com/kasakh/Mixture-Models
+distfit,EST-23,no,Усечение наблюдений по правдоподобию не поддерживается,https://github.com/erdogant/distfit
+mclust,EST-23,partial,"Используется компонента равномерного шума (noise component) для связывания выбросов, но без отсечения наблюдений",https://github.com/cran/mclust
+mixtools,EST-23,no,Усечение выборки по схеме TCLUST не реализовано,https://github.com/cran/mixtools
+flexmix,EST-23,no,Робастный шаг отсечения наименее правдоподобных точек не встроен,https://github.com/cran/flexmix
+mixR,EST-23,no,"Поддерживается только усечение носителя распределений, но не усечение выборки",https://github.com/GaryBAYLOR/mixR
+rebmix,EST-23,no,Усечение наблюдений по правдоподобию отсутствует,https://github.com/cran/rebmix
+Rmixmod,EST-23,no,Робастное усечение выборки по правдоподобию отсутствует,https://github.com/mixmod/mixmod
+ClusterR,EST-23,no,Отсечение наблюдений по правдоподобию не реализовано,https://github.com/mlampros/ClusterR
+mixdist,EST-23,no,Робастные процедуры усечения выборки отсутствуют,https://github.com/cran/mixdist
+EMCluster,EST-23,partial,Поддержка отсечения выбросов через назначение шумового кластера,https://github.com/snoweye/EMCluster
+teigen,EST-23,partial,Робастность через степени свободы t-распределения без явного C-шага усечения,https://github.com/cran/teigen
+fpc,EST-23,yes,Пакет включает функции tclust и cstep для строгого робастного усечения фиксированной доли наименее правдоподобных наблюдений,https://github.com/cran/fpc
+sn,EST-23,no,Робастное усечение выборки не поддерживается,https://github.com/cran/sn
+brms,EST-23,no,Явное усечение наблюдений выборки по C-шагу отсутствует,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-23,no,Усечение точек выборки по правдоподобию не предусмотрено,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-23,no,Робастное усечение наблюдений выборки не реализовано,https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-23,no,Усечение наименее вероятных наблюдений не поддерживается,https://github.com/mlpack/mlpack
+armadillo,EST-23,no,Робастное отсечение точек выборки отсутствует,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-23,no,Робастное усечение наблюдений по C-шагу не реализовано,https://github.com/bnpy/bnpy
+CAMAN,EST-23,no,Усечение наблюдений по правдоподобию отсутствует,https://github.com/cran/CAMAN
+pysatl-mpest,EST-24,no,MCMC-сэмплирование апостериорного распределения параметров не реализовано,
+scikit-learn,EST-24,no,"Реализован только вариационный вывод (BayesianGaussianMixture), стохастический MCMC отсутствует",https://github.com/scikit-learn/scikit-learn
+pomegranate,EST-24,no,MCMC-сэмплирование не поддерживается,https://github.com/jmschrei/pomegranate
+mixem,EST-24,no,Байесовский MCMC-вывод отсутствует,https://github.com/sseemayer/mixem
+stepmix,EST-24,no,Байесовское сэмплирование параметров не предусмотрено,https://github.com/Labo-Lacourse/stepmix
+student-mixture,EST-24,no,MCMC-сэмплирование параметров отсутствует,https://github.com/omritomer/student-mixture
+kasakh-gmm,EST-24,no,MCMC-вывод не поддерживается,https://github.com/kasakh/Mixture-Models
+distfit,EST-24,no,Байесовское сэмплирование не поддерживается,https://github.com/erdogant/distfit
+mclust,EST-24,no,"Используется только байесовская регуляризация MLE через априорные распределения (priorControl), MCMC отсутствует",https://github.com/cran/mclust
+mixtools,EST-24,partial,Функция regmixMH для сэмплирования Метрополиса-Гастингса в смесях,https://github.com/cran/mixtools
+flexmix,EST-24,no,MCMC-сэмплирование параметров смеси не реализовано,https://github.com/cran/flexmix
+mixR,EST-24,no,Байесовское сэмплирование отсутствует,https://github.com/GaryBAYLOR/mixR
+rebmix,EST-24,no,MCMC-сэмплирование не предусмотрено,https://github.com/cran/rebmix
+Rmixmod,EST-24,no,MCMC-вывод параметров отсутствует,https://github.com/mixmod/mixmod
+ClusterR,EST-24,no,Байесовское сэмплирование не поддерживается,https://github.com/mlampros/ClusterR
+mixdist,EST-24,no,MCMC-сэмплирование отсутствует,https://github.com/cran/mixdist
+EMCluster,EST-24,no,Байесовское сэмплирование параметров не предусмотрено,https://github.com/snoweye/EMCluster
+teigen,EST-24,no,MCMC-сэмплирование параметров отсутствует,https://github.com/cran/teigen
+fpc,EST-24,no,MCMC-вывод параметров смеси не поддерживается,https://github.com/cran/fpc
+sn,EST-24,no,MCMC-сэмплирование не реализовано,https://github.com/cran/sn
+brms,EST-24,yes,Полноценный байесовский вывод смесей распределений через сэмплирование NUTS/HMC в Stan,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,EST-24,no,MCMC-сэмплирование параметров не предусмотрено,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,EST-24,no,Пакет содержит только аналитические распределения без встроенного сэмплера MCMC,https://github.com/JuliaStats/Distributions.jl
+mlpack,EST-24,no,MCMC-сэмплирование не поддерживается,https://github.com/mlpack/mlpack
+armadillo,EST-24,no,Байесовское сэмплирование отсутствует,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,EST-24,partial,Поддерживается стохастический вариационный вывод и базовый MCMC-сэмплинг для непараметрических смесей,https://github.com/bnpy/bnpy
+CAMAN,EST-24,no,MCMC-сэмплирование не предусмотрено,https://github.com/cran/CAMAN
