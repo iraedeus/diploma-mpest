@@ -31,6 +31,7 @@ CATEGORY_NAMES = {
     "representation": "Представление смеси и интерфейс (representation)",
     "performance": "Производительность и параллелизация (performance)",
     "diagnostics": "Статистическая диагностика и бенчмарки (diagnostics)",
+    "proprietary": "Проприетарные возможности (proprietary)",
 }
 
 

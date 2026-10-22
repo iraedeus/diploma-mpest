@@ -2105,30 +2105,138 @@ mlpack,DIAG-04,no,Диагностика отделимости не преду�
 armadillo,DIAG-04,no,Диагностика перекрытия отсутствует,https://gitlab.com/conradsnicta/armadillo-code
 bnpy,DIAG-04,partial,Расчет расстояний Кульбака-Лейблера и метрик сходства между компонентами,https://github.com/bnpy/bnpy
 CAMAN,DIAG-04,no,Метрики отделимости не предусмотрены,https://github.com/cran/CAMAN
-pysatl-mpest,STRUC-24,no,Тесты LMR и модифицированные тесты отношения правдоподобия MLRT не реализованы,
-scikit-learn,STRUC-24,no,Не реализовано; для выбора K предлагается использовать BIC/AIC,https://github.com/scikit-learn/scikit-learn
-pomegranate,STRUC-24,no,Статистические критерии отношения правдоподобий отсутствуют,https://github.com/jmschrei/pomegranate
-mixem,STRUC-24,no,Критерии выбора числа компонент отсутствуют,https://github.com/sseemayer/mixem
-stepmix,STRUC-24,no,Выбор числа классов через информационные критерии AIC/BIC,https://github.com/Labo-Lacourse/stepmix
-student-mixture,STRUC-24,no,Аналитические тесты отношения правдоподобий не реализованы,https://github.com/omritomer/student-mixture
-kasakh-gmm,STRUC-24,no,Критерии выбора порядка не поддерживаются,https://github.com/kasakh/Mixture-Models
-distfit,STRUC-24,no,Скорректированные тесты отношения правдоподобия не реализованы,https://github.com/erdogant/distfit
-mclust,STRUC-24,partial,"Поддерживает параметрический бутстреп отношения правдоподобий mclustBootstrapLRT, но не аналитические тесты LMR",https://github.com/cran/mclust
-mixtools,STRUC-24,partial,"Реализованы специализированные тесты на основе бутстрепа (boot.comp), но аналитический LMR отсутствует",https://github.com/cran/mixtools
-flexmix,STRUC-24,no,"Отбор моделей опирается на критерии AIC, BIC, ICL",https://github.com/cran/flexmix
-mixR,STRUC-24,partial,Функция bs.test реализует бутстреп-тест отношения правдоподобия для числа компонент,https://github.com/GaryBAYLOR/mixR
-rebmix,STRUC-24,no,Порядок смеси определяется эвристическим алгоритмом REBMIX,https://github.com/cran/rebmix
-Rmixmod,STRUC-24,no,"Выбор моделей осуществляется по критериям BIC, ICL, NEC",https://github.com/mixmod/mixmod
-ClusterR,STRUC-24,no,Критерии проверки гипотез отсутствуют; используется внешний подбор K по BIC,https://github.com/mlampros/ClusterR
-mixdist,STRUC-24,no,Тестирование гипотез через классический критерий согласия хи-квадрат,https://github.com/cran/mixdist
-EMCluster,STRUC-24,no,Отбор числа компонент через информационные критерии,https://github.com/snoweye/EMCluster
-teigen,STRUC-24,no,Выбор числа компонент осуществляется через критерии BIC и ICL,https://github.com/cran/teigen
-fpc,STRUC-24,no,Используются внешние обертки над mclust и критерии разделения,https://github.com/cran/fpc
-sn,STRUC-24,no,Проверка гипотез о числе компонент не встроена,https://github.com/cran/sn
-brms,STRUC-24,no,Сравнение моделей через байесовские критерии LOO и WAIC,https://github.com/paul-buerkner/brms
-GaussianMixtures.jl,STRUC-24,no,Критерии отбора порядка не реализованы,https://github.com/davidavdav/GaussianMixtures.jl
-Distributions.jl,STRUC-24,no,Проверка гипотез отношения правдоподобия для смеси не реализована,https://github.com/JuliaStats/Distributions.jl
-mlpack,STRUC-24,no,Критерии выбора K отсутствуют,https://github.com/mlpack/mlpack
-armadillo,STRUC-24,no,Выбор числа компонент не поддерживается,https://gitlab.com/conradsnicta/armadillo-code
-bnpy,STRUC-24,no,Порядок смеси регулируется динамическим прунингом и слиянием компонент,https://github.com/bnpy/bnpy
-CAMAN,STRUC-24,partial,Поддерживает градиентный критерий максимума непараметрического правдоподобия VEM для проверки полноты набора компонент,https://github.com/cran/CAMAN
+pysatl-mpest,PROP-01,no,Декларативный синтаксис ограничений на параметры не реализован,
+scikit-learn,PROP-01,partial,"Поддерживается только грубый переключатель covariance_type=""tied""",https://github.com/scikit-learn/scikit-learn
+pomegranate,PROP-01,partial,"Связывание параметров через граф распределений, но декларативный синтаксис формул отсутствует",https://github.com/jmschrei/pomegranate
+mixem,PROP-01,no,Ограничения на параметры отсутствуют,https://github.com/sseemayer/mixem
+stepmix,PROP-01,yes,Поддерживает задание структурных ограничений и измерений инвариантности,https://github.com/Labo-Lacourse/stepmix
+student-mixture,PROP-01,no,Ограничения не поддерживаются,https://github.com/omritomer/student-mixture
+kasakh-gmm,PROP-01,no,Ограничения не поддерживаются,https://github.com/kasakh/Mixture-Models
+distfit,PROP-01,no,Ограничения отсутствуют,https://github.com/erdogant/distfit
+mclust,PROP-01,partial,"14 готовых параметризаций модели, но нет декларативного языка произвольных ограничений",https://github.com/cran/mclust
+mixtools,PROP-01,partial,"Ограничение arbvar=FALSE, но произвольные ограничения не поддерживаются",https://github.com/cran/mixtools
+flexmix,PROP-01,yes,Поддержка языка формул и FLXcontrol для задания фиксированных и варьирующихся параметров,https://github.com/cran/flexmix
+mixR,PROP-01,partial,Опция equal.variance=TRUE для нормальных смесей,https://github.com/GaryBAYLOR/mixR
+rebmix,PROP-01,no,Ограничения параметров не поддерживаются,https://github.com/cran/rebmix
+Rmixmod,PROP-01,partial,Фиксированные типы экономных моделей без декларативного синтаксиса,https://github.com/mixmod/mixmod
+ClusterR,PROP-01,no,Ограничения параметров отсутствуют,https://github.com/mlampros/ClusterR
+mixdist,PROP-01,yes,Параметр constr позволяет декларативно задавать ограничения равенства параметров,https://github.com/cran/mixdist
+EMCluster,PROP-01,partial,Предустановленные структуры ограничений,https://github.com/snoweye/EMCluster
+teigen,PROP-01,partial,14 экономных моделей масштаба,https://github.com/cran/teigen
+fpc,PROP-01,no,Собственные ограничения отсутствуют,https://github.com/cran/fpc
+sn,PROP-01,partial,Фиксация отдельных параметров сдвига/формы,https://github.com/cran/sn
+brms,PROP-01,yes,Полноценный декларативный формульный синтаксис нелинейных ограничений параметров смеси,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,PROP-01,no,Ограничения не поддерживаются,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,PROP-01,no,Ограничения параметров смеси отсутствуют,https://github.com/JuliaStats/Distributions.jl
+mlpack,PROP-01,no,Ограничения не поддерживаются,https://github.com/mlpack/mlpack
+armadillo,PROP-01,no,Ограничения не поддерживаются,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,PROP-01,no,Ограничения не поддерживаются,https://github.com/bnpy/bnpy
+CAMAN,PROP-01,no,Ограничения параметров отсутствуют,https://github.com/cran/CAMAN
+pysatl-mpest,PROP-02,no,Тесты LMR и скорректированные отношения правдоподобия VLMR не реализованы,
+scikit-learn,PROP-02,no,Не реализовано; для выбора K предлагается использовать BIC/AIC,https://github.com/scikit-learn/scikit-learn
+pomegranate,PROP-02,no,Статистические критерии отношения правдоподобий отсутствуют,https://github.com/jmschrei/pomegranate
+mixem,PROP-02,no,Критерии выбора числа компонент отсутствуют,https://github.com/sseemayer/mixem
+stepmix,PROP-02,no,Выбор числа классов через информационные критерии AIC/BIC,https://github.com/Labo-Lacourse/stepmix
+student-mixture,PROP-02,no,Аналитические тесты отношения правдоподобий не реализованы,https://github.com/omritomer/student-mixture
+kasakh-gmm,PROP-02,no,Критерии выбора порядка не поддерживаются,https://github.com/kasakh/Mixture-Models
+distfit,PROP-02,no,Скорректированные тесты отношения правдоподобия не реализованы,https://github.com/erdogant/distfit
+mclust,PROP-02,partial,"Поддерживает параметрический бутстреп отношения правдоподобий mclustBootstrapLRT, но не аналитические тесты LMR",https://github.com/cran/mclust
+mixtools,PROP-02,partial,"Реализованы специализированные тесты на основе бутстрепа (boot.comp), но аналитический LMR отсутствует",https://github.com/cran/mixtools
+flexmix,PROP-02,no,"Отбор моделей опирается на критерии AIC, BIC, ICL",https://github.com/cran/flexmix
+mixR,PROP-02,partial,Функция bs.test реализует бутстреп-тест отношения правдоподобия для числа компонент,https://github.com/GaryBAYLOR/mixR
+rebmix,PROP-02,no,Порядок смеси определяется эвристическим алгоритмом REBMIX,https://github.com/cran/rebmix
+Rmixmod,PROP-02,no,"Выбор моделей осуществляется по критериям BIC, ICL, NEC",https://github.com/mixmod/mixmod
+ClusterR,PROP-02,no,Критерии проверки гипотез отсутствуют; используется внешний подбор K по BIC,https://github.com/mlampros/ClusterR
+mixdist,PROP-02,no,Тестирование гипотез через классический критерий согласия хи-квадрат,https://github.com/cran/mixdist
+EMCluster,PROP-02,no,Отбор числа компонент через информационные критерии,https://github.com/snoweye/EMCluster
+teigen,PROP-02,no,Выбор числа компонент осуществляется через критерии BIC и ICL,https://github.com/cran/teigen
+fpc,PROP-02,no,Используются внешние обертки над mclust и критерии разделения,https://github.com/cran/fpc
+sn,PROP-02,no,Проверка гипотез о числе компонент не встроена,https://github.com/cran/sn
+brms,PROP-02,no,Сравнение моделей через байесовские критерии LOO и WAIC,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,PROP-02,no,Критерии отбора порядка не реализованы,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,PROP-02,no,Проверка гипотез отношения правдоподобия для смеси не реализована,https://github.com/JuliaStats/Distributions.jl
+mlpack,PROP-02,no,Критерии выбора K отсутствуют,https://github.com/mlpack/mlpack
+armadillo,PROP-02,no,Выбор числа компонент не поддерживается,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,PROP-02,no,Порядок смеси регулируется динамическим прунингом и слиянием компонент,https://github.com/bnpy/bnpy
+CAMAN,PROP-02,partial,Поддерживает градиентный критерий максимума непараметрического правдоподобия VEM для проверки полноты набора компонент,https://github.com/cran/CAMAN
+pysatl-mpest,PROP-03,no,Динамическая адаптивная добавка в дисперсию при сингулярности находится в бэклоге; используется базовая регуляризация,
+scikit-learn,PROP-03,yes,Параметр reg_covar добавляет положительную константу к ковариациям/дисперсиям для предотвращения сингулярностей,https://github.com/scikit-learn/scikit-learn
+pomegranate,PROP-03,partial,Использует минимальную дисперсию (min_cov) для предотвращения схлопывания,https://github.com/jmschrei/pomegranate
+mixem,PROP-03,no,Регуляризация сингулярностей отсутствует,https://github.com/sseemayer/mixem
+stepmix,PROP-03,partial,Коррекция малых вероятностей и дисперсий,https://github.com/Labo-Lacourse/stepmix
+student-mixture,PROP-03,partial,Добавление регуляризатора к матрице масштаба,https://github.com/omritomer/student-mixture
+kasakh-gmm,PROP-03,no,Регуляризация отсутствует,https://github.com/kasakh/Mixture-Models
+distfit,PROP-03,no,Регуляризация сингулярностей не поддерживается,https://github.com/erdogant/distfit
+mclust,PROP-03,yes,Байесовская априорная регуляризация масштаба через priorControl предотвращает сингулярности,https://github.com/cran/mclust
+mixtools,PROP-03,partial,Параметры epsilon и проверка вырождения компонент,https://github.com/cran/mixtools
+flexmix,PROP-03,partial,"Параметр minprior контролирует минимальный вес, но прямой регуляризации дисперсии нет",https://github.com/cran/flexmix
+mixR,PROP-03,no,Динамическая регуляризация дисперсий отсутствует,https://github.com/GaryBAYLOR/mixR
+rebmix,PROP-03,no,Регуляризация не требуется в силу специфики неитеративного алгоритма REB,https://github.com/cran/rebmix
+Rmixmod,PROP-03,partial,Проверка обусловленности матриц в mixmod,https://github.com/mixmod/mixmod
+ClusterR,PROP-03,partial,Параметр km_iter и проверки вырожденных кластеров,https://github.com/mlampros/ClusterR
+mixdist,PROP-03,no,Регуляризация масштаба не предусмотрена,https://github.com/cran/mixdist
+EMCluster,PROP-03,partial,Контроль сингулярностей через emcluster контроллер,https://github.com/snoweye/EMCluster
+teigen,PROP-03,no,Регуляризация масштаба отсутствует,https://github.com/cran/teigen
+fpc,PROP-03,partial,Через prior в обертках над mclust,https://github.com/cran/fpc
+sn,PROP-03,no,Регуляризация сингулярностей отсутствует,https://github.com/cran/sn
+brms,PROP-03,yes,Априорные распределения в байесовском выводе полностью устраняют сингулярности правдоподобия,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,PROP-03,no,Регуляризация дисперсий отсутствует,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,PROP-03,no,Встроенная регуляризация EM отсутствует,https://github.com/JuliaStats/Distributions.jl
+mlpack,PROP-03,partial,Параметр tolerance и проверка сингулярностей,https://github.com/mlpack/mlpack
+armadillo,PROP-03,no,Регуляризация дисперсий не реализована,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,PROP-03,yes,Априорные сопряженные распределения Уишарта/Гамма предотвращают вырождение масштаба,https://github.com/bnpy/bnpy
+CAMAN,PROP-03,no,Смеси с дискретным носителем не подвержены вырождению дисперсии,https://github.com/cran/CAMAN
+pysatl-mpest,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),
+scikit-learn,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/scikit-learn/scikit-learn
+pomegranate,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/jmschrei/pomegranate
+mixem,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/sseemayer/mixem
+stepmix,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/Labo-Lacourse/stepmix
+student-mixture,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/omritomer/student-mixture
+kasakh-gmm,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/kasakh/Mixture-Models
+distfit,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/erdogant/distfit
+mclust,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/mclust
+mixtools,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/mixtools
+flexmix,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/flexmix
+mixR,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/GaryBAYLOR/mixR
+rebmix,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/rebmix
+Rmixmod,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/mixmod/mixmod
+ClusterR,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/mlampros/ClusterR
+mixdist,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/mixdist
+EMCluster,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/snoweye/EMCluster
+teigen,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/teigen
+fpc,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/fpc
+sn,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/sn
+brms,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/JuliaStats/Distributions.jl
+mlpack,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/mlpack/mlpack
+armadillo,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://gitlab.com/conradsnicta/armadillo-code
+bnpy,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/bnpy/bnpy
+CAMAN,PROP-04,no,Вычисления проводятся исключительно в стандартной 64-битной аппаратной арифметике с плавающей точкой (float64),https://github.com/cran/CAMAN
+pysatl-mpest,PROP-05,no,Автоматический подбор гетерогенных конфигураций семейств распределений запланирован в модуле мета-обучения,
+distfit,PROP-05,partial,"Подбирает наилучшее одиночное распределение из 89 параметрических семейств, но не гетерогенные смеси",https://github.com/erdogant/distfit
+scikit-learn,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/scikit-learn/scikit-learn
+pomegranate,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/jmschrei/pomegranate
+mixem,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/sseemayer/mixem
+stepmix,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/Labo-Lacourse/stepmix
+student-mixture,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/omritomer/student-mixture
+kasakh-gmm,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/kasakh/Mixture-Models
+mclust,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/mclust
+mixtools,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/mixtools
+flexmix,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/flexmix
+mixR,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/GaryBAYLOR/mixR
+rebmix,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/rebmix
+Rmixmod,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/mixmod/mixmod
+ClusterR,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/mlampros/ClusterR
+mixdist,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/mixdist
+EMCluster,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/snoweye/EMCluster
+teigen,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/teigen
+fpc,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/fpc
+sn,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/sn
+brms,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/paul-buerkner/brms
+GaussianMixtures.jl,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/davidavdav/GaussianMixtures.jl
+Distributions.jl,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/JuliaStats/Distributions.jl
+mlpack,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/mlpack/mlpack
+armadillo,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://gitlab.com/conradsnicta/armadillo-code
+bnpy,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/bnpy/bnpy
+CAMAN,PROP-05,no,Автоматический синтез гетерогенных смесей из произвольных семейств отсутствует; требуется явное задание семейств,https://github.com/cran/CAMAN
