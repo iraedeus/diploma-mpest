@@ -1,0 +1,53 @@
+usecase_id,article_id,dataset_name,dataset_url,sample_size,case_role,case_note
+UC-01,P0461,Galaxy (velocities),https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/galaxies.html,82,primary_benchmark,Первичная публикация и канонический бенчмарк скоростей разбегания 82 галактик созвездия Corona Borealis.
+UC-01,P0020,Galaxy (velocities),https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/galaxies.html,82,validation,Эталонная валидация обратимого скачкообразного MCMC с неизвестным числом компонент на выборке Galaxy.
+UC-01,P0025,Galaxy (velocities),https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/galaxies.html,82,validation,Исследование проблемы перестановки меток и отбора порядка модели на данных скоростей галактик.
+UC-01,P0170,Galaxy (velocities),https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/galaxies.html,82,application,Байесовский анализ одномерных нормальных смесей на астрофизическом наборе Galaxy.
+UC-02,P0453,Acidity (lakes),https://rdrr.io/cran/mixbench/man/acidity.html,155,primary_benchmark,Первичная публикация выборки химического состава и индекса кислотности озер региона Адирондак.
+UC-02,P0020,Acidity (lakes),https://rdrr.io/cran/mixbench/man/acidity.html,155,validation,Оценивание степени наложения компонент кислотности байесовскими смесями со свободным числом мод.
+UC-02,P0210,Acidity (lakes),https://rdrr.io/cran/mixbench/man/acidity.html,155,validation,Байесовское моделирование и исследование мультимодальности на гидрохимических данных Acidity.
+UC-03,P0452,Enzyme (caffeine),https://rdrr.io/cran/mixbench/man/enzyme.html,245,primary_benchmark,Первичное популяционное исследование полиморфизма метаболизма кофеина трансферазой у 245 субъектов.
+UC-03,P0002,Enzyme (caffeine),https://rdrr.io/cran/mixbench/man/enzyme.html,245,validation,Анализ асимметрии и тяжелых хвостов в задаче классификации быстрых и медленных метаболизаторов в монографии McLachlan.
+UC-03,P0020,Enzyme (caffeine),https://rdrr.io/cran/mixbench/man/enzyme.html,245,validation,Сравнение параметрических подходов разделения смесей на фармакогенетических данных ферментативной активности.
+UC-04,P0462,Hidalgo Stamp 1872,https://mclust-org.github.io/mclust/reference/stamp.html,485,primary_benchmark,Первичное исследование толщины бумаги мексиканских гербовых марок выпуска 1872 года.
+UC-04,P0024,Hidalgo Stamp 1872,https://mclust-org.github.io/mclust/reference/stamp.html,485,validation,Тестирование стратегий выбора начального приближения EM-алгоритма на мультимодальных данных марок Идальго.
+UC-04,P0041,Hidalgo Stamp 1872,https://mclust-org.github.io/mclust/reference/stamp.html,485,validation,Валидация покомпонентного EM-алгоритма на близких сильно перекрывающихся компонентах толщины бумаги.
+UC-05,P0463,Old Faithful (eruptions),https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/faithful.html,272,primary_benchmark,Классический бенчмарк длительности извержений и пауз гидротермального гейзера Old Faithful.
+UC-05,P0002,Old Faithful (eruptions),https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/faithful.html,272,validation,Эталонное гауссово бимодальное разделение компонент в монографии конечных смесей распределений.
+UC-06,P0445,Failure-life data,,200,primary_benchmark,Графическое и параметрическое разделение механизмов отказов двухкомпонентной смесью Вейбулла.
+UC-06,P0443,Industrial reliability life tests,https://cran.r-project.org/package=retimes,500,validation,Аппроксимация функций надежности и интенсивностей отказов конечными смесями распределений Вейбулла.
+UC-06,P0161,Mechanical fatigue and lifespan data,,1000,validation,Применение смесей распределений для моделирования циклической усталости и долговечности материалов.
+UC-06,P0057,Weibull failure life data,,100,application,Новый подход к оцениванию параметров смеси Вейбулла на выборках наработки технических узлов.
+UC-06,P0074,Heterogeneous survival and reliability data,,350,application,Моделирование гетерогенных времен жизни при одновременном воздействии дефектов производства и износа.
+UC-06,P0130,Reliability test samples,,300,application,Прямой гамильтонов MCMC для оценивания надежности по цензурированным испытаниям на долговечность.
+UC-06,P0446,Censored failure datasets,,150,application,Байесовское оценивание параметров интенсивности отказов и надежности смесей Вейбулла.
+UC-06,P0447,Aircraft and electronic component failure records,,800,application,Сравнительный анализ смесей Вейбулла и логнормальных распределений на авиационных данных.
+UC-06,P0268,Censored lifetime observations,https://github.com/pedrolramos/censored_guide,400,validation,Практическое руководство по оцениванию смесей при наличии цензурированных справа наблюдений.
+UC-07,P0448,Canary Islands hourly wind speed,https://www.ncei.noaa.gov/cdo-web/,8760,primary_benchmark,Оценивание ветроэнергетического потенциала архипелага с использованием бимодальных смесей распределений.
+UC-07,P0221,UAE airport hourly wind speed,https://www.ncm.ae/,26280,validation,Гетерогенные смеси для моделирования прибрежных и пустынных ветровых потоков в ОАЭ.
+UC-07,P0324,Nordic wind speed records,https://opendata.smhi.se/,43800,validation,Анализ ветровых режимов северных территорий на основе многокомпонентных смесей.
+UC-07,P0449,Wind farm mast speed records,,17520,application,Новые методы оценивания параметров распределения Вейбулла для расчета генерации ветропарка.
+UC-07,P0095,Lognormal and Gamma wind observations,,8760,application,"Статистический анализ замеров скорости ветра семействами Вейбулла, логнормальным и гамма-распределением."
+UC-07,P0092,Multisource extreme rainfall and wind records,https://www.ncei.noaa.gov/cdo-web/,35000,application,Гетерогенные смеси для одновременного моделирования экстремальных осадков и ветровых нагрузок.
+UC-07,P0099,Urban building wind speed profile,,12000,application,Аппроксимация ветровых потоков в городской застройке усеченными смесями распределений.
+UC-07,P0213,UAE coastal wind speed measurements,https://www.ncm.ae/,18000,application,Эмпирическое распределение скорости ветра на береговых метеостанциях Персидского залива.
+UC-07,P0249,Multi-location wind speed datasets,,52000,application,Сравнение применимости семейств смесей на пространственно распределенных метеорологических вышках.
+UC-07,P0302,Bimodal wind speed stochastic records,,70000,application,Смеси гамма и вейбулловских распределений для стохастического моделирования бимодального ветра.
+UC-07,P0451,Extreme rainfall and weather station records,https://waterdata.usgs.gov/nwis,25000,application,Моделирование экстремальных климатических осадков на основе смесей распределений.
+UC-08,P0457,Danish Fire Losses,https://rdrr.io/cran/SMPracticals/man/danish.html,2164,primary_benchmark,Каноническая публикация анализа тяжелых хвостов выплат по крупным промышленным и частным пожарам.
+UC-08,P0458,Danish Fire Losses,https://rdrr.io/cran/SMPracticals/man/danish.html,2164,validation,Дискуссия и сравнительный анализ экстремальных распределений страхового датского пула пожаров.
+UC-08,P0450,Danish Fire Losses,https://rdrr.io/cran/SMPracticals/man/danish.html,2164,validation,Гибридная модель на основе усеченного логнормального тела и тяжелого хвоста Парето.
+UC-08,P0317,Actuarial loss data,https://cran.r-project.org/package=actuar,3000,application,Моделирование актуарных данных страховых претензий смесями толстохвостых распределений.
+UC-08,P0459,Daily stock return variations,https://fred.stlouisfed.org/,5000,application,Сравнение моделей конечных смесей для аппроксимации лептокуртических доходностей акций.
+UC-08,P0460,Financial asset return series,https://fred.stlouisfed.org/,4500,application,Смеси распределений при моделировании волатильности финансовых временных рядов.
+UC-09,P0456,Flow cytometry (CD4/CD8),https://bioconductor.org/packages/flowClust,50000,primary_benchmark,Автоматизированный анализ одномерных каналов проточной цитометрии и выявление редких клеточных фракций.
+UC-09,P0455,Diffuse large B-cell lymphoma single-channel data,https://cran.r-project.org/package=mixsmsn,60000,validation,Применение смесей масштабных смесей скошенных нормальных распределений в гематоонкологии.
+UC-09,P0035,Lymphocyte fluorescence intensities,https://cran.r-project.org/package=sn,20000,validation,Моделирование одномерной интенсивности флуоресценции лимфоцитов смесью скошенных нормальных распределений.
+UC-09,P0382,Skew cellular fluorescence profiles,https://cran.r-project.org/package=mixsmsn,30000,application,Одномерное моделирование клеточных маркеров на основе семейств SMSN со скошенностью и тяжелыми хвостами.
+UC-09,P0413,Merged flow cytometry marker distributions,https://mclust-org.github.io/mclust/reference/Mclust.html,45000,application,Методы слияния перекрывающихся компонент для корректного выделения истинных популяций клеток.
+UC-10,P0404,Queuing one-way delay traces,,1000000,primary_benchmark,Высокоточное измерение односторонней задержки очередей пакетов в сетях передачи данных на основе смесей распределений.
+UC-10,P0468,CAIDA Internet traffic traces,https://www.caida.org/catalog/datasets/passive_dataset/,5000000,validation,"Восемнадцатилетний анализ магистрального интернет-трафика, доказывающий логнормальную природу объемов сессий."
+UC-10,P0469,Large-scale network packet length data,,2000000,validation,Редукция гауссовых смесей большой размерности при анализе плотностей сетевого трафика.
+UC-10,P0464,Binned large-scale frequency distributions,,100000,application,Оценивание плотности распределения по сгруппированным и квантованным частотным гистограммам.
+UC-10,P0466,Gaia missing radial velocity star catalog,https://gea.esac.esa.int/archive/,33000000,application,Байесовское оценивание смеси астрометрических распределений на сверхбольшой выборке каталога Gaia.
+UC-10,P0467,CMS LHC invariant mass diphoton spectrum,https://opendata.cern.ch/record/5500,1500000,application,Выделение узкого резонансного сигнала бозона Хиггса на фоне гладкого экспоненциального фона коллайдера.
