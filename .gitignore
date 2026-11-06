@@ -27,3 +27,6 @@ build/
 rework-pysatl-mpest/
 .agents/
 __pycache__/
+
+# Internal working plan
+/general-plan.md
