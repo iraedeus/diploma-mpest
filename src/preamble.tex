@@ -1,5 +1,6 @@
 % !TeX spellcheck = ru_RU
 % !TEX root = vkr.tex
+\usepackage{longtable}
 \usepackage{booktabs} % Пакет для верстки "более книжных" таблиц, вполне годится для оформления результатов
 % В шаблоне есть команда \multirowcell, которой нужен этот пакет.
 \usepackage{multirow}
@@ -70,3 +71,7 @@
 \usepackage{setspace}
 \usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
 
+
+% У титульных листов шаблона одинаковый внутренний номер страницы.
+% Уникальные имена якорей сохраняют корректные переходы в PDF.
+\hypersetup{hypertexnames=false}
