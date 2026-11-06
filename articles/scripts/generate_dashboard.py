@@ -264,7 +264,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <div>
           <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight flex items-center gap-2">
             PySATL mpest — Навигатор требований и доказательной литературы
-            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">ВКР 2026</span>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">Обзор 2026</span>
             <span id="build-timestamp-badge" class="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">__BUILD_TIMESTAMP__</span>
           </h1>
           <p id="header-subtitle" class="text-xs text-slate-500 dark:text-slate-400">
