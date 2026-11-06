@@ -180,7 +180,7 @@
 
 \subsubsection{Сопоставление по каталогу требований}
 
-Рассмотрено 27 инструментов для оценивания смесей и представления распределений на Python, R, Julia и C++. Многие из них рассчитаны также на многомерные, регрессионные или латентно-классовые модели, поэтому сравнение ограничено требованиями к одномерным непрерывным смесям. Таблица~\ref{tab:tools-matrix} показывает для показательных инструментов число полностью выполненных требований по категориям и общее число частично выполненных; оценки для всех 27 инструментов входят в каталог требований.
+Рассмотрено 27 инструментов для оценивания смесей и представления распределений на Python, R, Julia и C++. Многие из них рассчитаны также на многомерные, регрессионные или латентно-классовые модели, поэтому сравнение ограничено требованиями к одномерным непрерывным смесям. Таблица~\ref{tab:tools-matrix} показывает для семи показательных инструментов число полностью выполненных требований по категориям и общее число частично выполненных. Оценки для всех 27 инструментов приведены в дашборде и подробном обзоре (подраздел~\ref{sec:review-method}).
 
 \begin{table}[!ht]
     \centering
@@ -188,7 +188,7 @@
     \setlength{\tabcolsep}{2.5pt}
     \renewcommand{\arraystretch}{1.12}
     \newcommand{\hd}[2]{\begin{tabular}[b]{@{}c@{}}\textbf{#1}\\\textbf{#2}\end{tabular}}
-    \caption{Число требований каталога, выполненных инструментами}\label{tab:tools-matrix}
+    \caption{Число требований каталога, выполненных семью показательными инструментами}\label{tab:tools-matrix}
     \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl*{6}{c}@{}}
         \toprule
         & & \multicolumn{5}{c}{\textbf{Выполнено полностью}} & \\
@@ -201,12 +201,8 @@
         \texttt{pysatl-mpest} & Python & 7 & 9 & 1 & 14 & 31 & 6\\
         \rowcolor{gray!12}\texttt{mixR} & R & 6 & 5 & 6 & 13 & 30 & 10\\
         \texttt{mclust} & R & 4 & 6 & 3 & 14 & 27 & 17\\
-        \rowcolor{gray!12}\texttt{rebmix} & R/C++ & 5 & 9 & 0 & 13 & 27 & 9\\
-        \texttt{mixtools} & R & 7 & 5 & 3 & 9 & 24 & 18\\
-        \rowcolor{gray!12}\texttt{Distributions.jl} & Julia & 3 & 7 & 1 & 13 & 24 & 12\\
-        \texttt{pomegranate} & Python & 5 & 6 & 3 & 9 & 23 & 16\\
-        \rowcolor{gray!12}\texttt{scikit-learn} & Python & 4 & 4 & 3 & 12 & 23 & 10\\
-        \texttt{mixem} & Python & 2 & 5 & 1 & 6 & 14 & 5\\
+        \rowcolor{gray!12}\texttt{pomegranate} & Python & 5 & 6 & 3 & 9 & 23 & 16\\
+        \texttt{scikit-learn} & Python & 4 & 4 & 3 & 12 & 23 & 10\\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -221,7 +217,7 @@
 
 \subsubsection{Устройство представительных средств}
 
-Устройство инструментов определяет, как в них добавляется новое семейство. Класс \texttt{GaussianMixture} в \texttt{scikit-learn} поддерживает только нормальные компоненты\footnote{Документация \texttt{scikit-learn}: GaussianMixture (дата обращения: 26.10.2026). \url{https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html}}. В \texttt{mixtools} каждое семейство обслуживается отдельной функцией~\cite{Benaglia2009}, в \texttt{mixR} аргумент \texttt{family} выбирает одно из четырёх семейств для всей смеси~\cite{Yu2022}. В \texttt{flexmix} итерационный механизм отделён от драйвера компонентной модели~\cite{Leisch2004,GrunLeisch2008}, но драйвер \texttt{FLXMCdist1} принимает одно семейство на модель. Пакет \texttt{rebmix} также назначает одно семейство на переменную~\cite{Nagode2015}. Разнородные смеси строятся в \texttt{pomegranate} из объектов распределений\footnote{Документация \texttt{pomegranate}: General Mixture Models (дата обращения: 26.10.2026). \url{https://pomegranate.readthedocs.io/en/latest/tutorials/B_Model_Tutorial_2_General_Mixture_Models.html}}, а в \texttt{mixem} --- из классов с логарифмом плотности и взвешенным оцениванием\footnote{Справочник API \texttt{mixem} (дата обращения: 26.10.2026). \url{https://mixem.readthedocs.io/en/latest/api.html}}.
+Устройство инструментов определяет, как в них добавляется новое семейство. \texttt{GaussianMixture} в \texttt{scikit-learn} поддерживает только нормальные компоненты\footnote{Документация \texttt{scikit-learn}: GaussianMixture (дата обращения: 26.10.2026). \url{https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html}}. В остальных пакетах семейство задаётся для всей смеси: в \texttt{mixtools} отдельной функцией для каждого семейства~\cite{Benaglia2009}, в \texttt{mixR} аргументом \texttt{family}~\cite{Yu2022}, в \texttt{flexmix} драйвером \texttt{FLXMCdist1}~\cite{Leisch2004,GrunLeisch2008}, в \texttt{rebmix} одним семейством на переменную~\cite{Nagode2015}. Разнородные смеси строятся в \texttt{pomegranate} из объектов распределений\footnote{Документация \texttt{pomegranate}: General Mixture Models (дата обращения: 26.10.2026). \url{https://pomegranate.readthedocs.io/en/latest/tutorials/B_Model_Tutorial_2_General_Mixture_Models.html}}, а в \texttt{mixem} --- из классов с логарифмом плотности и взвешенным оцениванием\footnote{Справочник API \texttt{mixem} (дата обращения: 26.10.2026). \url{https://mixem.readthedocs.io/en/latest/api.html}}.
 
 \subsubsection{Ближайшие аналоги по разнородности}
 
