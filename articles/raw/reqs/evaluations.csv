@@ -1376,9 +1376,9 @@ pysatl-mpest,STRUC-14,no,Возможность не поддерживаетс�
 pysatl-mpest,STRUC-15,no,Библиотека поддерживает только удаление компонент с малым весом (Pruner); эвристические операции расщепления и слияния компонент (SMEM) в цикле EM-алгоритма не реализованы.,
 pysatl-mpest,STRUC-16,no,Постобработка для проверки унимодальности и слияния перекрывающихся компонент после подгонки отсутствует; библиотека не объединяет компоненты.,
 pysatl-mpest,STRUC-17,no,Возможность не поддерживается архитектурой пакета,
-pysatl-mpest,STRUC-18,no,Возможность не поддерживается архитектурой пакета (исследовательский бэклог ВКР),
-pysatl-mpest,STRUC-19,no,Возможность не поддерживается архитектурой пакета (исследовательский бэклог ВКР),
-pysatl-mpest,STRUC-20,no,Возможность не поддерживается архитектурой пакета (исследовательский бэклог ВКР),
+pysatl-mpest,STRUC-18,no,Возможность не поддерживается архитектурой пакета (планы дальнейшего развития),
+pysatl-mpest,STRUC-19,no,Возможность не поддерживается архитектурой пакета (планы дальнейшего развития),
+pysatl-mpest,STRUC-20,no,Возможность не поддерживается архитектурой пакета (планы дальнейшего развития),
 pysatl-mpest,TECH-01,yes,"Композитная архитектура конвейера (класс Pipeline): независимое комбинирование шагов (PipelineStep: ExpectationStep, MaximizationStep), критериев останова (Breakpointer: LikelihoodBreakpointer, StepBreakpointer) и прунеров компонент (Pruner: PriorThresholdPruner).",pysatl_mpest/estimators/iterative/pipeline.py#L35-L100
 pysatl-mpest,TECH-02,yes,Открытость для расширения полностью реализована: новые семейства регистрируются через ParametricFamilyRegister (библиотека pysatl-core) и сразу поддерживаются оценщиками без модификации ядра.,pysatl_mpest/distributions/continuous_dist.py#L25-L90
 pysatl-mpest,TECH-03,yes,"Полностью логарифмическая арифметика: MixtureModel.lpdf(), log_weights, вычисление постериорных вероятностей и шаги E/M используют scipy.special.logsumexp и softmax.",pysatl_mpest/core/mixture.py#L279-L305

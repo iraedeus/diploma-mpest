@@ -1,0 +1,66 @@
+<mxfile>
+  <diagram id="seqlayout" name="Sequence">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="u" value="User" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=50;participant=umlActor;verticalAlign=bottom;spacingBottom=-14;labelBackgroundColor=#ffffff;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="90" y="40" width="50" height="610" as="geometry"/>
+        </mxCell>
+        <mxCell id="ss" value="StructureSelector" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=50;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="150" height="610" as="geometry"/>
+        </mxCell>
+        <mxCell id="i" value="Initializer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=50;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="440" y="40" width="150" height="610" as="geometry"/>
+        </mxCell>
+        <mxCell id="e" value="Estimator" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=50;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="150" height="610" as="geometry"/>
+        </mxCell>
+        <mxCell id="s" value="Strategy" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=50;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="840" y="40" width="150" height="610" as="geometry"/>
+        </mxCell>
+        <mxCell id="act0" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;fillColor=#ffffff;fontSize=16;" vertex="1" parent="i">
+          <mxGeometry x="70" y="150" width="10" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="act1" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;fillColor=#ffffff;fontSize=16;" vertex="1" parent="s">
+          <mxGeometry x="70" y="300" width="10" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="act2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;fillColor=#ffffff;fontSize=16;" vertex="1" parent="e">
+          <mxGeometry x="70" y="250" width="10" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="act3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;fillColor=#ffffff;fontSize=16;" vertex="1" parent="ss">
+          <mxGeometry x="70" y="100" width="10" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="m0" value="select(data)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.5;exitY=0.1639;entryX=0;entryY=0.0;fontSize=16;" edge="1" parent="1" source="u" target="act3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="initialize(data, structure)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=1;exitY=0.119;entryX=0;entryY=0.0;fontSize=16;" edge="1" parent="1" source="act3" target="act0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="mixture" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;curved=0;rounded=0;strokeColor=#999999;fontColor=#999999;exitX=0;exitY=1.0;entryX=1;entryY=0.2381;fontSize=16;" edge="1" parent="1" source="act0" target="act3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="fit(data, mixture)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=1;exitY=0.3571;entryX=0;entryY=0.0;fontSize=16;" edge="1" parent="1" source="act3" target="act2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="update(mixture)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=1;exitY=0.3333;entryX=0;entryY=0.0;fontSize=16;" edge="1" parent="1" source="act2" target="act1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m5" value="mixture" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;curved=0;rounded=0;strokeColor=#999999;fontColor=#999999;exitX=0;exitY=1.0;entryX=1;entryY=0.6667;fontSize=16;" edge="1" parent="1" source="act1" target="act2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="fitted mixture" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;curved=0;rounded=0;strokeColor=#999999;fontColor=#999999;exitX=0;exitY=1.0;entryX=1;entryY=0.7143;fontSize=16;" edge="1" parent="1" source="act2" target="act3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m7" value="score(mixture)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=1;exitY=0.8333;entryX=1;entryY=0.9048;fontSize=16;" edge="1" parent="1" source="act3" target="act3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="375" y="490"/><mxPoint x="375" y="520"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" value="best mixture" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;curved=0;rounded=0;strokeColor=#999999;fontColor=#999999;exitX=0;exitY=1.0;entryX=0.5;entryY=0.8525;fontSize=16;" edge="1" parent="1" source="act3" target="u">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      <mxCell id="lo" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;fillColor=none;strokeColor=#000000;width=70;height=28;fontStyle=1;fontSize=16;" vertex="1" parent="1"><mxGeometry x="220" y="160" width="790" height="375" as="geometry"/></mxCell><mxCell id="loc" value="[for each candidate structure]" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="720" y="164" width="270" height="24" as="geometry"/></mxCell><mxCell id="li" value="loop [until stopped]" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;fillColor=none;strokeColor=#000000;width=172;height=28;fontStyle=0;fontSize=15;" vertex="1" parent="1"><mxGeometry x="530" y="296" width="460" height="114" as="geometry"/></mxCell></root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

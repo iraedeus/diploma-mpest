@@ -264,7 +264,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <div>
           <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight flex items-center gap-2">
             PySATL mpest — Навигатор требований и доказательной литературы
-            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">ВКР 2026</span>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">Обзор 2026</span>
             <span id="build-timestamp-badge" class="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">__BUILD_TIMESTAMP__</span>
           </h1>
           <p id="header-subtitle" class="text-xs text-slate-500 dark:text-slate-400">
@@ -2435,7 +2435,7 @@ USECASES_HTML_TEMPLATE = r"""<!DOCTYPE html>
               <span class="cursor-pointer hover:underline" onclick="openDrawer('${a.usecase_id}')">${a.usecase_id}</span>
             </td>
             <td class="p-2.5 font-semibold text-slate-800 dark:text-slate-200">
-              ${a.dataset_name}
+              ${a.dataset_name || '—'}
             </td>
             <td class="p-2.5 font-mono text-slate-600 dark:text-slate-400">
               ${formatNumber(a.sample_size)}
@@ -2558,7 +2558,7 @@ USECASES_HTML_TEMPLATE = r"""<!DOCTYPE html>
         return `
           <div class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
             <div class="flex items-center justify-between gap-2 mb-1">
-              <span class="font-bold text-slate-900 dark:text-slate-100">${a.dataset_name} (N = ${formatNumber(a.sample_size)})</span>
+              <span class="font-bold text-slate-900 dark:text-slate-100">${a.dataset_name ? a.dataset_name + ' (N = ' + formatNumber(a.sample_size) + ')' : 'Набор данных не указан'}</span>
               <span class="px-1.5 py-0.5 text-[10px] font-bold rounded border ${roleClass}">${roleLabel}</span>
             </div>
             <div class="text-[11px] text-slate-600 dark:text-slate-300 font-medium mb-1">
